@@ -1,0 +1,77 @@
+:root {
+    --primary-font: "Plus Jakarta Sans", sans-serif;
+    /* --primary-color: #dd9933; */
+    --primary-color: #4f46e5;
+    --secoundry-color: #007b8f;
+    --bg-color: #f4f6f8;
+    --black : #181817;
+    --text-color : #494945;
+    --title-color: #003c4e;
+}
+
+:focus,
+:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body {
+    font-family: var(--primary-font) !important;
+}
+
+.tab-content {
+    padding: 20px 0 0 0;
+}
+
+.nav-tabs {
+    border-color: #eaedf1 !important;
+} 
+.nav-tabs .nav-link {
+    color: var(--black);
+    border:none;
+}
+.nav-tabs .nav-link.active, 
+.nav-tabs .nav-item.show .nav-link {
+    color: var(--primary-color);
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid;
+    box-shadow: none;
+}
+.nav-tabs li a.active {
+    border-bottom: 1px solid var(--primary-color) !important;
+    margin-bottom: 1px;
+}
+
+label {
+    margin-bottom: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.card {
+    border:1px solid #eaedf1;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+.card-header {
+    background: rgb(238 242 247 / 50%) !important;
+    /* color: #8486a7 !important; */
+    color: var(--black) !important;
+    border-color: #eaedf1 !important;
+}
+.card-header,
+.card-body {
+    padding: 16px;
+}
+
+body .note-editable {
+    min-height: 100px !important;
+    /* height: 100px !important; */
+}
+
+body .title_control + .note-editor .note-editable {
+    min-height: 60px !important;
+    /* height: 60px !important; */
+}
