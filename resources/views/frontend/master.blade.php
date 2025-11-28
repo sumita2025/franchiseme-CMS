@@ -30,12 +30,12 @@
     </head>
     <body>
         <header class="main_header position-absolute top-0 w-100 z-3">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg py-0 justify-content-between">
-                    <a class="navbar-brand py-0 mx-0" href="{{ route('index') }}">
+            <div class="container-fluid px-0">
+                <nav class="navbar navbar-expand-lg py-0 justify-content-between gap-3">
+                    <a class="navbar-brand py-0 mx-0 bg_box" href="{{ route('index') }}">
                         <img src="{{ asset('assets/image/logo.png') }}" alt="" class="img-fluid logo">
                     </a>
-                    <div>
+                    <div class="main_menu bg_box 1w-100">
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="navbar-nav">
                                 <!-- <li class="nav-item">
@@ -104,7 +104,7 @@
                         </div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     </div>
-                    <div>
+                    <div class="bg_box justify-content-end">
                         <!-- <a href="javascript:void(0);" class="button btn_primary" id="changeLanguage">
                             <div class="btn_text" data-ar="English" data-en="عربي">عربي</div>
                         </a> -->
@@ -122,71 +122,79 @@
 
         <footer class="main_footer">
             <div class="container">
-                <div class="row">
+                <div class="row g-5">
                     <div class="col-lg-3">
-                        <a href="{{ route('index') }}" class="footer_logo">
-                            <img src="{{ asset('assets/image/logo.png') }}" alt="" class="img-fluid">
-                        </a>
-                        <div class="contain my-3">
-                            <p data-en="Empowering Brands for Sustainable Franchise Growth." data-ar="تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز.">Empowering Brands for Sustainable Franchise Growth.</p>
+                        <div class="px-3">
+                            <a href="{{ route('index') }}" class="footer_logo d-block mb-5">
+                                <img src="{{ asset('assets/image/logo.png') }}" alt="" class="img-fluid">
+                            </a>
+                            <div class="contain my-3 footer_title">
+                                <p data-en="Empowering Brands for Sustainable Franchise Growth." data-ar="تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز.">Empowering Brands for Sustainable Franchise Growth.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg col-12">
-                        <h4 class="sub_title text-white mb-4" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
-                        <div class="d-flex flex-column gap-2 footer_links">
-                            <a href="{{ route('index') }}" 
-                            class="{{ request()->routeIs('index') ? 'active' : '' }}">
-                                @if(app()->getLocale() == 'ar')
-                                    الرئيسية
-                                @else
-                                    Home
-                                @endif
-                            </a>
+                        <div class="px-3">
+                            <h4 class="sub_title text-white mb-4" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                            <div class="d-flex flex-column gap-3 footer_links">
+                                <a href="{{ route('index') }}" 
+                                class="{{ request()->routeIs('index') ? 'active' : '' }}">
+                                    @if(app()->getLocale() == 'ar')
+                                        الرئيسية
+                                    @else
+                                        Home
+                                    @endif
+                                </a>
 
-                            <a href="{{ route('service') }}" 
-                            class="{{ request()->routeIs('service*') ? 'active' : '' }}">
-                                @if(app()->getLocale() == 'ar')
-                                    خدماتنا
-                                @else
-                                    Our Services
-                                @endif
-                            </a>
+                                <a href="{{ route('service') }}" 
+                                class="{{ request()->routeIs('service*') ? 'active' : '' }}">
+                                    @if(app()->getLocale() == 'ar')
+                                        خدماتنا
+                                    @else
+                                        Our Services
+                                    @endif
+                                </a>
 
-                            <a href="{{ route('franchise') }}" 
-                            class="{{ request()->routeIs('franchise*') ? 'active' : '' }}">
-                                @if(app()->getLocale() == 'ar')
-                                    استكشف فرص الامتياز التجاري
-                                @else
-                                    Explore Franchise Opportunities
-                                @endif
-                            </a>
+                                <a href="{{ route('franchise') }}" 
+                                class="{{ request()->routeIs('franchise*') ? 'active' : '' }}">
+                                    @if(app()->getLocale() == 'ar')
+                                        استكشف فرص الامتياز التجاري
+                                    @else
+                                        Explore Franchise Opportunities
+                                    @endif
+                                </a>
 
-                            <a href="{{ route('faq-page') }}" 
-                            class="{{ request()->routeIs('faq-page*') ? 'active' : '' }}">
-                                @if(app()->getLocale() == 'ar')
-                                    الأسئلة الشائعة
-                                @else
-                                    FAQ
-                                @endif
-                            </a>
+                                <a href="{{ route('faq-page') }}" 
+                                class="{{ request()->routeIs('faq-page*') ? 'active' : '' }}">
+                                    @if(app()->getLocale() == 'ar')
+                                        الأسئلة الشائعة
+                                    @else
+                                        FAQ
+                                    @endif
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg col-12">
-                        <h4 class="sub_title text-white mb-4" data-en="Connect With Us" data-ar="تواصل معنا">Connect With Us</h4>
-                        <div class="d-flex flex-column gap-2 footer_links">
-                            <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank">
-                                Instagram
-                            </a>
-                            <a href="https://www.linkedin.com/company/franchiseme/" target="_blank">
-                                LinkedIn
-                            </a>
-                            <a href="https://x.com/FranchiseME24" target="_blank">
-                                X
-                            </a>
+                        <div class="px-3">
+                            <h4 class="sub_title text-white mb-4" data-en="Connect With Us" data-ar="تواصل معنا">Connect With Us</h4>
+                            <div class="d-flex flex-column gap-3 footer_links">
+                                <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank">
+                                    Instagram
+                                </a>
+                                <a href="https://www.linkedin.com/company/franchiseme/" target="_blank">
+                                    LinkedIn
+                                </a>
+                                <a href="https://x.com/FranchiseME24" target="_blank">
+                                    X
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.8019800121297!2d46.7385495!3d24.802233299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd2e0de1c587%3A0x71491deac9b1ed8d!2z2YHYsdmG2LTYp9mK2LLZhdmKIHwgRnJhbmNoaXNlTUU!5e0!3m2!1sen!2sin!4v1761887205665!5m2!1sen!2sin" width="100%" height="270" style="-webkit-filter: grayscale(99%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-4"></iframe>
+                        <div class="px-3">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.8019800121297!2d46.7385495!3d24.802233299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd2e0de1c587%3A0x71491deac9b1ed8d!2z2YHYsdmG2LTYp9mK2LLZhdmKIHwgRnJhbmNoaXNlTUU!5e0!3m2!1sen!2sin!4v1761887205665!5m2!1sen!2sin" width="100%" height="270" style="-webkit-filter: grayscale(99%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-4"></iframe>
+                        </div>
                     </div>
                 </div>
                 <div class="copy_right contain text-center d-flex flex-wrap justify-content-center gap-2">
@@ -203,7 +211,7 @@
         <!-- Jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        <script src="{{ asset('assets/js/custom.js') }}"></script>
+        <!-- <script src="{{ asset('assets/js/custom.js') }}"></script> -->
 
         <!-- Light slider -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js" ></script>
@@ -324,7 +332,7 @@
                 function initSlider() {
                     return $('#our_team_slider').lightSlider({
                         gallery: false,
-                        item: 3,
+                        item: 4,
                         loop: true,
                         auto: true,
                         slideMargin: 30,

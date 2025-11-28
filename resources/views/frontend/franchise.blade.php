@@ -46,7 +46,7 @@
     </div>
 </section>
 
-<section class="opportunities_feature">
+<section class="opportunities_feature bg_section section_padding">
     <div class="container">
         <div class="d-flex flex-wrap title_wrap mb-4 justify-content-center">
             <h2 class="title mb-0">
@@ -126,7 +126,7 @@
     </div>
 </section>
 
-<section class="bg_section section_padding mb-0">
+<section class="franchise_listing_section_container">
     <div class="container">
         <div class="d-flex flex-wrap title_wrap mb-4 justify-content-center">
             <h2 class="title mb-0">
@@ -161,6 +161,39 @@
             </div>
         </div>
 
+        <div class="row g-4 our_services franchise_listing_section_new">
+            <div class="col-md-4">
+                <div class="card os_item p-0">
+                    <div class="card-body p-3">
+                        <div class="icon rounded-4 position-relative">
+                            <img src="{{asset('/assets/image/blog.jpg')}}" alt="" class="img-fluid w-100">
+                            <div class="contain small fw-semibold text-center mt-2 ms-2 position-absolute top-0 start-0 px-2 py-1 bg-dark rounded-5">
+                                <h6 class="mb-0">sector</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between py-3 my-3 mx-4 investment_level">
+                            <div class="contain black">
+                                <h6 class="mb-0">India</h6>
+                            </div>
+                            <div class="contain black">
+                                <h6 class="mb-0">Investment level - Mid</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="sub_title mb-3" data-en="Lorem ipsum dolor sit amet consectetur adipiscing" data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ">Lorem ipsum dolor sit amet consectetur adipiscing</h4>
+                            <div class="short_dec contain black">
+                                <p data-en="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam." data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ إليت. كوي بلاسيت أوديو بورّو فينيام كوي، إيلو أكوسانتيم أب كيسكوام فيرو إكس نيسيسيتاتيبوس أسبيرناتور أوت إيروم إنسيدنت هيك؟ أركيتكتو تينيتور فيرو كيسكوام.">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam.</p>
+                            </div>
+                            <a href="#" class="button button_text mt-2">
+                                <div class="btn_text">
+                                    View Details
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row g-4 our_services franchise_listing_section">
             @foreach($franchises as $franchise)
                 <div class="col-md-6">
@@ -240,41 +273,6 @@
                     </div>
                 </div>
             @endforeach
-
-            <!-- <div class="col-md-6">
-                <div class="card os_item p-0">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="icon rounded-4 position-relative">
-                                    <span class="badge rounded-pill text-bg-dark mt-2 ms-2 position-absolute top-0 left-0" data-en="Sector" data-ar="القطاع">Sector</span>
-                                    <img src="./assets/client/brand-1.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="contain black small fw-semibold text-center mt-2">
-                                    <h6 class="mb-0" data-en="India" data-ar="الهند">India</h6>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <h4 class="sub_title mb-0" data-en="Lorem ipsum dolor sit amet consectetur adipiscing" data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ">Lorem ipsum dolor sit amet consectetur adipiscing</h4>
-                                <div class="contain black d-flex align-items-center gap-2 my-2">
-                                    <p class="mb-0 fw-bold" data-en="Investment level:" data-ar="مستوى الاستثمار:">Investment level:</p>
-                                    <p data-en="Investment level" data-ar="مستوى الاستثمار">Investment level</p>
-                                </div>
-                                <div class="short_dec contain black">
-                                    <p data-en="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam." data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ إليت. كوي بلاسيت أوديو بورّو فينيام كوي، إيلو أكوسانتيم أب كيسكوام فيرو إكس نيسيسيتاتيبوس أسبيرناتور أوت إيروم إنسيدنت هيك؟ أركيتكتو تينيتور فيرو كيسكوام.">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam.</p>
-                                </div>
-                                <div class="d-flex">
-                                    <a href="singleopportunities.html" class="button button_text mt-3">
-                                        <div class="btn_text" data-en="View Details" data-ar="عرض التفاصيل">
-                                            View Details
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>

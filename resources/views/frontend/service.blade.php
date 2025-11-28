@@ -118,11 +118,11 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4">
                     <div class="card os_item h-100">
-                        <div class="d-flex align-items-center justify-content-between image_part mb-4">
+                        <div class="d-flex align-items-center justify-content-center image_part">
                             <img src="{{ asset('storage/' . $service->service_image1) }}" class="img-fluid" alt="Service Image">
                         </div>
                         <div class="d-flex flex-column h-100 justify-content-between">
-                            <div>
+                            <div class="text-center">
                                 <h4 class="sub_title mb-3">
                                     @if(app()->getLocale() == 'ar')
                                         {!! $service->service_title1_ar ?? '' !!}
@@ -145,11 +145,11 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="card os_item h-100">
-                        <div class="d-flex align-items-center justify-content-between image_part mb-4">
+                        <div class="d-flex align-items-center justify-content-center image_part">
                             <img src="{{ asset('storage/' . $service->service_image2) }}" alt="" class="img-fluid">
                         </div>
                         <div class="d-flex flex-column h-100 justify-content-between">
-                            <div>
+                            <div class="text-center">
                                 <h4 class="sub_title mb-3">
                                     @if(app()->getLocale() == 'ar')
                                         {!! $service->service_title2_ar ?? '' !!}
@@ -172,11 +172,11 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="card os_item h-100">
-                        <div class="d-flex align-items-center justify-content-between image_part mb-4">
+                        <div class="d-flex align-items-center justify-content-center image_part">
                             <img src="{{ asset('storage/' . $service->service_image3) }}" alt="" class="img-fluid">
                         </div>
                         <div class="d-flex flex-column h-100 justify-content-between">
-                            <div>
+                            <div class="text-center">
                                 <h4 class="sub_title mb-3">
                                     @if(app()->getLocale() == 'ar')
                                         {!! $service->service_title3_ar ?? '' !!}
@@ -199,11 +199,11 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="card os_item h-100">
-                        <div class="d-flex align-items-center justify-content-between image_part mb-4">
+                        <div class="d-flex align-items-center justify-content-center image_part">
                             <img src="{{ asset('storage/' . $service->service_image4) }}" alt="" class="img-fluid">
                         </div>
                         <div class="d-flex flex-column h-100 justify-content-between">
-                            <div>
+                            <div class="text-center">
                                 <h4 class="sub_title mb-3">
                                     @if(app()->getLocale() == 'ar')
                                         {!! $service->service_title4_ar ?? '' !!}
@@ -226,11 +226,11 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="card os_item h-100">
-                        <div class="d-flex align-items-center justify-content-between image_part mb-4">
+                        <div class="d-flex align-items-center justify-content-center image_part">
                             <img src="{{ asset('storage/' . $service->service_image5) }}" alt="" class="img-fluid">
                         </div>
                         <div class="d-flex flex-column h-100 justify-content-between">
-                            <div>
+                            <div class="text-center">
                                 <h4 class="sub_title mb-3">
                                     @if(app()->getLocale() == 'ar')
                                         {!! $service->service_title5_ar ?? '' !!}
@@ -259,7 +259,7 @@
 <section class="about_cta">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <div class="box br-30">
                     <div class="container">
                         <div class="row" data-aos="fade-up">
@@ -272,7 +272,7 @@
                                     @endif
                                 </h4>
                             </div>
-                            <div class="col-md-3 d-flex align-items-center justify-content-end">
+                            <div class="col-md-3 d-flex align-items-center justify-content-center">
                                 <div class="d-flex justify-content-end">
                                     <a href="{!! $service->package_button_url ?? '' !!}" class="button btn_primary" data-bs-toggle="modal" data-bs-target="#fdp_contactus">
                                         <div class="btn_text">
@@ -293,39 +293,11 @@
     </div>
 </section>
 
-<section class="contact_section">
+<section class="contact_section service_page_form">
     <div class="container">
         <div class="row mx-0">
-            <div class="col-xl-6 ps-0 pe-4">
-                <div class="pe-5 me-5">
-                    <div class="d-flex flex-wrap title_wrap mb-4">
-                        <h2 class="title mb-0">
-                            @if(app()->getLocale() == 'ar')
-                                {!! $service->service_title_ar ?? '' !!}
-                            @else
-                                {!! $service->service_title ?? '' !!}
-                            @endif
-                        </h2>
-                    </div>
-                    <div class="contain black">
-                        <p>
-                            @if(app()->getLocale() == 'ar')
-                                {!! $service->service_description_ar ?? '' !!}
-                            @else
-                                {!! $service->service_description ?? '' !!}
-                            @endif
-                        </p>
-                    </div>
-                    <div class="contain black mt-4">
-                        <div class="d-flex align-items-center justify-content-start gap-2 flex-row">
-                            <p class="mb-0" data-en="Fill out the form for more details." data-ar="إملأ النموذج للمزيد من التفاصيل.">Fill out the form for more details.</p>
-                            <img src="{{ asset('assets/image/arrow-right.png') }}" alt="" width="24px">
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-xl-6 px-0">
-                <form action="">
+                <!-- <form action="">
                     <div class="row g-4"> 
                         <div class="col-md-12">
                             <input type="text" class="form-control" placeholder="Full Name *" data-en="Full Name *" data-ar="الاسم الكامل *" required>
@@ -354,11 +326,93 @@
                     <div class="contain black d-none">
                         <p class="mt-3 mb-0 text-danger" data-en="Something went wrong. Please try again." data-ar="حدث خطأ ما. يُرجى المحاولة مرة أخرى.">Something went wrong. Please try again.</p>
                     </div>
-                </form>
+                </form> -->
+                <img src="{{asset('/assets/image/fts.jpg')}}" alt="" class="img-fluid rounded-4">
+            </div>
+            <div class="col-xl-6 pe-0 ps-4 d-flex align-items-center">
+                <div class="ps-5 ms-5">
+                    <div class="d-flex flex-wrap title_wrap mb-4">
+                        <h2 class="title mb-0">
+                            @if(app()->getLocale() == 'ar')
+                                {!! $service->service_title_ar ?? '' !!}
+                            @else
+                                {!! $service->service_title ?? '' !!}
+                            @endif
+                        </h2>
+                    </div>
+                    <div class="contain black">
+                        <p>
+                            @if(app()->getLocale() == 'ar')
+                                {!! $service->service_description_ar ?? '' !!}
+                            @else
+                                {!! $service->service_description ?? '' !!}
+                            @endif
+                        </p>
+                    </div>
+                    <div class="mt-4">
+                        <a href="javascript:void(0);" class="button btn_secoundry" data-bs-toggle="modal" data-bs-target="#FranchiseTrainingServices">
+                            <div class="btn_text">
+                                Fill out the form for more details.
+                            </div>
+                        </a>
+                    </div>
+                    <!-- <div class="contain black mt-4">
+                        <div class="d-flex align-items-center justify-content-start gap-2 flex-row">
+                            <p class="mb-0" data-en="Fill out the form for more details." data-ar="إملأ النموذج للمزيد من التفاصيل.">Fill out the form for more details.</p>
+                            <img src="{{ asset('assets/image/arrow-right.png') }}" alt="" width="24px">
+                        </div>
+                    </div> -->
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="FranchiseTrainingServices" data-bs-keyboard="false" tabindex="-1" aria-labelledby="FranchiseTrainingServicesTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+        <div class="modal-content br-30 position-relative">
+            <button type="button" class="btn-close position-absolute top-0 end-0 me-4 mt-4 z-1" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body px-md-5 py-md-5">
+                <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
+                    <h2 class="title mb-0">Application</h2>  
+                    <h2 class="title mb-0 yellow">Form</h2>  
+                </div>
+                <div class="contact_section">
+                    <form action="">
+                        <div class="row g-4"> 
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Full Name *" data-en="Full Name *" data-ar="الاسم الكامل *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Email *" data-en="Email *" data-ar="البريد الإلكتروني *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" placeholder="Phone Number *" data-en="Phone Number *" data-ar="رقم الهاتف *" required>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Brand Name (optional)" data-en="Brand Name (optional)" data-ar="اسم العلامة التجارية (اختياري)">
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="form-control" placeholder="Message / Additional Notes *" rows="3" data-en="Message / Additional Notes *" data-ar="الرسالة / ملاحظات إضافية *" required></textarea>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <a href="javascript:void(0);" class="button btn_secoundry">
+                                    <div class="btn_text" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contain black d-none">
+                            <p class="mt-3 mb-0 text-success" data-en="Thank you for contacting FranchiseME! Our team will get back to you shortly." data-ar="شكرًا لتواصلك مع FranchiseME! سيتواصل معك فريقنا قريبًا.">Thank you for contacting FranchiseME! Our team will get back to you shortly.</p>
+                        </div>
+                        <div class="contain black d-none">
+                            <p class="mt-3 mb-0 text-danger" data-en="Something went wrong. Please try again." data-ar="حدث خطأ ما. يُرجى المحاولة مرة أخرى.">Something went wrong. Please try again.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('script')

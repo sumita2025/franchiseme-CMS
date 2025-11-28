@@ -18,7 +18,7 @@
         ? asset('storage/' . $content->achievement_image)
         : asset('assets/image/ifa.png');
 @endphp
-<div class="container-fluid px-4 pt-4">
+<div class="container-fluid hs_container_fluid">
     <section class="hero_section position-relative my-0" style="background-image: url('{{ $heroImage }}');">
         <div class="overlay d-flex align-items-center justify-content-center position-relative">
             <div class="container text-center d-flex flex-column align-items-center gap-3 z-3" data-aos="fade-up">
@@ -55,7 +55,7 @@
                 <img src="{{ $aboutImage }}" alt="" class="img-fluid rounded-4" data-aos="fade-up">
             </div>
             <div class="col-xl-5 d-flex align-items-center">
-                <div class="ps-3">
+                <div class="ps-4">
                     <div class="d-flex flex-wrap title_wrap mb-md-4 mb-3">
                         <h2 class="title mb-0">
                             @if(app()->getLocale() == 'ar')
@@ -91,7 +91,7 @@
     </div>
 </section>
 
-<section class="circel_data mt-0">
+<section class="circel_data mt-0 section_padding">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-10 d-flex flex-column gap-3 position-relative">
@@ -100,7 +100,7 @@
                         <div class="me-5 pe-5">
                             <div class="card" data-aos="fade-right">
                                 <div class="card-body p-0">
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title1_ar ?? '' !!}
@@ -131,7 +131,7 @@
                                     <div class="count">
                                         <h1>06</h1>
                                     </div>
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title6_ar ?? '' !!}
@@ -159,7 +159,7 @@
                         <div class="card_first">
                             <div class="card" data-aos="fade-right">
                                 <div class="card-body p-0">
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title2_ar ?? '' !!}
@@ -185,7 +185,7 @@
                         <div class="me-5 card_secound">
                             <div class="card" data-aos="fade-right">
                                 <div class="card-body p-0">
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title3_ar ?? '' !!}
@@ -210,7 +210,7 @@
                         <div class="card_third">
                             <div class="card" data-aos="fade-right">
                                 <div class="card-body p-0">
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title4_ar ?? '' !!}
@@ -247,7 +247,7 @@
                                     <div class="count">
                                         <h1>07</h1>
                                     </div>
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title7_ar ?? '' !!}
@@ -273,7 +273,7 @@
                                     <div class="count">
                                         <h1>08</h1>
                                     </div>
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title8_ar ?? '' !!}
@@ -298,7 +298,7 @@
                                     <div class="count">
                                         <h1>09</h1>
                                     </div>
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title9_ar ?? '' !!}
@@ -325,7 +325,7 @@
                         <div class="me-5 pe-5">
                             <div class="card" data-aos="fade-right">
                                 <div class="card-body p-0">
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title5_ar ?? '' !!}
@@ -355,7 +355,7 @@
                                     <div class="count">
                                         <h1>10</h1>
                                     </div>
-                                    <div>
+                                    <div class="cb_text">
                                         <h4 class="sub_title">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $content->strategy_title10_ar ?? '' !!}
@@ -381,7 +381,7 @@
     </div>
 </section>
 
-<section class="our_mission_vission my-0 bg_section section_padding">
+<section class="our_mission_vission bg_section-section_padding">
     <div class="container">
         <div class="row g-5">
             <div class="col-xl-6">
@@ -431,8 +431,8 @@
     </div>
 </section>
 
-<section class="">
-    <div class="container">
+<section class="full_section">
+    <div class="container-fluid">
         <div class="text-center">
             <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
                 <h2 class="title mb-0">
@@ -584,7 +584,7 @@
     </div>
 </section>
 
-<section class="bg_section section_padding as_section_new">
+<section class="bg_section section_padding as_section_new d-none">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-center title_wrap mb-md-4">
             <h2 class="title mb-0">
@@ -618,7 +618,38 @@
     </div>
 </section>
 
-<section class="our_franchise bg-transparent text-center mt-0">
+<section class="bg_section section_padding our_achievements">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center title_wrap mb-md-4">
+            <h2 class="title mb-0">Our</h2>  
+            <h2 class="title mb-0 yellow">Achievements</h2>  
+        </div>
+        <div class="contain text-center mx-md-5 mb-5">
+            <p>FranchiseME© is the only firm in Saudi Arabia and the Gulf region whose team includes two members certified with the Certified Franchise Executive (CFE) designation, accredited by the International Franchise Association (IFA) — a certification that represents the global standard of excellence in franchise management.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info mb-2" data-target="11">0</h2>
+                <p class="mb-0 sub_title">Our Restaurants</p>
+            </div>
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info mb-2" data-target="300">0</h2>
+                <p class="mb-0 sub_title">Labor Force</p>
+            </div>
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info mb-2" data-target="50">0</h2>
+                <p class="mb-0 sub_title">Our Partners</p>
+            </div>
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info_text mb-2">360°</h2>
+                <p class="mb-0 sub_title">Investors</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our_franchise bg-transparent text-center mt-0 not_zoom">
     <div class="container">
         <div class="text-center mb-5">
             <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
