@@ -11,17 +11,30 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row g-4">
-                    <div class="col-12">
+                    <div class="col-6">
+                        <label class="form-label fw-semibold">Background Image <span class="text-danger">(Image Size (Pixels) - 1050 x 390 )</span></label>
+                        <input type="file" class="form-control" name="slider_background_image">
+                        @if(!empty($franchise->slider_background_image))
+                            <img src="{{ asset($franchise->slider_background_image) }}" class="img-thumbnail mt-2" width="120">
+                        @endif
+                    </div>
+                    <div class="col-6">
                         <label>Franchise Logo <span class="text-danger">(Image Size (Pixels) - 320 x 320 )</span></label>
                         <input type="file" name="logo" class="form-control">
                         @if(isset($franchise->logo))
                             <img src="{{ asset($franchise->logo) }}" width="100" class="mt-2 rounded">
                         @endif
                     </div>
+                   
                     <div class="col-md-6">
                         <div class="row g-3">
-                            <div class="col-12">
+                             <div class="col-12">
                                 <h6 class="text-primary">English Content</h6>
+                                <label class="form-label fw-semibold">Tag (English)</label>
+                                <input type="text" class="form-control" name="tag" value="{{ $franchise->tag ?? '' }}" placeholder="e.g. Tag">
+                            </div>
+                            <div class="col-12">
+                                {{-- <h6 class="text-primary">English Content</h6> --}}
                                 <label>Franchise Sector (English)</label>
                                 <input type="text" name="sector" class="form-control" value="{{ $franchise->sector ?? '' }}">
                             </div>
@@ -45,16 +58,21 @@
                                 <label>Link Text (English)</label>
                                 <input type="text" name="link_text" class="form-control" value="{{ $franchise->link_text ?? '' }}">
                             </div>
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <label>Link URL (English)</label>
                                 <input type="text" name="link_url" class="form-control" value="{{ $franchise->link_url ?? '' }}">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="row g-3">
-                            <div class="col-12">
+                              <div class="col-12">
                                 <h6 class="text-success">Arabic Content</h6>
+                                <label class="form-label fw-semibold">Tag (Arabic)</label>
+                                <input type="text" class="form-control" name="tag_ar" value="{{ $franchise->tag_ar ?? '' }}" placeholder="e.g. Tag">
+                            </div>
+                            <div class="col-12">
+                                {{-- <h6 class="text-success">Arabic Content</h6> --}}
                                 <label>Franchise Sector (Arabic)</label>
                                 <input type="text" name="sector_ar" class="form-control" value="{{ $franchise->sector_ar ?? '' }}">
                             </div>
@@ -78,10 +96,10 @@
                                 <label>Link Text (Arabic)</label>
                                 <input type="text" name="link_text_ar" class="form-control" value="{{ $franchise->link_text_ar ?? '' }}">
                             </div>
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <label>Link URL (Arabic)</label>
                                 <input type="text" name="link_url_ar" class="form-control" value="{{ $franchise->link_url_ar ?? '' }}">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

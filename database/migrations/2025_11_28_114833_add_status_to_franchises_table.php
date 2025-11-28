@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('page_home', function (Blueprint $table) {
-            //
+        Schema::table('franchises', function (Blueprint $table) {
+            $table->boolean('status')->default(1); // 1 = Active, 0 = Inactive
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('page_home', function (Blueprint $table) {
-            //
+        Schema::table('franchises', function (Blueprint $table) {
+            $table->dropColumn('status');
         });
     }
 };

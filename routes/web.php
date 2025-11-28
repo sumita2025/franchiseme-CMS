@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\FranchisePageController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\FranchiseController;
 use App\Http\Controllers\Admin\InquiryController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\ServicePackageController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\ServiceController;
@@ -49,6 +51,25 @@ Route::prefix('admin')->group(function () {
         Route::post('/home/save', [HomePageController::class, 'save'])->name('admin.home.save');
         Route::delete('/client-logos/{id}', [HomePageController::class, 'destroy'])->name('client-logos.destroy');
 
+        //Teams
+        Route::get('/teams', [TeamController::class, 'index'])->name('admin.teams.index');
+        Route::get('/teams/create', [TeamController::class, 'create'])->name('admin.teams.create');
+        Route::post('/teams/save', [TeamController::class, 'store'])->name('admin.teams.store');
+        Route::get('/teams/edit/{id}', [TeamController::class, 'edit'])->name('admin.teams.edit');
+        Route::put('/teams/update/{id}', [TeamController::class, 'update'])->name('admin.teams.update');
+        Route::delete('/teams/delete/{id}', [TeamController::class, 'destroy'])->name('admin.teams.delete');
+        Route::post('/team_page_store/save', [TeamController::class, 'team_page_store'])->name('admin.teams.team_page_store');
+        
+        //Services
+        Route::get('/services', [ServicePackageController::class, 'index'])->name('admin.services.index');
+        Route::get('/services/create', [ServicePackageController::class, 'create'])->name('admin.services.create');
+        Route::post('/services/save', [ServicePackageController::class, 'store'])->name('admin.services.store');
+        Route::get('/services/edit/{id}', [ServicePackageController::class, 'edit'])->name('admin.services.edit');
+        Route::put('/services/update/{id}', [ServicePackageController::class, 'update'])->name('admin.services.update');
+        Route::delete('/services/delete/{id}', [ServicePackageController::class, 'destroy'])->name('admin.services.delete');
+        Route::post('/service_page_store/save', [ServicePackageController::class, 'service_page_store'])->name('admin.services.service_page_store');
+
+
         Route::get('/contact', [ContactPageController::class, 'index'])->name('admin.contact.index');
         Route::post('/contact/save', [ContactPageController::class, 'store'])->name('admin.contact.save');
 
@@ -72,8 +93,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/franchises/create', [FranchiseController::class, 'create'])->name('admin.franchises.create');
         Route::post('/franchises/save', [FranchiseController::class, 'store'])->name('admin.franchises.save');
         Route::get('/franchises/edit/{id}', [FranchiseController::class, 'edit'])->name('admin.franchises.edit');
-        Route::put('/franchises/update/{id}', [FranchiseController::class, 'store'])->name('admin.franchises.update');
+        Route::put('/franchises/update/{id}', [FranchiseController::class, 'update'])->name('admin.franchises.update');
         Route::delete('/franchises/delete/{id}', [FranchiseController::class, 'destroy'])->name('admin.franchises.delete');
+
+        // Update Status 
+        Route::post('/admin/franchises/update-status', [FranchiseController::class, 'updateStatus'])->name('admin.franchises.status.update');
 
         Route::post('/franchise/save-brand', [FranchisePageController::class, 'storeBrand'])->name('admin.franchise.saveBrand');
         Route::post('/franchise/save-franchise', [FranchisePageController::class, 'storeFranchise'])->name('admin.franchise.saveFranchise');
@@ -88,5 +112,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/blogs/edit/{id}', [BlogPageController::class, 'edit'])->name('admin.blogs.edit');
         Route::put('/blogs/update/{id}', [BlogPageController::class, 'update'])->name('admin.blogs.update');
         Route::delete('/blogs/delete/{id}', [BlogPageController::class, 'destroy'])->name('admin.blogs.delete');
+
+        Route::post('/blog_page_store/save', [BlogPageController::class, 'blog_page_store'])->name('admin.blogs.blog_page_store');
+
+
+
     });
 });

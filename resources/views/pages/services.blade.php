@@ -18,11 +18,11 @@
                     <span>Consultant Section</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="#tab_package_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
                     <span>Package Section</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="#tab_package_details" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
                     <span>Package Details</span>
@@ -42,7 +42,7 @@
                     <div class="card-body">
                         <div class="row g-4">
                             <div class="col-12">
-                                <label>Image <span class="text-danger"></span></label>
+                                <label>Background Image <span class="text-danger"></span></label>
                             
                                 <input type="file" name="background_image" class="form-control preview-input" data-preview="#background_image_preview">
                                 @if(!empty($service->background_image))
@@ -57,7 +57,8 @@
                                     <div class="col-12">
                                         <h6 class="text-primary">English Content</h6>
                                         <label>Page Title (English)</label>
-                                        <input type="text" name="title" value="{{ $service->title ?? '' }}" class="form-control">
+                                        {{-- <input type="text" name="title" value="{{ $service->title ?? '' }}" class="form-control"> --}}
+                                        <textarea name="title" class="form-control summernote">{!! $service->title ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Page Description (English)</label>
@@ -70,7 +71,8 @@
                                     <div class="col-12">
                                         <h6 class="text-success">Arabic Content</h6>
                                         <label>Page Title (Arabic)</label>
-                                        <input type="text" name="title_ar" value="{{ $service->title_ar ?? '' }}" class="form-control">
+                                        {{-- <input type="text" name="title_ar" value="{{ $service->title_ar ?? '' }}" class="form-control"> --}}
+                                        <textarea name="title_ar" class="form-control summernote">{!! $service->title_ar ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Page Description (Arabic)</label>
@@ -145,7 +147,7 @@
                                     <div class="col-12">
                                         <h6 class="text-primary">English Content</h6>
                                         <label>Package Title (English)</label>
-                                        <textarea name="package_section_title" class="form-control title_control">{!! $service->package_section_title ?? '' !!}</textarea>
+                                        <textarea name="package_section_title" class="form-control summernote">{!! $service->package_section_title ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Description (English)</label>
@@ -158,7 +160,7 @@
                                     <div class="col-12">
                                         <h6 class="text-success">Arabic Content</h6>
                                         <label>Package Title (Arabic)</label>
-                                        <textarea name="package_section_title_ar" class="form-control title_control">{!! $service->package_section_title_ar ?? '' !!}</textarea>
+                                        <textarea name="package_section_title_ar" class="form-control summernote">{!! $service->package_section_title_ar ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Description (Arabic)</label>
@@ -266,12 +268,23 @@
                     <div class="card-header bg-dark text-white">Service Bottom Section</div>
                     <div class="card-body">
                         <div class="row g-4">
+                            <div class="col-12">
+                                <label>Image <span class="text-danger"></span></label>
+                        
+                                <input type="file" name="side_image" class="form-control preview-input" data-preview="#side_image_preview">
+                                @if(!empty($service->side_image))
+                                    <img id="side_image_preview" src="{{ asset('storage/'.$service->side_image) }}" class="img-thumbnail mt-2" style="max-width: 200px;">
+                                @else
+                                    <img id="side_image_preview" class="img-thumbnail mt-2 d-none" style="max-width: 200px;">
+                                @endif
+                          
+                            </div>
                             <div class="col-md-6">
                                 <div class="row g-3">
                                     <div class="col-12">
                                         <h6 class="text-primary">English Content</h6>
                                         <label>Service Title (English)</label>
-                                        <textarea name="service_title" class="form-control title_control">{!! $service->service_title ?? '' !!}</textarea>
+                                        <textarea name="service_title" class="form-control summernote">{!! $service->service_title ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Service Description (English)</label>
@@ -284,7 +297,7 @@
                                     <div class="col-12">
                                         <h6 class="text-success">Arabic Content</h6>
                                         <label>Service Title (Arabic)</label>
-                                        <textarea name="service_title_ar" class="form-control title_control">{!! $service->service_title ?? '' !!}</textarea>
+                                        <textarea name="service_title_ar" class="form-control summernote">{!! $service->service_title ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Service Description (Arabic)</label>
@@ -306,32 +319,32 @@
 @endsection
 
 @section('scripts')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+{{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet"> --}}
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script> --}}
 <script>
     $(document).ready(function(){
-        $('.summernote').summernote({
-            height: 100,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['fontname', 'fontsize']],
-                ['color', ['forecolor']],
-                ['para', ['paragraph']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-        $('.title_control').summernote({
-            height: 60,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['fontname', 'fontsize']],
-                ['color', ['forecolor']],
-                ['para', ['paragraph']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
+        // $('.summernote').summernote({
+        //     height: 100,
+        //     toolbar: [
+        //         ['style', ['bold', 'italic', 'underline', 'clear']],
+        //         ['font', ['fontname', 'fontsize']],
+        //         ['color', ['forecolor']],
+        //         ['para', ['paragraph']],
+        //         ['insert', ['link', 'picture', 'video']],
+        //         ['view', ['fullscreen', 'codeview', 'help']]
+        //     ]
+        // });
+        // $('.title_control').summernote({
+        //     height: 60,
+        //     toolbar: [
+        //         ['style', ['bold', 'italic', 'underline', 'clear']],
+        //         ['font', ['fontname', 'fontsize']],
+        //         ['color', ['forecolor']],
+        //         ['para', ['paragraph']],
+        //         ['insert', ['link', 'picture', 'video']],
+        //         ['view', ['fullscreen', 'codeview', 'help']]
+        //     ]
+        // });
 
         $('.preview-input').on('change', function(e){
             const preview = $(this).data('preview');

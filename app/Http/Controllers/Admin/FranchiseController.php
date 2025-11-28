@@ -24,16 +24,23 @@ class FranchiseController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'slider_background_image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
         ]);
 
         $data = $request->all();
 
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
-            $filename = time().'_'.$file->getClientOriginalName();
+            $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('uploads/franchise'), $filename);
-            $data['logo'] = 'uploads/franchise/'.$filename;
+            $data['logo'] = 'uploads/franchise/' . $filename;
+        }
+        if ($request->hasFile('slider_background_image')) {
+            $file = $request->file('slider_background_image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/franchise'), $filename);
+            $data['slider_background_image'] = 'uploads/franchise/' . $filename;
         }
 
         // Auto slug from title
@@ -64,9 +71,16 @@ class FranchiseController extends Controller
 
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
-            $filename = time().'_'.$file->getClientOriginalName();
+            $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('uploads/franchise'), $filename);
-            $data['logo'] = 'uploads/franchise/'.$filename;
+            $data['logo'] = 'uploads/franchise/' . $filename;
+        }
+
+        if ($request->hasFile('slider_background_image')) {
+            $file = $request->file('slider_background_image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/franchise'), $filename);
+            $data['slider_background_image'] = 'uploads/franchise/' . $filename;
         }
 
         $data['slug'] = Str::slug($request->title);
@@ -80,5 +94,22 @@ class FranchiseController extends Controller
         $franchise = Franchise::findOrFail($id);
         $franchise->delete();
         return redirect()->route('admin.franchises.index')->with('success', 'Franchise deleted successfully!');
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $franchise = Franchise::find($request->id);
+
+        if (!$franchise) {
+            return response()->json(['message' => 'Franchise not found'], 404);
+        }
+
+        $franchise->status = $request->status;
+        $franchise->save();
+
+        return response()->json([
+            'message' => 'Status updated successfully',
+            'status' => $franchise->status
+        ]);
     }
 }

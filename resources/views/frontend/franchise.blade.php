@@ -57,7 +57,8 @@
                 @endif
             </h2>
         </div>
-        <div class="row justify-content-center g-0" data-aos="fade-up">
+        {{-- old Featured Brands section start --}}
+        {{-- <div class="row justify-content-center g-0" data-aos="fade-up">
             <div class="col-md-11">
                 <ul id="featuredSlider">
                     @foreach($brands as $brand)
@@ -109,6 +110,75 @@
                                                             {!! $brand->brand_button_ar ?? '' !!}
                                                         @else
                                                             {!! $brand->brand_button ?? '' !!}
+                                                        @endif
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div> --}}
+        {{-- old Featured Brands section end --}}
+        <div class="row justify-content-center g-0" data-aos="fade-up">
+            <div class="col-md-11">
+                <ul id="featuredSlider">
+                    @foreach($franchises as $franchise)
+                        <li>
+                            <div class="card" style="background-image: url('{{ asset($franchise->slider_background_image) }}');">
+                                <div class="card-body p-0">
+                                    <div class="row z-1 position-relative">
+
+                                        <div class="col-md-4">
+                                            <div class="feature_img rounded-4">
+                                                <img src="{{ asset($franchise->logo) }}" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-8">
+                                            @if(!empty($$franchise->tag_ar) ||  !empty($franchise->tag))
+                                            <div class="d-flex">
+                                                <p class="mb-0 bg-white px-2 small py-1 rounded-5 fw-bold">
+                                                    @if(app()->getLocale() == 'ar')
+                                                        {!! $franchise->tag_ar ?? '' !!}
+                                                    @else
+                                                        {!! $franchise->tag ?? '' !!}
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            @endif
+
+                                            <h4 class="mt-2 mb-3 sub_title yellow">
+                                                @if(app()->getLocale() == 'ar')
+                                                    {!! $franchise->title_ar ?? '' !!}
+                                                @else
+                                                    {!! $franchise->title ?? '' !!}
+                                                @endif
+                                            </h4>
+
+                                            <div class="contain">
+                                                <p class="mb-0">
+                                                    {{ strip_tags($franchise->description) }}
+                                                    @if(app()->getLocale() == 'ar')
+                                                        {{ strip_tags($franchise->description_ar) }}
+                                                    @else
+                                                        {{ strip_tags($franchise->description) }}
+                                                    @endif
+                                                </p>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <a href="{{ route('service-detail', $franchise->franchise_slug) }}" class="button btn_primary mt-4">
+                                                    <div class="btn_text">
+                                                        @if(app()->getLocale() == 'ar')
+                                                            {!! $franchise->link_text_ar ?? '' !!}
+                                                        @else
+                                                            {!! $franchise->link_text ?? '' !!}
                                                         @endif
                                                     </div>
                                                 </a>

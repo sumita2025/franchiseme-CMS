@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageHome;
 use App\Models\HomeClientLogo;
+use App\Models\Team;
 
 class HomePageController extends Controller
 {
@@ -13,7 +14,8 @@ class HomePageController extends Controller
     {
         $home = PageHome::first();
         $clientImages = HomeClientLogo::all();
-        return view('pages.home', compact('home', 'clientImages'));
+        $teams = Team::get();
+        return view('pages.home', compact('home', 'clientImages','teams'));
     }
 
     // public function save(Request $request)

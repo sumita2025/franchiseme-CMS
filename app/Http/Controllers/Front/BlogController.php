@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContactInquiry;
 use App\Models\Blog;
+use App\Models\PageBlog;
 
 class BlogController extends Controller
 {
@@ -13,7 +14,8 @@ class BlogController extends Controller
     {
         $blogs = Blog::latest()->paginate(6);
         $recentBlogs = Blog::latest()->take(5)->get();
-        return view('frontend.blogs', compact('blogs', 'recentBlogs'));
+        $pageBlog = PageBlog::first();
+        return view('frontend.blogs', compact('blogs', 'recentBlogs','pageBlog'));
     }
     public function singleblog($id)
     {

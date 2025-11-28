@@ -25,6 +25,12 @@ class Franchise extends Model
         'link_url',
         'link_url_ar',
         'franchise_slug',
-        'is_active'
+        'is_active',
+        'slider_background_image',
+        'tag',
+        'tag_ar',
+        'status'
+
+        
     ];
 }
