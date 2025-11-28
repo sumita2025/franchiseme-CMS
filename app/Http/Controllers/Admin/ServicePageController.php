@@ -19,6 +19,10 @@ class ServicePageController extends Controller
       
         $data = $request->except('_token');
 
+        if ($request->hasFile("side_image")) {
+            $data["side_image"] = $request->file("side_image")
+                ->store('uploads/pages/side_image', 'public');
+        }
         if ($request->hasFile("background_image")) {
             $data["background_image"] = $request->file("background_image")
                 ->store('uploads/pages/background', 'public');

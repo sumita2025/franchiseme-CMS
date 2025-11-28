@@ -12,7 +12,7 @@
                 <div class="card-header bg-primary text-white">Page Image</div>
                 <div class="row g-4">
                      <div class="col-12">
-                        <label>Image <span class="text-danger"></span></label>
+                        <label>Background Image <span class="text-danger"></span></label>
                     
                         <input type="file" name="background_image" class="form-control preview-input" data-preview="#background_image_preview">
                         @if(!empty($page->background_image))
@@ -34,12 +34,14 @@
                     <div class="col-md-6">
                         <h6 class="text-primary">English Title</h6>
                         <label>Title (English)</label>
-                        <input type="text" name="title" class="form-control" value="{{ $page->title ?? '' }}">
+                        {{-- <input type="text" name="title" class="form-control" value="{{ $page->title ?? '' }}"> --}}
+                        <textarea name="title" class="summernote">{{ $page->title ?? '' }}</textarea>
                     </div>
                     <div class="col-md-6">
                         <h6 class="text-success">Arabic Content</h6>
                         <label>Title (Arabic)</label>
-                        <input type="text" name="title_ar" class="form-control" value="{{ $page->title_ar ?? '' }}">
+                        {{-- <input type="text" name="title_ar" class="form-control" value="{{ $page->title_ar ?? '' }}"> --}}
+                        <textarea name="title_ar" class="summernote">{{ $page->title_ar ?? '' }}</textarea>
                     </div>
                 </div>                
             </div>
@@ -148,21 +150,21 @@
 @endsection
 
 @section('scripts')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+{{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script> --}}
 <script>
 $(document).ready(function() {
     // Initialize Summernote
-    $('.summernote').summernote({
-        height: 100,
-        toolbar: [
-            ['style', ['bold', 'italic', 'underline']],
-            ['font', ['fontname', 'fontsize']],
-            ['color', ['forecolor']],
-            ['para', ['paragraph']],
-            ['view', ['fullscreen', 'codeview']]
-        ]
-    });
+    // $('.summernote').summernote({
+    //     height: 100,
+    //     toolbar: [
+    //         ['style', ['bold', 'italic', 'underline']],
+    //         ['font', ['fontname', 'fontsize']],
+    //         ['color', ['forecolor']],
+    //         ['para', ['paragraph']],
+    //         ['view', ['fullscreen', 'codeview']]
+    //     ]
+    // });
 
     // Add new FAQ item
     $('#addFaqBtn').click(function() {
@@ -231,10 +233,22 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(res) {
-                alert(res.message);
+                // alert(res.message);
+                toastr.success(res.message, "Success", {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-right",
+                    timeOut: "1000" 
+                });
             },
             error: function() {
-                alert('Error updating FAQ page.');
+                // alert('Error updating FAQ page.');
+                toastr.error('Error updating FAQ page.', "Error", {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-right",
+                    timeOut: "2000" 
+                });
             }
         });
     });

@@ -4,13 +4,28 @@
 @endsection
 @section('content')
 
-<section class="page_title position-relative my-0">
+{{-- <section class="page_title position-relative my-0">
     <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
         <h1 class="text-white mb-0">
             <span data-en="Blog" data-ar="المدونة">
                 {{ app()->getLocale() == 'ar' ? 'المدونة' : 'Blog' }}
             </span>
         </h1>
+    </div>
+</section> --}}
+
+<section class="page_title position-relative my-0"
+         style="background-image: url('{{ asset($pageBlog->background_image ?? 'default.jpg') }}');">
+    
+    <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
+        <span>
+            @if(app()->getLocale() == 'ar')
+                {!! $pageBlog->title_ar ?? '' !!}
+            @else
+                {!! $pageBlog->title ?? '' !!}
+            @endif
+        </span>
+
     </div>
 </section>
 

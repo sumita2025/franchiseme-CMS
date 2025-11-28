@@ -18,6 +18,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     
     <link href="{{asset('/assets/admin/css/custom.css')}}" rel="stylesheet">
+    
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
 
     <style>
         body {
@@ -89,16 +93,43 @@
         </a>
 
         <!-- Home Page -->
-        <a href="{{ route('admin.home.index') }}"
+        {{-- <a href="{{ route('admin.home.index') }}"
         class="{{ request()->routeIs('admin.home.*') ? 'active' : '' }}">
             <i class="bi bi-house"></i> Home Page
+        </a> --}}
+
+        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#home_tab" aria-expanded="{{ request()->is('admin.home') || request()->is('admin/teams*') ? 'active-parent' : '' }}">
+            <i class="bi bi-house"></i> Home Management
+            <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
+        <div class="collapse {{ request()->is('admin/home') || request()->is('admin/teams')  ? 'show' : '' }}" id="home_tab">
+            <a href="{{ route('admin.home.index') }}" class="{{ request()->is('admin.home*') ? 'active' : '' }}">
+                <i class="bi bi-gear"></i> General 
+            </a>
+            <a href="{{ route('admin.teams.index') }}" class="{{ request()->is('admin/teams*') ? 'active' : '' }}">
+                <i class="bi bi-people"></i> Teams 
+            </a>
+        </div>
 
         <!-- Service Page -->
-        <a href="{{ route('admin.service.index') }}"
+        {{-- <a href="{{ route('admin.service.index') }}"
         class="{{ request()->routeIs('admin.service.*') ? 'active' : '' }}">
             <i class="bi bi-person-lines-fill"></i> Service Page
+        </a> --}}
+
+        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#service_page_tab" aria-expanded="{{ request()->is('admin.service') || request()->is('admin/services*') ? 'active-parent' : '' }}">
+            <i class="bi bi-person-lines-fill"></i> Service Management
+            <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
+        <div class="collapse {{ request()->is('admin/service') || request()->is('admin/service')  ? 'show' : '' }}" id="service_page_tab">
+            <a href="{{ route('admin.service.index') }}" class="{{ request()->is('admin.service*') ? 'active' : '' }}">
+                <i class="bi bi-gear"></i> General 
+            </a>
+            <a href="{{ route('admin.services.index') }}" class="{{ request()->is('admin/services*') ? 'active' : '' }}">
+                <i class="bi bi-box-seam"></i> Packages
+            </a>
+        </div>
+
 
         <!-- Contact Page -->
         <a href="{{ route('admin.contact.index') }}"
@@ -115,11 +146,11 @@
         <!-- Blog Page -->
         <a href="{{ route('admin.blogs.index') }}"
         class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
-            <i class="bi bi-question-circle"></i> Blog Management
+            <i class="bi bi-journal-text"></i> Blog Management
         </a>
 
         <!-- Franchise Section -->
-        <div class="d-flex align-items-center justify-content-between sub_menu {{ request()->is('admin/franchises*') || request()->is('admin/brands*') ? 'active-parent' : '' }}">
+        {{-- <div class="d-flex align-items-center justify-content-between sub_menu {{ request()->is('admin/franchises*') || request()->is('admin/brands*') ? 'active-parent' : '' }}">
             <a href="{{ route('admin.franchise.index') }}" class="p-0">
                 <i class="bi bi-diagram-3"></i> Franchise Page
             </a>
@@ -134,11 +165,28 @@
             <a href="{{ route('admin.franchises.index') }}" class="{{ request()->is('admin/franchises*') ? 'active' : '' }}">
                 <i class="bi bi-building"></i> Franchise Management
             </a>
+        </div> --}}
+
+         <!-- Franchise Section -->
+        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#franchise_tab" aria-expanded="{{ request()->is('admin/franchises*') || request()->is('admin/brands*') ? 'active-parent' : '' }}">
+            <i class="bi bi-building"></i> Franchise Management
+            <i class="bi bi-chevron-down float-end toggle-arrow"></i>
+        </a>
+        <div class="collapse {{ request()->is('admin/franchises') || request()->is('admin/brands') || request()->is('admin/franchise') ? 'show' : '' }}" id="franchise_tab">
+            <a href="{{ route('admin.franchise.index') }}" class="{{ request()->is('admin/franchise*') ? 'active' : '' }}">
+                <i class="bi bi-file-text"></i> Franchise Page
+            </a>
+            {{-- <a href="{{ route('admin.brands.index') }}" class="{{ request()->is('admin/brands*') ? 'active' : '' }}">
+                <i class="bi bi-tags"></i> Brand Management
+            </a> --}}
+            <a href="{{ route('admin.franchises.index') }}" class="{{ request()->is('admin/franchises*') ? 'active' : '' }}">
+                <i class="bi bi-grid"></i> Franchise Lists
+            </a>
         </div>
 
         <!-- Inquiry Section -->
         <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#inquiry_tab" aria-expanded="{{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/specific-service-inquiries') ? 'true' : 'false' }}">
-            <i class="bi bi-envelope"></i> Inquiry
+            <i class="bi bi-chat-square-text"></i> Inquiry
             <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
         <div class="collapse {{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/specific-service-inquiries') ? 'show' : '' }}" id="inquiry_tab">
@@ -146,10 +194,10 @@
                 <i class="bi bi-envelope"></i> Contact Inquiry
             </a>
             <a href="{{ route('admin.inquiries.training') }}" class="{{ request()->is('admin/service-training-inquiries') ? 'active' : '' }}">
-                <i class="bi bi-people-fill"></i> Service Training Inquiry
+                <i class="bi bi-person-check"></i> Service Training Inquiry
             </a>
             <a href="{{ route('admin.inquiries.specific') }}" class="{{ request()->is('admin/specific-service-inquiries') ? 'active' : '' }}">
-                <i class="bi bi-gear"></i> Specific Service Inquiry
+                <i class="bi bi-wrench"></i> Specific Service Inquiry
             </a>
         </div>
     </div>
@@ -196,6 +244,10 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.js"></script>
+    <!-- jQuery (required for Toastr) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
         $(document).ready(function(){
@@ -211,6 +263,85 @@
                 submenu.slideToggle();
                 $(this).toggleClass('active');
             });
+        });
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+
+    <script>
+        $('.summernote').summernote({
+            height: 120,
+            fontSizes: ['8', '10', '12', '14', '16', '18', '20', '22', '24', '28', '32', '36', '68'],
+             // Add custom font to dropdown
+            fontNames: [
+                'Arial',
+                'Arial Black',
+                'Comic Sans MS',
+                'Courier New',
+                'Helvetica',
+                'Impact',
+                'Tahoma',
+                'Times New Roman',
+                'Verdana',
+                'DINNextLTArabic-Regular' // <--- custom font
+            ],
+
+            // Summernote will not check if this font exists — it will show it
+            fontNamesIgnoreCheck: ['DINNextLTArabic-Regular'],
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline']],
+                ['font', ['fontname', 'fontsize']],
+                ['color', ['forecolor']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['view', ['codeview']]
+            ]
+            // ,
+            // callbacks: {
+            //     onInit: function() {
+            //         // remove <p> wrapper
+            //         const code = $(this).summernote('code');
+            //         const cleaned = code.replace(/^<p>|<\/p>$/g, '');
+            //         $(this).summernote('code', cleaned);
+            //     }
+            // }
+        });
+
+         $('.preview-input').on('change', function(e){
+            const preview = $(this).data('preview');
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(ev){
+                    $(preview).attr('src', ev.target.result).removeClass('d-none');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+          $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,       // Show close button
+                "progressBar": true,       // Show progress bar
+                "positionClass": "toast-top-right", // Position
+                "timeOut": "1000",         // Auto close after 1000ms (1 second)
+                "extendedTimeOut": "500",  // If hovered, extend 500ms
+            };
+            @if(session('success'))
+                toastr.success("{{ session('success') }}");
+            @endif
+
+            @if(session('error'))
+                toastr.error("{{ session('error') }}");
+            @endif
+
+            @if(session('info'))
+                toastr.info("{{ session('info') }}");
+            @endif
+
+            @if(session('warning'))
+                toastr.warning("{{ session('warning') }}");
+            @endif
         });
     </script>
 

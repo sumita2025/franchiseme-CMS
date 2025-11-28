@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\PageBlog;
 
 class BlogPageController extends Controller
 {
@@ -14,7 +15,8 @@ class BlogPageController extends Controller
     public function index()
     {
         $blogs = Blog::latest()->get();
-        return view('pages.list_blog', compact('blogs'));
+        $pageBlog = PageBlog::first();
+        return view('pages.list_blog', compact('blogs', 'pageBlog'));
     }
 
     public function create()
@@ -110,5 +112,23 @@ class BlogPageController extends Controller
 
         $blog->delete();
         return redirect()->route('admin.blogs.index')->with('success', 'Blog deleted successfully.');
+    }
+
+    public function blog_page_store(Request $request)
+    {
+
+        $data = $request->except('_token');
+
+        if ($request->hasFile('background_image')) {
+
+            $filename = time() . '_' . $request->file('background_image')->getClientOriginalName();
+            $request->file('background_image')->move(public_path('uploads/blog'), $filename);
+
+            $data['background_image'] = 'uploads/blog/' . $filename;
+        }
+
+        PageBlog::updateOrCreate(['id' => 1], $data);
+
+        return back()->with('success', 'Service Page Updated Successfully!');
     }
 }

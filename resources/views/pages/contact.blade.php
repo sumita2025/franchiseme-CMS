@@ -10,7 +10,7 @@
             <div class="card-body">
                 <div class="row g-4">
                       <div class="col-12">
-                            <label>Image <span class="text-danger"></span></label>
+                            <label>Background Image <span class="text-danger"></span></label>
                         
                             <input type="file" name="background_image" class="form-control preview-input" data-preview="#background_image_preview">
                             @if(!empty($page->background_image))
@@ -25,11 +25,13 @@
                             <div class="col-12">
                                 <h6 class="text-primary">English Content</h6>
                                 <label>Page Title (English)</label>
-                                <input type="text" name="page_title" class="form-control" value="{{ $page->page_title ?? '' }}">
+                                {{-- <input type="text" name="page_title" class="form-control" value="{{ $page->page_title ?? '' }}"> --}}
+                                <textarea name="page_title" class="summernote">{{ $page->page_title ?? '' }}</textarea>
                             </div>
                             <div class="col-12">
-                                <label>Title (English)</label>
-                                <textarea name="title" class="title_control">{{ $page->title ?? '' }}</textarea>
+                                <label>Sub Title (English)</label>
+                                <textarea name="title" class="summernote">{{ $page->title ?? '' }}</textarea>
+
                             </div>
                             <div class="col-12">
                                 <label>Description (English)</label>
@@ -107,11 +109,12 @@
                             <div class="col-12">
                                 <h6 class="text-primary">Arabic Content</h6>
                                 <label>Page Title (Arabic)</label>
-                                <input type="text" name="page_title_ar" class="form-control" value="{{ $page->page_title_ar ?? '' }}">
+                                {{-- <input type="text" name="page_title_ar" class="form-control" value="{{ $page->page_title_ar ?? '' }}"> --}}
+                                 <textarea name="page_title_ar" class="summernote">{{ $page->page_title_ar ?? '' }}</textarea>
                             </div>
                             <div class="col-12">
-                                <label>Title (Arabic)</label>
-                                <textarea name="title_ar" class="title_control">{{ $page->title_ar ?? '' }}</textarea>
+                                <label>Sub Title (Arabic)</label>
+                                <textarea name="title_ar" class="summernote">{{ $page->title_ar ?? '' }}</textarea>
                             </div>
                             <div class="col-12">
                                 <label>Description (Arabic)</label>
@@ -201,30 +204,30 @@
 @endsection
 
 @section('scripts')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+{{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script> --}}
 <script>
 $(document).ready(function() {
-    $('.summernote').summernote({
-        height: 100,
-        toolbar: [
-            ['style', ['bold', 'italic', 'underline']],
-            ['font', ['fontname', 'fontsize']],
-            ['color', ['forecolor']],
-            ['para', ['paragraph']],
-            ['view', ['fullscreen', 'codeview']]
-        ]
-    });
-    $('.title_control').summernote({
-            height: 60,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline']],
-                ['font', ['fontname', 'fontsize']],
-                ['color', ['forecolor']],
-                ['para', ['paragraph']],
-                ['view', ['fullscreen', 'codeview']]
-            ]
-        });
+    // $('.summernote').summernote({
+    //     height: 100,
+    //     toolbar: [
+    //         ['style', ['bold', 'italic', 'underline']],
+    //         ['font', ['fontname', 'fontsize']],
+    //         ['color', ['forecolor']],
+    //         ['para', ['paragraph']],
+    //         ['view', ['fullscreen', 'codeview']]
+    //     ]
+    // });
+    // $('.title_control').summernote({
+    //         height: 60,
+    //         toolbar: [
+    //             ['style', ['bold', 'italic', 'underline']],
+    //             ['font', ['fontname', 'fontsize']],
+    //             ['color', ['forecolor']],
+    //             ['para', ['paragraph']],
+    //             ['view', ['fullscreen', 'codeview']]
+    //         ]
+    //     });
 
     $('#contactPageForm').on('submit', function(e) {
         e.preventDefault();
@@ -237,10 +240,24 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(res) {
-                alert(res.message);
+                // alert(res.message);
+                 // Display success toastr
+                toastr.success(res.message, "Success", {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-right",
+                    timeOut: "1000" 
+                });
             },
             error: function(err) {
-                alert('Error updating contact page.');
+                // alert('Error updating contact page.');
+                 // Display error toastr
+                toastr.error('Error updating contact page.', "Error", {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-right",
+                    timeOut: "2000" 
+                });
             }
         });
     });

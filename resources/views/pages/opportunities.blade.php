@@ -21,7 +21,8 @@
                             <div class="col-12">
                                 <h6 class="text-primary">English Content</h6>
                                 <label class="form-label">Title (English)</label>
-                                <input type="text" class="form-control" name="title" value="{{ $page->title ?? '' }}">
+                                {{-- <input type="text" class="form-control" name="title" value="{{ $page->title ?? '' }}"> --}}
+                                 <textarea class="form-control summernote" name="title">{{ $page->title ?? '' }}</textarea>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">Description (English)</label>
@@ -42,7 +43,8 @@
                             <div class="col-12">
                                 <h6 class="text-success">Arabic Content</h6>
                                 <label class="form-label">Title (Arabic)</label>
-                                <input type="text" class="form-control" name="title_ar" value="{{ $page->title_ar ?? '' }}">
+                                {{-- <input type="text" class="form-control" name="title_ar" value="{{ $page->title_ar ?? '' }}"> --}}
+                                <textarea class="form-control summernote" name="title_ar">{{ $page->title_ar ?? '' }}</textarea>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">Description (Arabic)</label>
@@ -69,20 +71,20 @@
 @endsection
 
 @section('scripts')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+{{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script> --}}
 <script>
   $(document).ready(function() {
-        $('.summernote').summernote({
-            height: 100,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline']],
-                ['font', ['fontname', 'fontsize']],
-                ['color', ['forecolor']],
-                ['para', ['paragraph']],
-                ['view', ['fullscreen', 'codeview']]
-            ]
-        });
+        // $('.summernote').summernote({
+        //     height: 100,
+        //     toolbar: [
+        //         ['style', ['bold', 'italic', 'underline']],
+        //         ['font', ['fontname', 'fontsize']],
+        //         ['color', ['forecolor']],
+        //         ['para', ['paragraph']],
+        //         ['view', ['fullscreen', 'codeview']]
+        //     ]
+        // });
 
         $('#franchisePageForm').on('submit', function(e){
             e.preventDefault();
@@ -96,7 +98,35 @@
                 processData: false,
                 contentType: false,
                 success: function(res){
-                    alert(res.message);
+                    // alert(res.message);
+                        toastr.success(res.message, "Success", {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: "toast-top-right",
+                        timeOut: "1000" 
+                    });
+
+                },
+                error: function(xhr, status, error){
+                    // Default error message
+                    let errorMessage = "Something went wrong. Please try again!";
+                    
+                    // If Laravel sends validation errors or custom message
+                    if(xhr.responseJSON){
+                        if(xhr.responseJSON.message){
+                            errorMessage = xhr.responseJSON.message;
+                        } else if(xhr.responseJSON.errors){
+                            // Collect first validation error
+                            errorMessage = Object.values(xhr.responseJSON.errors).flat().join("<br>");
+                        }
+                    }
+
+                    toastr.error(errorMessage, "Error", {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: "toast-top-right",
+                        timeOut: "3000" // 3 seconds
+                    });
                 }
             });
         });
