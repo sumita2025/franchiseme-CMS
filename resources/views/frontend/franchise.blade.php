@@ -232,118 +232,69 @@
         </div>
 
         <div class="row g-4 our_services franchise_listing_section_new">
-            <div class="col-md-4">
-                <div class="card os_item p-0">
-                    <div class="card-body p-3">
-                        <div class="icon rounded-4 position-relative">
-                            <img src="{{asset('/assets/image/blog.jpg')}}" alt="" class="img-fluid w-100">
-                            <div class="contain small fw-semibold text-center mt-2 ms-2 position-absolute top-0 start-0 px-2 py-1 bg-dark rounded-5">
-                                <h6 class="mb-0">sector</h6>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between py-3 my-3 mx-4 investment_level">
-                            <div class="contain black">
-                                <h6 class="mb-0">India</h6>
-                            </div>
-                            <div class="contain black">
-                                <h6 class="mb-0">Investment level - Mid</h6>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="sub_title mb-3" data-en="Lorem ipsum dolor sit amet consectetur adipiscing" data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ">Lorem ipsum dolor sit amet consectetur adipiscing</h4>
-                            <div class="short_dec contain black">
-                                <p data-en="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam." data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ إليت. كوي بلاسيت أوديو بورّو فينيام كوي، إيلو أكوسانتيم أب كيسكوام فيرو إكس نيسيسيتاتيبوس أسبيرناتور أوت إيروم إنسيدنت هيك؟ أركيتكتو تينيتور فيرو كيسكوام.">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam.</p>
-                            </div>
-                            <a href="#" class="button button_text mt-2">
-                                <div class="btn_text">
-                                    View Details
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row g-4 our_services franchise_listing_section">
-            @foreach($franchises as $franchise)
-                <div class="col-md-6">
-                    <div class="card os_item p-0 h-100">
+              @foreach($franchises as $franchise)
+                <div class="col-md-4">
+                    <div class="card os_item p-0">
                         <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="icon rounded-4 position-relative">
-                                        <span class="badge rounded-pill text-bg-dark mt-2 ms-2 position-absolute top-0 left-0">
-                                            @if(app()->getLocale() == 'ar')
+                            <div class="icon rounded-4 position-relative">
+                                @if(!empty($franchise->logo))
+                                <img src="{{ asset($franchise->logo) }}" alt="{{ $franchise->name }}" class="img-fluid w-100 ">
+                                @else
+                                  <img src="{{asset('/assets/image/blog.jpg')}}" alt="" class="img-fluid w-100">
+                                @endif
+                                <div class="contain small fw-semibold text-center mt-2 ms-2 position-absolute top-0 start-0 px-2 py-1 bg-dark rounded-5">
+                                    <h6 class="mb-0">
+                                         @if(app()->getLocale() == 'ar')
                                                 {!! $franchise->sector_ar ?? '' !!}
                                             @else
                                                 {!! $franchise->sector ?? '' !!}
                                             @endif
-                                        </span>
-
-                                        {{-- Dynamic Image --}}
-                                        <img src="{{ asset($franchise->logo) }}" alt="{{ $franchise->name }}" class="img-fluid">
-                                    </div>
-
-                                    <div class="contain black small fw-semibold text-center mt-2">
-                                        <h6 class="mb-0">
-                                            @if(app()->getLocale() == 'ar')
-                                                {!! $franchise->country_ar ?? '' !!}
-                                            @else
-                                                {!! $franchise->country ?? '' !!}
-                                            @endif
-                                        </h6>
-                                    </div>
+                                    </h6>
                                 </div>
-
-                                <div class="col-md-8">
-                                    {{-- Title --}}
-                                    <h4 class="sub_title mb-0">
-                                        @if(app()->getLocale() == 'ar')
-                                            {!! $franchise->title_ar ?? '' !!}
+                            </div>
+                            <div class="d-flex justify-content-between py-3 my-3 mx-4 investment_level">
+                                <div class="contain black">
+                                    <h6 class="mb-0">
+                                         @if(app()->getLocale() == 'ar')
+                                            {!! $franchise->country_ar ?? '' !!}
                                         @else
-                                            {!! $franchise->title ?? '' !!}
+                                            {!! $franchise->country ?? '' !!}
                                         @endif
-                                    </h4>
-
-                                    {{-- Investment Level --}}
-                                    <div class="contain black d-flex align-items-center gap-2 my-2">
-                                        <p class="mb-0 fw-bold">Investment level:</p>
-                                        <p>
-                                            @if(app()->getLocale() == 'ar')
-                                                {!! $franchise->investment_level_ar ?? '' !!}
-                                            @else
-                                                {!! $franchise->investment_level ?? '' !!}
-                                            @endif
-                                        </p>
-                                    </div>
-
-                                    {{-- Short Description --}}
-                                    <div class="short_dec contain black">
-                                        <p>
-                                            @if(app()->getLocale() == 'ar')
-                                                {{ strip_tags($franchise->description_ar) }}
-                                            @else
-                                                {{ strip_tags($franchise->description) }}
-                                            @endif
-                                        </p>
-                                    </div>
-
-                                    {{-- View Details Button --}}
-                                    <div class="d-flex">
-                                        <a href="{{ route('service-detail', $franchise->franchise_slug) }}" class="button button_text mt-3">
-                                            <div class="btn_text">
-                                                View Details
-                                            </div>
-                                        </a>
-                                    </div>
-
+                                    </h6>
                                 </div>
+                                <div class="contain black">
+                                    <h6 class="mb-0"> 
+                                        @if(app()->getLocale() == 'ar')
+                                                {!! $franchise->investment_level_ar ?? '' !!}
+                                        @else
+                                            {!! $franchise->investment_level ?? '' !!}
+                                        @endif
+                                        </h6>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="sub_title mb-3" data-en="Lorem ipsum dolor sit amet consectetur adipiscing" data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ">
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $franchise->title_ar ?? '' !!}
+                                    @else
+                                        {!! $franchise->title ?? '' !!}
+                                    @endif
+                                </h4>
+                                <div class="short_dec contain black">
+                                    <p data-en="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam." data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ إليت. كوي بلاسيت أوديو بورّو فينيام كوي، إيلو أكوسانتيم أب كيسكوام فيرو إكس نيسيسيتاتيبوس أسبيرناتور أوت إيروم إنسيدنت هيك؟ أركيتكتو تينيتور فيرو كيسكوام.">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam.</p>
+                                </div>
+                               <a href="{{ route('service-detail', $franchise->franchise_slug) }}" class="button button_text mt-3">
+                                    <div class="btn_text">
+                                        View Details
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+             @endforeach
         </div>
+
     </div>
 </section>
 @endsection
