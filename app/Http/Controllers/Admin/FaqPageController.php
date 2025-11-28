@@ -17,11 +17,17 @@ class FaqPageController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->hasFile("background_image")) {
+            $background_image = $request->file("background_image")
+                ->store('uploads/pages/background', 'public');
+        }
+
         $page = PageFaq::updateOrCreate(['id' => 1], [
             'title' => $request->title,
             'title_ar' => $request->title_ar,
             'description' => $request->description,
             'description_ar' => $request->description_ar,
+            'background_image' => $background_image ?? null,
         ]);
 
         // Delete existing items

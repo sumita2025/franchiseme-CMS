@@ -12,7 +12,8 @@ class PageFaq extends Model
         'title',
         'title_ar',
         'description',
-        'description_ar'
+        'description_ar',
+        'background_image'
     ];
 
     public function items()

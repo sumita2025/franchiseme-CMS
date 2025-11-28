@@ -49,6 +49,7 @@ class PageContact extends Model
         'social_url_4_ar',
         'social_url_5',
         'social_url_5_ar',
-        'map_embed'
+        'map_embed',
+        'background_image'
     ];
 }

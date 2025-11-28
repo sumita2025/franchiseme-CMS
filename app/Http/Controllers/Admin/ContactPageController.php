@@ -17,6 +17,13 @@ class ContactPageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        if ($request->hasFile("background_image")) {
+            $background_image = $request->file("background_image")
+                ->store('uploads/pages/background', 'public');
+        }
+      
+        $data['background_image'] = $background_image ?? null;
         PageContact::updateOrCreate(['id' => 1], $data);
 
         return response()->json([

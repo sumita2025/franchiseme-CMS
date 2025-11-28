@@ -1,7 +1,25 @@
 @extends('frontend.master')
 
 @section('content')
-<section class="page_title position-relative my-0">
+{{-- <section class="page_title position-relative my-0">
+    <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
+        <h1 class="text-white mb-0">
+            <span>
+                @if(app()->getLocale() == 'ar')
+                    {!! $contact->page_title_ar ?? '' !!}
+                @else
+                    {!! $contact->page_title ?? '' !!}
+                @endif
+            </span>
+        </h1>
+    </div>
+</section> --}}
+<section class="page_title position-relative my-0"
+         style="background-image: url('{{ asset('storage/'.$contact->background_image ?? 'default.jpg') }}'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat;">
+    
     <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
         <h1 class="text-white mb-0">
             <span>
@@ -14,7 +32,6 @@
         </h1>
     </div>
 </section>
-
 <section class="contact_section">
     <div class="container">
         <div class="row mx-0">

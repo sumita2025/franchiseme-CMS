@@ -170,14 +170,27 @@
                     <div class="card-header bg-primary text-white">Strategy Section</div>
                     <div class="card-body">
                         <div class="row g-3">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <label>Image <span class="text-danger">(Image Size (Pixels) - 220 x 130 )</span></label>
+                                <div class="border rounded m-1 p-2 ">
                                 <input type="file" name="strategy_image" class="form-control preview-input" data-preview="#strategy_img_preview">
-                                @if(!empty($home->about_image))
+                                @if(!empty($home->strategy_image))
                                     <img id="strategy_img_preview" src="{{ asset('storage/'.$home->strategy_image) }}" class="img-thumbnail mt-2" style="max-width: 200px;">
                                 @else
                                     <img id="strategy_img_preview" class="img-thumbnail mt-2 d-none" style="max-width: 200px;">
                                 @endif
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label>Image (Arabic) <span class="text-danger">(Image Size (Pixels) - 220 x 130 )</span></label>
+                                <div class="border rounded m-1 p-2 ">
+                                    <input type="file" name="strategy_image_ar" class="form-control preview-input" data-preview="#strategy_img_preview_ar">
+                                    @if(!empty($home->strategy_image_ar))
+                                        <img id="strategy_img_preview_ar" src="{{ asset('storage/'.$home->strategy_image_ar) }}" class="img-thumbnail mt-2" style="max-width: 200px;">
+                                    @else
+                                        <img id="strategy_img_preview_ar" class="img-thumbnail mt-2 d-none" style="max-width: 200px;">
+                                    @endif
+                                </div>
                             </div>
                             @for ($i = 1; $i <= 10; $i++)
                                 <div class="col-12">
@@ -307,7 +320,7 @@
                             <div class="col-12">
                                 <div class="row g-3">
                                     {{-- Members --}}
-                                    @for($i = 1; $i <= 5; $i++)
+                                    @for($i = 1; $i <= 6; $i++)
                                     <div class="col-md-4">
                                         <div class="card">
                                             <div class="card-header">

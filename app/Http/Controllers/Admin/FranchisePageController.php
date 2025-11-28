@@ -21,6 +21,11 @@ class FranchisePageController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->hasFile("background_image")) {
+            $background_image = $request->file("background_image")
+                ->store('uploads/pages/background', 'public');
+        }
+        
         $page = PageFranchise::updateOrCreate(['id' => 1], [
             'title' => $request->title,
             'description' => $request->description,
@@ -30,6 +35,7 @@ class FranchisePageController extends Controller
             'description_ar' => $request->description_ar,
             'brand_title_ar' => $request->brand_title_ar,
             'franchise_title_ar' => $request->franchise_title_ar,
+            'background_image' => $background_image??null,
         ]);
 
         return response()->json(['status' => 'success', 'message' => 'Franchise Page updated successfully!']);

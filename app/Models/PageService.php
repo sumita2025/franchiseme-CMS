@@ -11,6 +11,7 @@ class PageService extends Model
     protected $fillable = [
         'title',
         'title_ar',
+        'background_image',
         'description',
         'description_ar',
         'consultant_title',

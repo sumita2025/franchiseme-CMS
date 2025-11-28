@@ -52,6 +52,16 @@
                                 </li>
 
                                 <li class="nav-item">
+                                    <a class="nav-link text-white {{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">
+                                        @if(app()->getLocale() == 'ar')
+                                            مدونة
+                                        @else
+                                            Blog
+                                        @endif
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
                                     <a class="nav-link text-white {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">
                                         @if(app()->getLocale() == 'ar')
                                             خدماتنا

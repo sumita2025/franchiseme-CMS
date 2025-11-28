@@ -1,0 +1,114 @@
+@extends('layouts.master')
+
+@section('content')
+<div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">{{ isset($blog) ? 'Edit Blog' : 'Add New Blog' }}</h3>
+        <a href="{{ route('admin.blogs.index') }}" class="btn btn-secondary">
+            Back to List
+        </a>
+    </div>
+
+    <form action="{{ isset($blog) ? route('admin.blogs.update', $blog->id) : route('admin.blogs.store') }}" 
+          method="POST" enctype="multipart/form-data">
+        @csrf
+        @if(isset($blog)) @method('PUT') @endif
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-4">
+
+                    <!-- Feature Image -->
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">
+                            Feature Image 
+                            <span class="text-danger">(Recommended Size 800 x 500)</span>
+                        </label>
+                        <input type="file" class="form-control" name="feature_image">
+
+                        @if(!empty($blog->feature_image))
+                            <img src="{{ asset($blog->feature_image) }}" class="img-thumbnail mt-2" width="150">
+                        @endif
+                    </div>
+
+                    <!-- Published At -->
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Publish Date</label>
+                        <input type="date" class="form-control" name="published_at"
+                               value="{{ $blog->published_at ?? '' }}">
+                    </div>
+
+                    <!-- English Content -->
+                    <div class="col-md-6">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <h6 class="text-primary">English Content</h6>
+                                <label class="form-label fw-semibold">Title (English)</label>
+                                <input type="text" class="form-control" name="title"
+                                       placeholder="Enter blog title"
+                                       value="{{ $blog->title ?? '' }}">
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Description (English)</label>
+                                <textarea class="form-control summernote" name="description">
+                                    {{ $blog->description ?? '' }}
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arabic Content -->
+                    <div class="col-md-6">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <h6 class="text-success">Arabic Content</h6>
+                                <label class="form-label fw-semibold">Title (Arabic)</label>
+                                <input type="text" class="form-control" name="title_ar"
+                                       placeholder="Enter Arabic blog title"
+                                       value="{{ $blog->title_ar ?? '' }}">
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Description (Arabic)</label>
+                                <textarea class="form-control summernote" name="description_ar">
+                                    {{ $blog->description_ar ?? '' }}
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-end gap-3">
+            <button type="submit" class="btn btn-success py-2">Save</button>
+            <a href="{{ route('admin.blogs.index') }}" class="btn btn-secondary py-2">
+                Cancel
+            </a>
+        </div>
+
+    </form>
+</div>
+@endsection
+
+
+@section('scripts')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+
+<script>
+    $('.summernote').summernote({
+        height: 120,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline']],
+            ['font', ['fontname', 'fontsize']],
+            ['color', ['forecolor']],
+            ['para', ['paragraph']],
+            ['view', ['fullscreen', 'codeview']]
+        ]
+    });
+</script>
+@endsection

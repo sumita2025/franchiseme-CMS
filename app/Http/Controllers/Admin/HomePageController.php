@@ -54,7 +54,8 @@ class HomePageController extends Controller
             'hero_background_image',
             'about_image',
             'achievement_image',
-            'strategy_image'
+            'strategy_image',
+            'strategy_image_ar'
         ];
 
         for ($i = 1; $i <= 5; $i++) {

@@ -3,12 +3,23 @@
 @section('content')
 <div>
     <!-- <h2 class="mb-4">Contact Page Editor</h2> -->
-    <form id="contactPageForm">
+    <form id="contactPageForm" enctype="multipart/form-data">
         @csrf
         <div class="card mb-3">
             <div class="card-header bg-primary text-white">Contact Section</div>
             <div class="card-body">
                 <div class="row g-4">
+                      <div class="col-12">
+                            <label>Image <span class="text-danger"></span></label>
+                        
+                            <input type="file" name="background_image" class="form-control preview-input" data-preview="#background_image_preview">
+                            @if(!empty($page->background_image))
+                                <img id="background_image_preview" src="{{ asset('storage/'.$page->background_image) }}" class="img-thumbnail mt-2" style="max-width: 200px;">
+                            @else
+                                <img id="background_image_preview" class="img-thumbnail mt-2 d-none" style="max-width: 200px;">
+                            @endif
+                          
+                        </div>
                     <div class="col-md-6">
                         <div class="row g-3">
                             <div class="col-12">

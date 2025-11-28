@@ -109,10 +109,13 @@
                         <div class="col-md-12">
                             <input type="text" class="form-control" placeholder="Country" data-en="Country" data-ar="الدولة">
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <select name="" id="" class="form-control form-select ps-2">
                                 <option value="" data-en="Select Brand" data-ar="اختر العلامة التجارية">Select Brand</option>
                             </select>
+                        </div> --}}
+                         <div class="col-md-6">
+                            <input type="text" class="form-control" value="{{ $franchise->title ?? null }}" data-en="Brand" data-ar="ماركة" readonly>
                         </div>
                         <div class="col-md-6">
                             <input type="text" class="form-control" placeholder="Investment Range" data-en="Investment Range" data-ar="نطاق الاستثمار">

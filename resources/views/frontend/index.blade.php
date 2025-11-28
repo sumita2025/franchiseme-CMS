@@ -41,9 +41,9 @@
                     </div>
                 </a>
             </div>
-            <a href="#about_us" class="scroll_down position-absolute">
+            {{-- <a href="#about_us" class="scroll_down position-absolute">
                 <img src="{{ asset('assets/image/business-rev-scroll.png') }}" alt="" class="img-fluid">
-            </a>
+            </a> --}}
         </div>
     </section>
 </div>
@@ -553,6 +553,26 @@
                                         {!! $content->team_description5_ar ?? '' !!}
                                     @else
                                         {!! $content->team_description5 ?? '' !!}
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+
+                          <li>
+                            <img src="{{ asset('assets/image/master-plan-integrate.png') }}" alt="" class="img-fluid mb-2 team_section_icon">
+                            <h4 class="sub_title mb-2 text-center">
+                                @if(app()->getLocale() == 'ar')
+                                    {!! $content->team_title6_ar ?? '' !!}
+                                @else
+                                    {!! $content->team_title6 ?? '' !!}
+                                @endif
+                            </h4>
+                            <div class="contain black">
+                                <p class="text-center">
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $content->team_description6_ar ?? '' !!}
+                                    @else
+                                        {!! $content->team_description6 ?? '' !!}
                                     @endif
                                 </p>
                             </div>

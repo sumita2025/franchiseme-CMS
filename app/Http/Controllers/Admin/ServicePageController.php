@@ -16,7 +16,13 @@ class ServicePageController extends Controller
 
     public function store(Request $request)
     {
+      
         $data = $request->except('_token');
+
+        if ($request->hasFile("background_image")) {
+            $data["background_image"] = $request->file("background_image")
+                ->store('uploads/pages/background', 'public');
+        }
 
         // Handle image uploads
         for ($i = 1; $i <= 5; $i++) {

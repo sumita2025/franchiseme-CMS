@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\ContactPageController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\Admin\FranchisePageController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\FranchiseController;
 use App\Http\Controllers\Admin\InquiryController;
-
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\ServiceController;
@@ -19,11 +19,14 @@ use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\FranchiseHomeController;
 use App\Http\Controllers\Front\ContactMessageController;
 use App\Http\Controllers\Front\ApplicationFormController;
+use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\LanguageController;
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/index', [HomeController::class, 'home'])->name('index');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
+Route::get('/singleblog/{id}', [BlogController::class, 'singleblog'])->name('singleblog');
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/service', [ServiceController::class, 'service'])->name('service');
 Route::get('/service-detail/{slug}', [ServiceController::class, 'serviceDetail'])->name('service-detail');
@@ -78,5 +81,12 @@ Route::prefix('admin')->group(function () {
         Route::get('contact-inquiries', [InquiryController::class, 'contactInquiry'])->name('admin.inquiries.contact');
         Route::get('service-training-inquiries', [InquiryController::class, 'serviceTrainingInquiry'])->name('admin.inquiries.training');
         Route::get('specific-service-inquiries', [InquiryController::class, 'specificServiceInquiry'])->name('admin.inquiries.specific');
+
+        Route::get('/blogs', [BlogPageController::class, 'index'])->name('admin.blogs.index');
+        Route::get('/blogs/create', [BlogPageController::class, 'create'])->name('admin.blogs.create');
+        Route::post('/blogs/save', [BlogPageController::class, 'store'])->name('admin.blogs.store');
+        Route::get('/blogs/edit/{id}', [BlogPageController::class, 'edit'])->name('admin.blogs.edit');
+        Route::put('/blogs/update/{id}', [BlogPageController::class, 'update'])->name('admin.blogs.update');
+        Route::delete('/blogs/delete/{id}', [BlogPageController::class, 'destroy'])->name('admin.blogs.delete');
     });
 });

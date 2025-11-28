@@ -112,6 +112,12 @@
             <i class="bi bi-question-circle"></i> FAQ Page
         </a>
 
+        <!-- Blog Page -->
+        <a href="{{ route('admin.blogs.index') }}"
+        class="{{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
+            <i class="bi bi-question-circle"></i> Blog Management
+        </a>
+
         <!-- Franchise Section -->
         <div class="d-flex align-items-center justify-content-between sub_menu {{ request()->is('admin/franchises*') || request()->is('admin/brands*') ? 'active-parent' : '' }}">
             <a href="{{ route('admin.franchise.index') }}" class="p-0">
