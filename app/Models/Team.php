@@ -12,6 +12,7 @@ class Team extends Model
         'title',
         'title_ar',
         'description',
-        'description_ar'
+        'description_ar',
+        'image'
     ];
 }

@@ -2,9 +2,9 @@
 
 @section('content')
 <div>
-  
 
-    <form action="{{ isset($team) ? route('admin.teams.update', $team->id) : route('admin.teams.store') }}" 
+
+    <form action="{{ isset($team) ? route('admin.teams.update', $team->id) : route('admin.teams.store') }}"
           method="POST" enctype="multipart/form-data">
         @csrf
         @if(isset($team)) @method('PUT') @endif
@@ -12,6 +12,17 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row g-4">
+
+                     <div class="col-12">
+                        <label>Team Image <span class="text-danger"></span></label>
+                        <input type="file" name="image" class="form-control preview-input" data-preview="#team_image_preview">
+                        @if(!empty($team->image))
+                            <img id="team_image_preview" src="{{ asset($team->image) }}" class="img-thumbnail mt-2" style="max-width: 200px;">
+                        @else
+                            <img id="team_image_preview" class="img-thumbnail mt-2 d-none" style="max-width: 200px;">
+                        @endif
+
+                    </div>
                     <!-- English Content -->
                     <div class="col-md-6">
                         <div class="row g-3">

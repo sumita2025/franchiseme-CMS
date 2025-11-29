@@ -106,7 +106,7 @@
                                                 {!! $content->strategy_title1_ar ?? '' !!}
                                             @else
                                                 {!! $content->strategy_title1 ?? '' !!}
-                                            @endif    
+                                            @endif
                                         </h4>
                                         <div class="contain black">
                                             @if(app()->getLocale() == 'ar')
@@ -279,7 +279,7 @@
                                                 {!! $content->strategy_title8_ar ?? '' !!}
                                             @else
                                                 {!! $content->strategy_title8 ?? '' !!}
-                                            @endif    
+                                            @endif
                                         </h4>
                                         <div class="contain black">
                                             @if(app()->getLocale() == 'ar')
@@ -415,7 +415,7 @@
                             @else
                                 {!! $content->mission_title ?? '' !!}
                             @endif
-                        </h2> 
+                        </h2>
                     </div>
                     <div class="contain black">
                         <p class="mb-0">
@@ -431,15 +431,16 @@
     </div>
 </section>
 
+{{-- Team Section --}}
 <section class="full_section">
     <div class="container-fluid">
         <div class="text-center">
             <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
                 <h2 class="title mb-0">
                     @if(app()->getLocale() == 'ar')
-                        {!! $content->team_title_ar ?? '' !!}
+                        {!! $team_page->title_ar ?? '' !!}
                     @else
-                        {!! $content->team_title ?? '' !!}
+                        {!! $team_page->title ?? '' !!}
                     @endif
                 </h2>
             </div>
@@ -448,16 +449,17 @@
                     <div class="contain black text-center">
                         <p class="mb-0">
                             @if(app()->getLocale() == 'ar')
-                                {!! $content->team_description_ar ?? '' !!}
+                                {!! $team_page->description_ar ?? '' !!}
                             @else
-                                {!! $content->team_description ?? '' !!}
-                            @endif    
+                                {!! $team_page->description ?? '' !!}
+                            @endif
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        
+        {{-- old team section --}}
+    {{--
         <div class="as_section_new mt-5">
             <div class="card as_main_card text-center">
                 <div class="card-body p-0">
@@ -581,6 +583,40 @@
                 </div>
             </div>
         </div>
+    </div>--}}
+
+    <div class="as_section_new mt-5">
+        <div class="card as_main_card text-center">
+            <div class="card-body p-0">
+                <ul id="our_team_slider">
+                    @foreach ($teams as $team)
+                        <li>
+                            <img src="{{ asset($team->image) }}"
+                                alt=""
+                                class="img-fluid mb-2 team_section_icon">
+
+                            <h4 class="sub_title mb-2 text-center">
+                                @if(app()->getLocale() == 'ar')
+                                    {!! $team->title_ar ?? '' !!}
+                                @else
+                                    {!! $team->title ?? '' !!}
+                                @endif
+                            </h4>
+
+                            <div class="contain black">
+                                <p class="text-center">
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $team->description_ar ?? '' !!}
+                                    @else
+                                        {!! $team->description ?? '' !!}
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -618,11 +654,12 @@
     </div>
 </section>
 
-<section class="bg_section section_padding our_achievements">
+{{-- static --}}
+{{-- <section class="bg_section section_padding our_achievements">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-center title_wrap mb-md-4">
-            <h2 class="title mb-0">Our</h2>  
-            <h2 class="title mb-0 yellow">Achievements</h2>  
+            <h2 class="title mb-0">Our</h2>
+            <h2 class="title mb-0 yellow">Achievements</h2>
         </div>
         <div class="contain text-center mx-md-5 mb-5">
             <p>FranchiseME© is the only firm in Saudi Arabia and the Gulf region whose team includes two members certified with the Certified Franchise Executive (CFE) designation, accredited by the International Franchise Association (IFA) — a certification that represents the global standard of excellence in franchise management.</p>
@@ -647,6 +684,69 @@
             </div>
         </div>
     </div>
+</section> --}}
+
+<section class="bg_section section_padding our_achievements">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center title_wrap mb-md-4">
+                @if(app()->getLocale() == 'ar')
+                    {!! $content->achievement_title_ar ?? '' !!}
+                @else
+                    {!! $content->achievement_title ?? '' !!}
+                @endif
+
+        </div>
+        <div class="contain text-center mx-md-5 mb-5">
+                @if(app()->getLocale() == 'ar')
+                    {!! $content->achievement_tag_line_ar ?? '' !!}
+                @else
+                    {!! $content->achievement_tag_line ?? '' !!}
+                @endif
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info mb-2" data-target="{{ $content->achievement_counter_one ?? 11}}">0</h2>
+                <p class="mb-0 sub_title">
+                    @if(app()->getLocale() == 'ar')
+                    {!! $content->achievement_counter_one_ar ?? '' !!}
+                    @else
+                        {!! $content->achievement_counter_one_en ?? '' !!}
+                    @endif
+                </p>
+            </div>
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info mb-2" data-target="{{ $content->achievement_counter_two ?? 300}}">0</h2>
+                <p class="mb-0 sub_title">
+                    @if(app()->getLocale() == 'ar')
+                    {!! $content->achievement_counter_two_ar ?? '' !!}
+                    @else
+                        {!! $content->achievement_counter_two_en ?? '' !!}
+                    @endif
+                </p>
+            </div>
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info mb-2" data-target="{{ $content->achievement_counter_three ?? 50}}">0</h2>
+                <p class="mb-0 sub_title">
+                    @if(app()->getLocale() == 'ar')
+                    {!! $content->achievement_counter_three_ar ?? '' !!}
+                    @else
+                        {!! $content->achievement_counter_three_en ?? '' !!}
+                    @endif
+                </p>
+            </div>
+            <div class="col-xl-3 text-center">
+                <h2 class="counter_info_text mb-2">{{ $content->achievement_counter_four ?? 360}}°</h2>
+                <p class="mb-0 sub_title">
+                    @if(app()->getLocale() == 'ar')
+                    {!! $content->achievement_counter_four_ar ?? '' !!}
+                    @else
+                        {!! $content->achievement_counter_four_en ?? '' !!}
+                    @endif
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="our_franchise bg-transparent text-center mt-0 not_zoom">
@@ -658,7 +758,7 @@
                         {!! $content->client_title_ar ?? '' !!}
                     @else
                         {!! $content->client_title ?? '' !!}
-                    @endif    
+                    @endif
                 </h2>
             </div>
             <div class="row justify-content-center">

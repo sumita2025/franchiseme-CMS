@@ -16,11 +16,11 @@
 </section> --}}
 
 <section class="page_title position-relative my-0"
-         style="background-image: url('{{ asset('storage/'.$content->background_image ?? 'default.jpg') }}'); 
-                background-size: cover; 
-                background-position: center; 
+         style="background-image: url('{{ asset('storage/'.$content->background_image ?? 'default.jpg') }}');
+                background-size: cover;
+                background-position: center;
                 background-repeat: no-repeat;">
-    
+
     <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
         <h1 class="text-white mb-0">
             <span>
@@ -203,9 +203,9 @@
                 @if(app()->getLocale() == 'ar')
                     {!! $brand->franchise_title_ar ?? '' !!}
                 @else
-                    {!! $brand->bfranchise_titlerand_button ?? '' !!}
+                    {!! $brand->franchise_title_ar ?? '' !!}
                 @endif
-            </h2> 
+            </h2>
         </div>
         <div class="row mb-4 opportunities_filter">
             <div class="col-md-4">
@@ -230,6 +230,40 @@
                 </select>
             </div>
         </div>
+        {{-- Static --}}
+        {{-- <div class="row g-4 our_services franchise_listing_section_new">
+            <div class="col-md-4">
+                <div class="card os_item p-0">
+                    <div class="card-body p-3">
+                        <div class="icon rounded-4 position-relative">
+                            <img src="{{asset('/assets/image/blog.jpg')}}" alt="" class="img-fluid w-100">
+                            <div class="contain small fw-semibold text-center mt-2 ms-2 position-absolute top-0 start-0 px-2 py-1 bg-dark rounded-5">
+                                <h6 class="mb-0">sector</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between py-3 my-3 mx-4 investment_level">
+                            <div class="contain black">
+                                <h6 class="mb-0">India</h6>
+                            </div>
+                            <div class="contain black">
+                                <h6 class="mb-0">Investment level - Mid</h6>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="sub_title mb-3" data-en="Lorem ipsum dolor sit amet consectetur adipiscing" data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ">Lorem ipsum dolor sit amet consectetur adipiscing</h4>
+                            <div class="short_dec contain black">
+                                <p data-en="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam." data-ar="لوريم إيبسوم دولار سيت أميت كونسيكتيتور أديبيسكنغ إليت. كوي بلاسيت أوديو بورّو فينيام كوي، إيلو أكوسانتيم أب كيسكوام فيرو إكس نيسيسيتاتيبوس أسبيرناتور أوت إيروم إنسيدنت هيك؟ أركيتكتو تينيتور فيرو كيسكوام.">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat odio porro veniam qui, illo accusantium ab quisquam vero ex necessitatibus aspernatur aut earum incidunt hic? Architecto tenetur vero quisquam.</p>
+                            </div>
+                            <a href="#" class="button button_text mt-2">
+                                <div class="btn_text">
+                                    View Details
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
 
         <div class="row g-4 our_services franchise_listing_section_new">
               @foreach($franchises as $franchise)
@@ -263,7 +297,7 @@
                                     </h6>
                                 </div>
                                 <div class="contain black">
-                                    <h6 class="mb-0"> 
+                                    <h6 class="mb-0">
                                         @if(app()->getLocale() == 'ar')
                                                 {!! $franchise->investment_level_ar ?? '' !!}
                                         @else
@@ -294,6 +328,8 @@
                 </div>
              @endforeach
         </div>
+
+
 
     </div>
 </section>

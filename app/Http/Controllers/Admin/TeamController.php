@@ -12,14 +12,14 @@ use App\Models\TeamPage;
 
 class TeamController extends Controller
 {
-    /** 
-     * Display list of blogs 
+    /**
+     * Display list of blogs
      */
     public function index()
     {
         $teams = Team::get();
         $team_page = TeamPage::first();
-        return view('pages.team.index', compact('teams','team_page'));
+        return view('pages.team.index', compact('teams', 'team_page'));
     }
 
     public function create()
@@ -27,8 +27,8 @@ class TeamController extends Controller
         return view('pages.team.create');
     }
 
-    /** 
-     * Store new blog 
+    /**
+     * Store new blog
      */
     public function store(Request $request)
     {
@@ -37,21 +37,29 @@ class TeamController extends Controller
             'title_ar'          => 'nullable|string|max:255',
             'description'       => 'nullable|string',
             'description_ar'    => 'nullable|string'
-          
+
         ]);
 
+
+         if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/team'), $filename);
+            $validated['image'] = 'uploads/team/' . $filename;
+        }
+        
         Team::create($validated);
 
         return redirect()->route('admin.teams.index')->with('success', 'Team saved successfully.');
     }
 
-    /** 
+    /**
      * Show single blog
      */
     public function edit($id)
     {
         $team = Team::findOrFail($id);
-        return view('pages.team.create',compact('team'));
+        return view('pages.team.create', compact('team'));
     }
 
     /**
@@ -68,14 +76,21 @@ class TeamController extends Controller
             'description_ar'    => 'nullable|string'
         ]);
 
+         if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/team'), $filename);
+            $validated['image'] = 'uploads/team/' . $filename;
+        }
+
 
         $team->update($validated);
 
-        return redirect()->route('admin.home.index')->with('success', 'Team updated successfully.');
+         return redirect()->route('admin.teams.index')->with('success', 'Team updated successfully.');
     }
 
     /**
-     * Delete blog 
+     * Delete blog
      */
     public function destroy($id)
     {
@@ -98,6 +113,4 @@ class TeamController extends Controller
 
         return back()->with('success', 'Team Page Updated Successfully!');
     }
-
-    
 }

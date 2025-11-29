@@ -38,10 +38,10 @@
                                         </div>
                                     </div>
                                 </div>
-                        
+
                             </div>
                         </div>
-                        
+
                     <div class="d-flex justify-content-end m-2">
                         <button class="btn btn-success py-2">Save </button>
                     </div>
@@ -60,6 +60,7 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
+                            <th>Image</th>
                             <th>Title Ar</th>
                             <th>Actions</th>
                         </tr>
@@ -68,7 +69,7 @@
                         @foreach ($teams as $i => $team)
                             <tr>
                                 <td>{{ $i + 1 }}</td>
-                                {{-- <td><img src="{{ asset($blog->feature_image) }}" width="80"></td> --}}
+                                <td><img src="{{ asset($team->image) }}" width="80"></td>
                                 <td>{{ $team->title }}</td>
                                 <td>{{ $team->title_ar }}</td>
 

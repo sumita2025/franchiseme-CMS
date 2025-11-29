@@ -56,7 +56,8 @@
                                     <input type="file" name="hero_background_image" class="form-control preview-input"
                                         data-preview="#hero_bg_preview">
                                     @if (!empty($home->hero_background_image))
-                                        <img id="hero_bg_preview" src="{{ asset('storage/' . $home->hero_background_image) }}"
+                                        <img id="hero_bg_preview"
+                                            src="{{ asset('storage/' . $home->hero_background_image) }}"
                                             class="img-thumbnail mt-2" style="max-width: 200px;">
                                     @else
                                         <img id="hero_bg_preview" class="img-thumbnail mt-2 d-none"
@@ -376,13 +377,13 @@
                                                                 style="max-width: 200px;">
                                                         @endif
 
-                                                      
+
                                                         <input type="text" name="team_title{{ $i }}"
                                                             value="{{ $home->{'team_title' . $i} ?? '' }}"
                                                             class="form-control mt-3 mb-2" placeholder="Title (English)">
                                                         <textarea name="team_description{{ $i }}" class="form-control mb-3" placeholder="Description (English)">{!! $home->{'team_description' . $i} ?? '' !!}</textarea>
 
-                                                     
+
                                                         <input type="text" name="team_title{{ $i }}_ar"
                                                             value="{{ $home->{'team_title' . $i . '_ar'} ?? '' }}"
                                                             class="form-control mb-2" placeholder="Title (Arabic)">
@@ -404,8 +405,23 @@
                         <div class="card-header bg-primary text-white">Achievement Section</div>
                         <div class="card-body">
                             <div class="row g-4">
+                                <div class="col-12">
+                                    <label>Achievement Image <span class="text-danger">(Image Size (Pixels) - 200 x
+                                            60)</span></label>
+                                    <input type="file" name="achievement_image" class="form-control preview-input"
+                                        data-preview="#ach_img_preview">
+                                    @if (!empty($home->achievement_image))
+                                        <img id="ach_img_preview"
+                                            src="{{ asset('storage/' . $home->achievement_image) }}"
+                                            class="img-thumbnail mt-2" style="max-width: 200px;">
+                                    @else
+                                        <img id="ach_img_preview" class="img-thumbnail mt-2 d-none"
+                                            style="max-width: 200px;">
+                                    @endif
+                                </div>
                                 <div class="col-md-6">
                                     <div class="row g-3">
+
                                         <div class="col-12">
                                             {{-- English --}}
                                             <h6 class="text-primary">English Content</h6>
@@ -434,114 +450,160 @@
                                             <label>Subtitle</label>
                                             <textarea name="achievement_tag_line_ar" class="form-control summernote">{!! $home->achievement_tag_line_ar ?? '' !!}</textarea>
                                         </div>
-                                        {{-- <div class="col-12">
+                                        <div class="col-12">
+                                            {{-- <label>Counter 1</label>
+                                            <input name="counter_one" class="form-control summernote" value="{{  $home->counter_one}}">
+                                        </div> --}}
+                                            {{-- <div class="col-12">
                                         <label>Description</label>
                                         <textarea name="achievement_description_ar" class="form-control summernote">{!! $home->achievement_description_ar ?? '' !!}</textarea>
                                     </div> --}}
-                                        {{-- <div class="col-12">
-                                        <label>Counter Numbers</label>
-                                            <input name="counter_number" class="form-control" value="{{  $home->counter}}">
-                                        </div>
+                                            {{--
                                     </div>
                                     <div class="col-12">
                                         <label>Counter Text</label>
                                         <textarea name="achievement_description_ar" class="form-control summernote">{!! $home->achievement_description_ar ?? '' !!}</textarea>
                                         </div>
                                     </div> --}}
+                                        </div>
+
                                     </div>
-                                    <div class="col-12">
-                                        <label>Achievement Image <span class="text-danger">(Image Size (Pixels) - 200 x 60
-                                                )</span></label>
-                                        <input type="file" name="achievement_image" class="form-control preview-input"
-                                            data-preview="#ach_img_preview">
-                                        @if (!empty($home->achievement_image))
-                                            <img id="ach_img_preview"
-                                                src="{{ asset('storage/' . $home->achievement_image) }}"
-                                                class="img-thumbnail mt-2" style="max-width: 200px;">
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                        <div class="card mb-3">
+                            <div class="card-header bg-primary text-white">Counters Section</div>
+                            <div class="card-body">
+                                <div class="row g-4">
+                                        <div class="col-4">
+                                                <label>Counter One</label>
+                                                 <textarea name="achievement_counter_one" class="form-control summernote">{!! $home->achievement_counter_one ?? '' !!}</textarea>
+
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter One Text (English)</label>
+                                               <textarea name="achievement_counter_one_en" class="form-control summernote"> {!!  $home->achievement_counter_one_en?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter One Text (Arabic)</label>
+                                               <textarea name="achievement_counter_one_ar" class="form-control summernote"> {!!  $home->achievement_counter_one_ar?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Two</label>
+                                               <textarea name="achievement_counter_two" class="form-control summernote"> {!!  $home->achievement_counter_two?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Two Text (English)</label>
+                                               <textarea name="achievement_counter_two_en" class="form-control summernote"> {!!  $home->achievement_counter_two_en?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Two Text (Arabic)</label>
+                                               <textarea name="achievement_counter_two_ar" class="form-control summernote"> {!!  $home->achievement_counter_two_ar?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Three</label>
+                                               <textarea name="achievement_counter_three" class="form-control summernote"> {!!  $home->achievement_counter_three?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Three Text (English)</label>
+                                               <textarea name="achievement_counter_three_en" class="form-control summernote"> {!!  $home->achievement_counter_three_en?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Three Text (Arabic)</label>
+                                               <textarea name="achievement_counter_three_ar" class="form-control summernote"> {!!  $home->achievement_counter_three_ar?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Four</label>
+                                               <textarea name="achievement_counter_four" class="form-control summernote"> {!!  $home->achievement_counter_four?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Four Text (English)</label>
+                                               <textarea name="achievement_counter_four_en" class="form-control summernote"> {!!  $home->achievement_counter_four_en?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-4">
+                                                <label>Counter Four Text (Arabic)</label>
+                                               <textarea name="achievement_counter_four_ar" class="form-control summernote"> {!!  $home->achievement_counter_four_ar?? '' !!}</textarea>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+                <div class="tab-pane" id="tab_client_section">
+                    {{-- CLIENT SECTION --}}
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">Client Section</div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            {{-- English --}}
+                                            <h6 class="text-primary">English Content</h6>
+                                            <label>Title</label>
+                                            <textarea name="client_title" class="form-control summernote">{!! $home->client_title ?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Description</label>
+                                            <textarea name="client_description" class="form-control summernote">{!! $home->client_description ?? '' !!}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            {{-- Arabic --}}
+                                            <h6 class="text-success">Arabic Content</h6>
+                                            <label>Title</label>
+                                            <textarea name="client_title_ar" class="form-control summernote">{!! $home->client_title_ar ?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Description</label>
+                                            <textarea name="client_description_ar" class="form-control summernote">{!! $home->client_description_ar ?? '' !!}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <h6 class="fw-bold mb-0">Client Logos</h6>
+                                            <label class="mb-0"><span class="text-danger">(Image Size (Pixels) - 240
+                                                    x 96 )</span></label>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-success" id="addLogoBtn">
+                                            Add Logo
+                                        </button>
+                                    </div>
+
+                                    <div id="clientLogosContainer" class="row g-3">
+                                        @if (isset($clientImages) && $clientImages->count() > 0)
+                                            @foreach ($clientImages as $client)
+                                                <div class="col-md-3 logo-item" data-id="{{ $client->id }}">
+                                                    <div class="position-relative">
+                                                        <img src="{{ asset('storage/' . $client->logo_path) }}"
+                                                            class="img-thumbnail w-100 logo-preview"
+                                                            style="max-height:150px;">
+                                                        <button type="button"
+                                                            class="btn btn-danger btn-sm position-absolute top-0 end-0 mt-1 me-1 remove-logo-btn delete_btn">
+                                                            <img src="{{ asset('/assets/admin/image/delete-w.png') }}"
+                                                                alt="" width="20px">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         @else
-                                            <img id="ach_img_preview" class="img-thumbnail mt-2 d-none"
-                                                style="max-width: 200px;">
+                                            <div class="col-12 text-muted text-center">
+                                                <em>No client logos uploaded yet.</em>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                  
                 </div>
-                  <div class="tab-pane" id="tab_client_section">
-                        {{-- CLIENT SECTION --}}
-                        <div class="card mb-3">
-                            <div class="card-header bg-primary text-white">Client Section</div>
-                            <div class="card-body">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="row g-3">
-                                            <div class="col-12">
-                                                {{-- English --}}
-                                                <h6 class="text-primary">English Content</h6>
-                                                <label>Title</label>
-                                                <textarea name="client_title" class="form-control summernote">{!! $home->client_title ?? '' !!}</textarea>
-                                            </div>
-                                            <div class="col-12">
-                                                <label>Description</label>
-                                                <textarea name="client_description" class="form-control summernote">{!! $home->client_description ?? '' !!}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="row g-3">
-                                            <div class="col-12">
-                                                {{-- Arabic --}}
-                                                <h6 class="text-success">Arabic Content</h6>
-                                                <label>Title</label>
-                                                <textarea name="client_title_ar" class="form-control summernote">{!! $home->client_title_ar ?? '' !!}</textarea>
-                                            </div>
-                                            <div class="col-12">
-                                                <label>Description</label>
-                                                <textarea name="client_description_ar" class="form-control summernote">{!! $home->client_description_ar ?? '' !!}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 mt-4">
-                                        <div class="d-flex justify-content-between align-items-center mb-3">
-                                            <div>
-                                                <h6 class="fw-bold mb-0">Client Logos</h6>
-                                                <label class="mb-0"><span class="text-danger">(Image Size (Pixels) - 240
-                                                        x 96 )</span></label>
-                                            </div>
-                                            <button type="button" class="btn btn-sm btn-success" id="addLogoBtn">
-                                                Add Logo
-                                            </button>
-                                        </div>
-
-                                        <div id="clientLogosContainer" class="row g-3">
-                                            @if (isset($clientImages) && $clientImages->count() > 0)
-                                                @foreach ($clientImages as $client)
-                                                    <div class="col-md-3 logo-item" data-id="{{ $client->id }}">
-                                                        <div class="position-relative">
-                                                            <img src="{{ asset('storage/' . $client->logo_path) }}"
-                                                                class="img-thumbnail w-100 logo-preview"
-                                                                style="max-height:150px;">
-                                                            <button type="button"
-                                                                class="btn btn-danger btn-sm position-absolute top-0 end-0 mt-1 me-1 remove-logo-btn delete_btn">
-                                                                <img src="{{ asset('/assets/admin/image/delete-w.png') }}"
-                                                                    alt="" width="20px">
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            @else
-                                                <div class="col-12 text-muted text-center">
-                                                    <em>No client logos uploaded yet.</em>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-success py-2">Save All Sections</button>
                 </div>
@@ -645,16 +707,17 @@
                                     closeButton: true,
                                     progressBar: true,
                                     positionClass: "toast-top-right",
-                                    timeOut: "1000" 
+                                    timeOut: "1000"
                                 });
 
                             } else {
                                 // alert('Something went wrong. Please try again.');
-                                  toastr.error('Something went wrong. Please try again.', "Error", {
+                                toastr.error('Something went wrong. Please try again.',
+                                "Error", {
                                     closeButton: true,
                                     progressBar: true,
                                     positionClass: "toast-top-right",
-                                    timeOut: "2000" 
+                                    timeOut: "2000"
                                 });
                             }
                         },

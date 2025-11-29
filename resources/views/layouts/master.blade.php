@@ -16,9 +16,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    
+
     <link href="{{asset('/assets/admin/css/custom.css')}}" rel="stylesheet">
-    
+
     <!-- Toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
@@ -104,10 +104,10 @@
         </a>
         <div class="collapse {{ request()->is('admin/home') || request()->is('admin/teams')  ? 'show' : '' }}" id="home_tab">
             <a href="{{ route('admin.home.index') }}" class="{{ request()->is('admin.home*') ? 'active' : '' }}">
-                <i class="bi bi-gear"></i> General 
+                <i class="bi bi-gear"></i> General
             </a>
             <a href="{{ route('admin.teams.index') }}" class="{{ request()->is('admin/teams*') ? 'active' : '' }}">
-                <i class="bi bi-people"></i> Teams 
+                <i class="bi bi-people"></i> Teams
             </a>
         </div>
 
@@ -123,7 +123,7 @@
         </a>
         <div class="collapse {{ request()->is('admin/service') || request()->is('admin/service')  ? 'show' : '' }}" id="service_page_tab">
             <a href="{{ route('admin.service.index') }}" class="{{ request()->is('admin.service*') ? 'active' : '' }}">
-                <i class="bi bi-gear"></i> General 
+                <i class="bi bi-gear"></i> General
             </a>
             <a href="{{ route('admin.services.index') }}" class="{{ request()->is('admin/services*') ? 'active' : '' }}">
                 <i class="bi bi-box-seam"></i> Packages
@@ -274,7 +274,7 @@
             height: 120,
             fontSizes: ['8', '10', '12', '14', '16', '18', '20', '22', '24', '28', '32', '36', '68'],
              // Add custom font to dropdown
-            fontNames: [
+           fontNames: [
                 'Arial',
                 'Arial Black',
                 'Comic Sans MS',
@@ -284,8 +284,45 @@
                 'Tahoma',
                 'Times New Roman',
                 'Verdana',
-                'DINNextLTArabic-Regular' // <--- custom font
+
+                // Popular Modern Fonts
+                'Poppins',
+                'Roboto',
+                'Open Sans',
+                'Lato',
+                'Montserrat',
+                'Nunito',
+                'Source Sans Pro',
+
+                // Serif Fonts
+                'Georgia',
+                'Garamond',
+                'Palatino Linotype',
+                'Book Antiqua',
+                'Times',
+
+                // Display / Decorative
+                'Oswald',
+                'Raleway',
+                'Playfair Display',
+                'Merriweather',
+
+                // Handwriting / Script
+                'Pacifico',
+                'Dancing Script',
+                'Great Vibes',
+
+                // Arabic-friendly fonts
+                'Amiri',
+                'Cairo',
+                'Changa',
+                'El Messiri',
+                'Tajawal',
+
+                // Your custom font
+                'DINNextLTArabic-Regular'
             ],
+
 
             // Summernote will not check if this font exists — it will show it
             fontNamesIgnoreCheck: ['DINNextLTArabic-Regular'],
@@ -295,6 +332,15 @@
                 ['color', ['forecolor']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['view', ['codeview']]
+            ],
+             styleTags: [
+                'p',
+                { title: 'Heading 1', tag: 'h1', className: 'h1', value: 'h1' },
+                { title: 'Heading 2', tag: 'h2', className: 'h2', value: 'h2' },
+                { title: 'Heading 3', tag: 'h3', className: 'h3', value: 'h3' },
+                { title: 'Heading 4', tag: 'h4', className: 'h4', value: 'h4' },
+                { title: 'Heading 5', tag: 'h5', className: 'h5', value: 'h5' },
+                { title: 'Heading 6', tag: 'h6', className: 'h6', value: 'h6' }
             ]
             // ,
             // callbacks: {
