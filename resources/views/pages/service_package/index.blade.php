@@ -6,7 +6,7 @@
         <form action="{{ route('admin.services.service_page_store') }}" method="POST" enctype="multipart/form-data">
             @csrf
               <div class="card mb-3">
-                    <div class="card-header bg-primary text-white">Service Section</div>
+                    <div class="card-header bg-primary text-white">Package Section</div>
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-md-6">
@@ -37,10 +37,10 @@
                                         </div>
                                     </div>
                                 </div>
-                        
+
                             </div>
                         </div>
-                        
+
                     <div class="d-flex justify-content-end m-2">
                         <button class="btn btn-success py-2">Save </button>
                     </div>

@@ -16,11 +16,11 @@
 </section> --}}
 
 <section class="page_title position-relative my-0"
-         style="background-image: url('{{ asset('storage/'.$service->background_image ?? 'default.jpg') }}'); 
-                background-size: cover; 
-                background-position: center; 
+         style="background-image: url('{{ asset('storage/'.$service->background_image ?? 'default.jpg') }}');
+                background-size: cover;
+                background-position: center;
                 background-repeat: no-repeat;">
-    
+
     <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
         <h1 class="text-white mb-0">
             <span>
@@ -114,7 +114,8 @@
                 </div>
             </div>
         </div>
-        <div class="our_services">
+        {{-- old service packages --}}
+        {{-- <div class="our_services">
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4">
                     <div class="card os_item h-100">
@@ -252,7 +253,53 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
+
+        <div class="our_services">
+            <div class="row g-4 justify-content-center">
+
+                @foreach($service_packages as $package)
+                    <div class="col-lg-4">
+                        <div class="card os_item h-100">
+
+                            {{-- IMAGE --}}
+                            <div class="d-flex align-items-center justify-content-center image_part">
+                                <img src="{{ asset($package->image) }}" class="img-fluid" alt="Service Image">
+                            </div>
+
+                            <div class="d-flex flex-column h-100 justify-content-between">
+                                <div class="text-center">
+
+                                    {{-- TITLE --}}
+                                    <h4 class="sub_title mb-3">
+                                        @if(app()->getLocale() == 'ar')
+                                            {!! $package['title_ar'] ?? '' !!}
+                                        @else
+                                            {!! $package['title'] ?? '' !!}
+                                        @endif
+                                    </h4>
+
+                                    {{-- DESCRIPTION --}}
+                                    <div class="contain black">
+                                        <p class="mb-0">
+                                            @if(app()->getLocale() == 'ar')
+                                                {!! $package['description_ar'] ?? '' !!}
+                                            @else
+                                                {!! $package['description'] ?? '' !!}
+                                            @endif
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
         </div>
+
     </div>
 </section>
 
@@ -298,7 +345,7 @@
         <div class="row mx-0">
             <div class="col-xl-6 px-0">
                 <!-- <form action="">
-                    <div class="row g-4"> 
+                    <div class="row g-4">
                         <div class="col-md-12">
                             <input type="text" class="form-control" placeholder="Full Name *" data-en="Full Name *" data-ar="الاسم الكامل *" required>
                         </div>
@@ -374,12 +421,12 @@
             <button type="button" class="btn-close position-absolute top-0 end-0 me-4 mt-4 z-1" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="modal-body px-md-5 py-md-5">
                 <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
-                    <h2 class="title mb-0">Application</h2>  
-                    <h2 class="title mb-0 yellow">Form</h2>  
+                    <h2 class="title mb-0">Application</h2>
+                    <h2 class="title mb-0 yellow">Form</h2>
                 </div>
                 <div class="contact_section">
                     <form action="">
-                        <div class="row g-4"> 
+                        <div class="row g-4">
                             <div class="col-md-12">
                                 <input type="text" class="form-control" placeholder="Full Name *" data-en="Full Name *" data-ar="الاسم الكامل *" required>
                             </div>

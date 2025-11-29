@@ -11,8 +11,8 @@ use App\Models\Team;
 
 class ServicePackageController extends Controller
 {
-    /** 
-     * Display list of blogs 
+    /**
+     * Display list of blogs
      */
     public function index()
     {
@@ -26,8 +26,8 @@ class ServicePackageController extends Controller
         return view('pages.service_package.create');
     }
 
-    /** 
-     * Store new blog 
+    /**
+     * Store new blog
      */
     public function store(Request $request)
     {
@@ -40,9 +40,11 @@ class ServicePackageController extends Controller
 
         ]);
 
-        if ($request->hasFile("image")) {
-            $validated['image'] = $request->file("image")
-                ->store('uploads/service_package/', 'public');
+         if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/service_package'), $filename);
+            $validated['image'] = 'uploads/service_package/' . $filename;
         }
 
         ServicePackage::create($validated);
@@ -50,7 +52,7 @@ class ServicePackageController extends Controller
         return redirect()->route('admin.services.index')->with('success', 'Service saved successfully.');
     }
 
-    /** 
+    /**
      * Show single blog
      */
     public function edit($id)
@@ -89,7 +91,7 @@ class ServicePackageController extends Controller
     }
 
     /**
-     * Delete blog 
+     * Delete blog
      */
     public function destroy($id)
     {
