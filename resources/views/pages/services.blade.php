@@ -101,14 +101,14 @@
                                         <label>Consultant Description (English)</label>
                                         <input type="text" name="consultant_description" value="{{ $service->consultant_description ?? '' }}" class="form-control">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label>Button Text (English)</label>
                                         <input type="text" name="button_text" value="{{ $service->button_text ?? '' }}" class="form-control">
                                     </div>
-                                    <div class="col-6">
+                                    {{-- <div class="col-6">
                                         <label>Button URL (English)</label>
                                         <input type="text" name="button_url" value="{{ $service->button_url ?? '' }}" class="form-control">
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -122,14 +122,14 @@
                                         <label>Consultant Description (Arabic)</label>
                                         <input type="text" name="consultant_description_ar" value="{{ $service->consultant_description_ar ?? '' }}" class="form-control">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <label>Button Text (Arabic)</label>
                                         <input type="text" name="button_text_ar" value="{{ $service->button_text_ar ?? '' }}" class="form-control">
                                     </div>
-                                    <div class="col-6">
+                                    {{-- <div class="col-6">
                                         <label>Button URL (Arabic)</label>
                                         <input type="text" name="button_url_ar" value="{{ $service->button_url_ar ?? '' }}" class="form-control">
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -235,10 +235,10 @@
                                         <label>Button Text (English)</label>
                                         <input type="text" name="package_button_text" value="{{ $service->package_button_text ?? '' }}" class="form-control">
                                     </div>
-                                    <div class="col-12">
+                                    {{-- <div class="col-12">
                                         <label>Button URL (English)</label>
                                         <input type="text" name="package_button_url" value="{{ $service->package_button_url ?? '' }}" class="form-control">
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -246,16 +246,16 @@
                                     <div class="col-12">
                                         <h6 class="text-success">Arabic Content</h6>
                                         <label>Package Title (Arabic)</label>
-                                        <input type="text" name="package_title_ar" value="{{ $service->package_title ?? '' }}" class="form-control">
+                                        <input type="text" name="package_title_ar" value="{{ $service->package_title_ar ?? '' }}" class="form-control">
                                     </div>
                                     <div class="col-12">
                                         <label>Button Text (Arabic)</label>
-                                        <input type="text" name="package_button_text_ar" value="{{ $service->package_button_text ?? '' }}" class="form-control">
+                                        <input type="text" name="package_button_text_ar" value="{{ $service->package_button_text_ar ?? '' }}" class="form-control">
                                     </div>
-                                    <div class="col-12">
+                                    {{-- <div class="col-12">
                                         <label>Button URL (Arabic)</label>
-                                        <input type="text" name="package_button_url_ar" value="{{ $service->package_button_url ?? '' }}" class="form-control">
-                                    </div>
+                                        <input type="text" name="package_button_url_ar" value="{{ $service->package_button_url_ar ?? '' }}" class="form-control">
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -290,6 +290,10 @@
                                         <label>Service Description (English)</label>
                                         <textarea name="service_description" class="form-control summernote">{!! $service->service_description ?? '' !!}</textarea>
                                     </div>
+                                    <div class="col-12">
+                                        <label>Button Text (Arabic)</label>
+                                        <input name="service_button_text" class="form-control" value="{{ $service->service_button_text }}">
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -297,11 +301,15 @@
                                     <div class="col-12">
                                         <h6 class="text-success">Arabic Content</h6>
                                         <label>Service Title (Arabic)</label>
-                                        <textarea name="service_title_ar" class="form-control summernote">{!! $service->service_title ?? '' !!}</textarea>
+                                        <textarea name="service_title_ar" class="form-control summernote">{!! $service->service_title_ar ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Service Description (Arabic)</label>
-                                        <textarea name="service_description_ar" class="form-control summernote">{!! $service->service_description ?? '' !!}</textarea>
+                                        <textarea name="service_description_ar" class="form-control summernote">{!! $service->service_description_ar ?? '' !!}</textarea>
+                                    </div>
+                                     <div class="col-12">
+                                        <label>Button Text (Arabic)</label>
+                                        <input name="service_button_text_ar" class="form-control" value="{{ $service->service_button_text_ar }}">
                                     </div>
                                 </div>
                             </div>

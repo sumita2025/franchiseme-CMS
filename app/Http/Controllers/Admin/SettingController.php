@@ -4,81 +4,164 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\PageHome;
-use App\Models\HomeClientLogo;
-use App\Models\Team;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Setting;
+use Illuminate\Support\Str;
 
 class SettingController extends Controller
 {
     public function index()
     {
-        $home = PageHome::first();
-        $clientImages = HomeClientLogo::all();
-        $teams = Team::get();
-        return view('pages.setting.index', compact('home', 'clientImages','teams'));
-    }
 
+        // Site SETTINGS
+        $headerLogo = Setting::where('key', 'header_logo')->value('value');
+        $footerLogo = Setting::where('key', 'footer_logo')->value('value');
+
+        $headerLogoAr = Setting::where('key', 'header_logo_ar')->value('value');
+        $footerLogoAr = Setting::where('key', 'footer_logo_ar')->value('value');
+
+        $faviconLogo =  Setting::where('key', 'favicon_logo')->value('value');
+        $faviconLogoAr =  Setting::where('key', 'favicon_logo_ar')->value('value');
+
+        $title =  Setting::where('key', 'title')->value('value');
+        $title_ar =  Setting::where('key', 'title_ar')->value('value');
+        $copy_right_text =  Setting::where('key', 'copy_right_text')->value('value');
+        $copy_right_text_ar =  Setting::where('key', 'copy_right_text_ar')->value('value');
+
+
+
+        // EMAIL SETTINGS
+        $emailSettings = Setting::whereIn('key', [
+            'mail_driver',
+            'mail_host',
+            'mail_port',
+            'mail_username',
+            'mail_password',
+            'mail_encryption',
+            'mail_from_address',
+            'mail_from_name'
+        ])->pluck('value', 'key');
+
+        // Assign email values
+        $mail_driver       = $emailSettings['mail_driver'] ?? '';
+        $mail_host         = $emailSettings['mail_host'] ?? '';
+        $mail_port         = $emailSettings['mail_port'] ?? '';
+        $mail_username     = $emailSettings['mail_username'] ?? '';
+        $mail_password     = $emailSettings['mail_password'] ?? '';
+        $mail_encryption   = $emailSettings['mail_encryption'] ?? '';
+        $mail_from_address = $emailSettings['mail_from_address'] ?? '';
+        $mail_from_name    = $emailSettings['mail_from_name'] ?? '';
+
+        return view('pages.setting.index', compact('headerLogo', 'headerLogoAr', 'footerLogo', 'footerLogoAr', 'title', 'title_ar', 'faviconLogo', 'faviconLogoAr', 'mail_driver', 'mail_host', 'mail_port', 'mail_username', 'mail_password', 'mail_encryption', 'mail_from_address', 'mail_from_name','copy_right_text','copy_right_text_ar'));
+    }
 
     public function save(Request $request)
     {
-        $data = $request->except(['_token', 'client_logo_image']);
+        // Validate fields (optional)
+        $request->validate([
+            'mail_driver' => 'nullable',
+            'mail_host' => 'nullable',
+            'mail_port' => 'nullable',
+            'mail_username' => 'nullable',
+            'mail_password' => 'nullable',
+            'mail_encryption' => 'nullable',
+            'mail_from_address' => 'nullable|email',
+            'mail_from_name' => 'nullable',
 
-        // handle static image uploads
-        $uploadFields = [
-            'hero_background_image',
-            'about_image',
-            'achievement_image',
-            'strategy_image',
-            'strategy_image_ar'
+            'header_logo' => 'nullable|image',
+            'footer_logo' => 'nullable|image',
+            'favicon_logo' => 'nullable|image',
+
+            'header_logo_ar' => 'nullable|image',
+            'footer_logo_ar' => 'nullable|image',
+            'favicon_logo_ar' => 'nullable|image',
+        ]);
+
+
+        foreach ($request->except(['_token', 'header_logo', 'footer_logo', 'favicon_logo', 'header_logo_ar', 'footer_logo_ar', 'favicon_logo_ar']) as $key => $value) {
+            Setting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        }
+
+        /* -------------------------------------------
+        SAVE LOGO UPLOADS
+    -------------------------------------------- */
+        $imageFields = [
+            'header_logo',
+            'footer_logo',
+            'favicon_logo',
+            'header_logo_ar',
+            'footer_logo_ar',
+            'favicon_logo_ar',
         ];
 
-        for ($i = 1; $i <= 5; $i++) {
-            $uploadFields[] = "team_image{$i}";
-        }
+        foreach ($imageFields as $imgField) {
 
-        foreach ($uploadFields as $field) {
-            if ($request->hasFile($field)) {
-                $data[$field] = $request->file($field)->store('uploads/home', 'public');
+            if ($request->hasFile($imgField)) {
+
+                $file = $request->file($imgField);
+
+                // Generate unique filename with UUID + original extension
+                $filename = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
+
+                $file->move(public_path('uploads/settings'), $filename);
+
+                $path = 'uploads/settings/' . $filename;
+
+                Setting::updateOrCreate(
+                    ['key' => $imgField],
+                    ['value' => $path]
+                );
             }
         }
 
-        // Save or update home page data
-        $home = PageHome::updateOrCreate(['id' => 1], $data);
+        $mailSettings = $request->only([
+            'mail_driver',
+            'mail_host',
+            'mail_port',
+            'mail_username',
+            'mail_password',
+            'mail_encryption',
+            'mail_from_address',
+            'mail_from_name',
+        ]);
 
-        /** -----------------------------------
-         *  Handle Dynamic Client Logos
-         * ----------------------------------*/
-        if ($request->hasFile('client_logo_image')) {
-            foreach ($request->file('client_logo_image') as $file) {
-                if ($file->isValid()) {
-                    $path = $file->store('uploads/home/client_logos', 'public');
+        $this->setEnvValue($mailSettings);
 
-                    HomeClientLogo::create([
-                        'page_home_id' => $home->id,
-                        'logo_path' => $path,
-                    ]);
-                }
-            }
-        }
 
-        return back()->with('success', 'Homepage content and client logos saved successfully!');
+        return redirect()->back()->with('success', 'Email Settings Updated Successfully');
     }
 
-    public function destroy($id)
+
+    protected function setEnvValue(array $values)
     {
-        $clientImage = HomeClientLogo::find($id);
+        $envPath = base_path('.env');
 
-        if (!$clientImage) {
-            return response()->json(['success' => false, 'message' => 'Logo not found']);
+        if (!file_exists($envPath)) {
+            return false;
         }
 
-        if ($clientImage->logo_path && Storage::disk('public')->exists($clientImage->logo_path)) {
-            Storage::disk('public')->delete($clientImage->logo_path);
+        $envContent = file_get_contents($envPath);
+
+        foreach ($values as $key => $value) {
+            $pattern = "/^{$key}=.*/m";
+            $replacement = "{$key}={$value}";
+
+            if (preg_match($pattern, $envContent)) {
+                // Replace existing key
+                $envContent = preg_replace($pattern, $replacement, $envContent);
+            } else {
+                // Add new key
+                $envContent .= PHP_EOL . $replacement;
+            }
         }
 
-        $clientImage->delete();
+        file_put_contents($envPath, $envContent);
 
-        return response()->json(['success' => true, 'message' => 'Logo deleted successfully']);
+        return true;
     }
+
+
+
 }

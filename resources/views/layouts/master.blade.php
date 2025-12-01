@@ -185,19 +185,23 @@
         </div>
 
         <!-- Inquiry Section -->
-        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#inquiry_tab" aria-expanded="{{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/specific-service-inquiries') ? 'true' : 'false' }}">
+        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#inquiry_tab" aria-expanded="{{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/consultation-inquiries')  ||request()->is('admin/specific-service-inquiries') ? 'true' : 'false' }}">
             <i class="bi bi-chat-square-text"></i> Inquiry
             <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
-        <div class="collapse {{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/specific-service-inquiries') ? 'show' : '' }}" id="inquiry_tab">
+        <div class="collapse {{ request()->is('admin/consultation-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/specific-service-inquiries') ? 'show' : '' }}" id="inquiry_tab">
+            
             <a href="{{ route('admin.inquiries.contact') }}" class="{{ request()->is('admin/contact-inquiries') ? 'active' : '' }}">
-                <i class="bi bi-envelope"></i> Contact Inquiry
+                <i class="bi bi-chat-dots"></i> Contact Inquiry
             </a>
-            <a href="{{ route('admin.inquiries.training') }}" class="{{ request()->is('admin/service-training-inquiries') ? 'active' : '' }}">
-                <i class="bi bi-person-check"></i> Service Training Inquiry
+            <a href="{{ route('admin.inquiries.consultation') }}" class="{{ request()->is('admin/consultation-inquiries') ? 'active' : '' }}">
+                <i class="bi bi-headset"></i> Consultation Inquiry
             </a>
             <a href="{{ route('admin.inquiries.specific') }}" class="{{ request()->is('admin/specific-service-inquiries') ? 'active' : '' }}">
-                <i class="bi bi-wrench"></i> Specific Service Inquiry
+                <i class="bi bi-tools"></i> Specific Service Inquiry
+            </a>
+            <a href="{{ route('admin.inquiries.training') }}" class="{{ request()->is('admin/service-training-inquiries') ? 'active' : '' }}">
+                <i class="bi bi-joystick"></i> Service Training Inquiry
             </a>
         </div>
         <!-- Settings Section -->

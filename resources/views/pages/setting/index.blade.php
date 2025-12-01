@@ -4,61 +4,86 @@
     <div>
         <!-- <h3 class="mb-4">Home Page Editor</h3> -->
 
-        <form action="{{ route('admin.home.save') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.setting.save') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a href="#tab_hero_section" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
-                        <span>Hero Section</span>
+                    <a href="#tab_site_section" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                        <span>Site Section</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#tab_about_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
-                        <span>About Section</span>
+                    <a href="#tab_email_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                        <span>Email Section</span>
                     </a>
                 </li>
               
             </ul>
             <div class="tab-content text-muted mb-4">
-                <div class="tab-pane show active" id="tab_hero_section">
-                    {{-- HERO SECTION --}}
+                <div class="tab-pane show active" id="tab_site_section">
+                    {{-- SITE SECTION --}}
                     <div class="card mb-3">
-                        <div class="card-header bg-primary text-white">Hero Section</div>
+                        <div class="card-header bg-primary text-white">Site Section</div>
                         <div class="card-body">
                             <div class="row g-4">
-                                <div class="col-12">
-                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - 1805 x 662
-                                            )</span></label>
-                                    <input type="file" name="hero_background_image" class="form-control preview-input"
-                                        data-preview="#hero_bg_preview">
-                                    @if (!empty($home->hero_background_image))
-                                        <img id="hero_bg_preview"
-                                            src="{{ asset('storage/' . $home->hero_background_image) }}"
-                                            class="img-thumbnail mt-2" style="max-width: 200px;">
-                                    @else
-                                        <img id="hero_bg_preview" class="img-thumbnail mt-2 d-none"
-                                            style="max-width: 200px;">
-                                    @endif
-                                </div>
+                              
                                 <div class="col-md-6">
                                     <div class="row g-3">
                                         {{-- English Fields --}}
                                         <div class="col-12">
                                             <h6 class="text-primary">English Content</h6>
                                             <label>Title (English)</label>
-                                            <textarea name="hero_title" class="form-control summernote">{!! $home->hero_title ?? '' !!}</textarea>
+                                            <input type="text" name="title"
+                                                value="{{ $title ?? '' }}" class="form-control">
+                                        </div>
+                                
+                                        <div class="col-6">
+                                            {{-- <h6 class="text-primary">English Content</h6> --}}
+                                            <label>Header Logo  (English) <span class="text-danger"></span></label>
+                                            <input type="file" name="header_logo" class="form-control preview-input"
+                                                data-preview="#header_logo_preview">
+                                            @if (!empty($headerLogo))
+                                                <img id="header_logo_preview"
+                                                    src="{{ asset($headerLogo) }}"
+                                                    class="img-thumbnail mt-2" style="max-width: 200px;">
+                                            @else
+                                                <img id="header_logo_preview" class="img-thumbnail mt-2 d-none"
+                                                    style="max-width: 200px;">
+                                            @endif
                                         </div>
 
-                                        <div class="col-6">
-                                            <label>Button Text (English)</label>
-                                            <input type="text" name="hero_button_text"
-                                                value="{{ $home->hero_button_text ?? '' }}" class="form-control">
+                                         <div class="col-6">
+                                            <label>Footer Logo (English)<span class="text-danger"></span></label>
+                                            <input type="file" name="footer_logo" class="form-control preview-input"
+                                                data-preview="#footer_logo_preview">
+                                            @if (!empty($footerLogo))
+                                                <img id="footer_logo_preview"
+                                                    src="{{ asset($footerLogo) }}"
+                                                    class="img-thumbnail mt-2" style="max-width: 200px;">
+                                            @else
+                                                <img id="footer_logo_preview" class="img-thumbnail mt-2 d-none"
+                                                    style="max-width: 200px;">
+                                            @endif
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Favicon Logo (English)<span class="text-danger"></span></label>
+                                            <input type="file" name="favicon_logo" class="form-control preview-input"
+                                                data-preview="#favicon_logo_preview">
+                                            @if (!empty($faviconLogo))
+                                                <img id="favicon_logo_preview"
+                                                    src="{{ asset($faviconLogo) }}"
+                                                    class="img-thumbnail mt-2" style="max-width: 200px;">
+                                            @else
+                                                <img id="favicon_logo_preview" class="img-thumbnail mt-2 d-none"
+                                                    style="max-width: 200px;">
+                                            @endif
                                         </div>
                                         <div class="col-6">
-                                            <label>Button URL</label>
-                                            <input type="text" name="hero_button_url"
-                                                value="{{ $home->hero_button_url ?? '' }}" class="form-control">
+                                            <label>Copyright Text (English)<span class="text-danger"></span></label>
+                                            <input type="text" name="copy_right_text"
+                                                value="{{ $copy_right_text ?? '' }}" class="form-control">
                                         </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -67,100 +92,131 @@
                                         <div class="col-12">
                                             <h6 class="text-success">Arabic Content</h6>
                                             <label>Title (Arabic)</label>
-                                            <textarea name="hero_title_ar" class="form-control summernote">{!! $home->hero_title_ar ?? '' !!}</textarea>
+                                            <input type="text" name="title_ar"
+                                                value="{{ $title_ar ?? '' }}" class="form-control">
+                                        </div>
+                                      
+                                         <div class="col-6">
+                                           
+                                            <label>Header Logo (Arabic) <span class="text-danger"></span></label>
+                                            <input type="file" name="header_logo_ar" class="form-control preview-input"
+                                                data-preview="#header_logo_ar_preview">
+                                            @if (!empty($headerLogoAr))
+                                                <img id="header_logo_ar_preview"
+                                                    src="{{ asset($headerLogoAr) }}"
+                                                    class="img-thumbnail mt-2" style="max-width: 200px;">
+                                            @else
+                                                <img id="header_logo_ar_preview" class="img-thumbnail mt-2 d-none"
+                                                    style="max-width: 200px;">
+                                            @endif
                                         </div>
                                         <div class="col-6">
-                                            <label>Button Text (Arabic)</label>
-                                            <input type="text" name="hero_button_text_ar"
-                                                value="{{ $home->hero_button_text_ar ?? '' }}" class="form-control">
+                                            <label>Footer Logo (Arabic)<span class="text-danger"></span></label>
+                                            <input type="file" name="footer_logo_ar" class="form-control preview-input"
+                                                data-preview="#footer_logo_ar_previfew">
+                                            @if (!empty($footerLogoAr))
+                                                <img id="footer_logo_ar_preview"
+                                                    src="{{ asset($footerLogoAr) }}"
+                                                    class="img-thumbnail mt-2" style="max-width: 200px;">
+                                            @else
+                                                <img id="footer_logo_ar_preview" class="img-thumbnail mt-2 d-none"
+                                                    style="max-width: 200px;">
+                                            @endif
                                         </div>
-                                        <div class="col-6">
-                                            <label>Button URL (Arabic)</label>
-                                            <input type="text" name="hero_button_url_ar"
-                                                value="{{ $home->hero_button_url_ar ?? '' }}" class="form-control">
+                                         <div class="col-12">
+                                            <label>Favicon Logo (Arabic)<span class="text-danger"></span></label>
+                                            <input type="file" name="favicon_logo_ar" class="form-control preview-input"
+                                                data-preview="#favicon_logo_ar_preview">
+                                            @if (!empty($faviconLogoAr))
+                                                <img id="favicon_logo_ar_preview"
+                                                    src="{{ asset($faviconLogoAr) }}"
+                                                    class="img-thumbnail mt-2" style="max-width: 200px;">
+                                            @else
+                                                <img id="favicon_logo_ar_preview" class="img-thumbnail mt-2 d-none"
+                                                    style="max-width: 200px;">
+                                            @endif
                                         </div>
+                                         <div class="col-6">
+                                            <label>Copyright Text (Arabic)<span class="text-danger"></span></label>
+                                            <input type="text" name="copy_right_text_ar"
+                                                value="{{ $copy_right_text_ar ?? '' }}" class="form-control">
+                                        </div>
+                                         
+                                      
+                                      
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="tab_about_section">
-                    {{-- ABOUT SECTION --}}
+                <div class="tab-pane" id="tab_email_section">
+                   {{-- EMAIL SECTION --}}
                     <div class="card mb-3">
-                        <div class="card-header bg-primary text-white">About Section</div>
+                        <div class="card-header bg-primary text-white">Email Settings</div>
+
                         <div class="card-body">
                             <div class="row g-4">
-                                <div class="col-12">
-                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - 659 x 370
-                                            )</span></label>
-                                    <input type="file" name="about_image" class="form-control preview-input"
-                                        data-preview="#about_img_preview">
-                                    @if (!empty($home->about_image))
-                                        <img id="about_img_preview" src="{{ asset('storage/' . $home->about_image) }}"
-                                            class="img-thumbnail mt-2" style="max-width: 200px;">
-                                    @else
-                                        <img id="about_img_preview" class="img-thumbnail mt-2 d-none"
-                                            style="max-width: 200px;">
-                                    @endif
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="row g-3">
-                                        {{-- English --}}
-                                        <div class="col-12">
-                                            <h6 class="text-primary">English Content</h6>
-                                            <label>Title (English)</label>
-                                            <textarea name="about_title" class="form-control summernote">{!! $home->about_title ?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Description (English)</label>
-                                            <textarea name="about_description" class="form-control summernote">{!! $home->about_description ?? '' !!}</textarea>
-                                        </div>
 
-                                        <div class="col-6">
-                                            <label>Button Text (English)</label>
-                                            <input type="text" name="about_button_text"
-                                                value="{{ $home->about_button_text ?? '' }}" class="form-control">
-                                        </div>
-                                        <div class="col-6">
-                                            <label>Button URL</label>
-                                            <input type="text" name="about_button_url"
-                                                value="{{ $home->about_button_url ?? '' }}" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
+                                {{-- Mail Driver --}}
                                 <div class="col-md-6">
-                                    <div class="row g-3">
-                                        {{-- Arabic --}}
-                                        <div class="col-12">
-                                            <h6 class="text-success">Arabic Content</h6>
-                                            <label>Title (Arabic)</label>
-                                            <textarea name="about_title_ar" class="form-control summernote">{!! $home->about_title_ar ?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Description (Arabic)</label>
-                                            <textarea name="about_description_ar" class="form-control summernote">{!! $home->about_description_ar ?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-6">
-                                            <label>Button Text (Arabic)</label>
-                                            <input type="text" name="about_button_text_ar"
-                                                value="{{ $home->about_button_text_ar ?? '' }}" class="form-control">
-                                        </div>
-                                        <div class="col-6">
-                                            <label>Button URL (Arabic)</label>
-                                            <input type="text" name="about_button_url_ar"
-                                                value="{{ $home->about_button_url_ar ?? '' }}" class="form-control">
-                                        </div>
-                                    </div>
+                                    <label>Mail Driver</label>
+                                    <input type="text" name="mail_driver" value="{{ $mail_driver ?? '' }}" class="form-control">
                                 </div>
+
+                                {{-- Mail Host --}}
+                                <div class="col-md-6">
+                                    <label>Mail Host</label>
+                                    <input type="text" name="mail_host" value="{{ $mail_host ?? '' }}" class="form-control">
+                                </div>
+
+                                {{-- Mail Port --}}
+                                <div class="col-md-6">
+                                    <label>Mail Port</label>
+                                    <input type="text" name="mail_port" value="{{ $mail_port ?? '' }}" class="form-control">
+                                </div>
+
+                                {{-- Mail Username --}}
+                                <div class="col-md-6">
+                                    <label>Mail Username</label>
+                                    <input type="text" name="mail_username" value="{{ $mail_username ?? '' }}" class="form-control">
+                                </div>
+
+                                {{-- Mail Password --}}
+                                <div class="col-md-6">
+                                    <label>Mail Password</label>
+                                    <input type="text" name="mail_password" value="{{ $mail_password ?? '' }}" class="form-control">
+                                </div>
+
+                                {{-- Mail Encryption --}}
+                                <div class="col-md-6">
+                                    <label>Mail Encryption</label>
+                                    <input type="text" name="mail_encryption" value="{{ $mail_encryption ?? '' }}" class="form-control">
+                                </div>
+
+                                {{-- Mail From Address --}}
+                                <div class="col-md-6">
+                                    <label>Mail From Address</label>
+                                    <input type="email" name="mail_from_address"
+                                        value="{{ $mail_from_address ?? '' }}" class="form-control">
+                                </div>
+
+                                {{-- Mail From Name --}}
+                                <div class="col-md-6">
+                                    <label>Mail From Name</label>
+                                    <input type="text" name="mail_from_name"
+                                        value="{{ $mail_from_name ?? '' }}" class="form-control">
+                                </div>
+
                             </div>
                         </div>
                     </div>
+
                 </div>
     
       
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-success py-2">Save All Sections</button>
+                    <button class="btn btn-success py-2">Save All</button>
                 </div>
         </form>
     </div>

@@ -106,6 +106,7 @@ Route::prefix('admin')->group(function () {
         Route::get('contact-inquiries', [InquiryController::class, 'contactInquiry'])->name('admin.inquiries.contact');
         Route::get('service-training-inquiries', [InquiryController::class, 'serviceTrainingInquiry'])->name('admin.inquiries.training');
         Route::get('specific-service-inquiries', [InquiryController::class, 'specificServiceInquiry'])->name('admin.inquiries.specific');
+        Route::get('consultation-inquiries', [InquiryController::class, 'consultationInquiries'])->name('admin.inquiries.consultation');
 
         Route::get('/blogs', [BlogPageController::class, 'index'])->name('admin.blogs.index');
         Route::get('/blogs/create', [BlogPageController::class, 'create'])->name('admin.blogs.create');

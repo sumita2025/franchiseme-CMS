@@ -41,6 +41,8 @@ class PageService extends Model
         'service_title_ar',
         'service_description',
         'service_description_ar',
-        'side_image'
+        'side_image',
+        'service_button_text',
+        'service_button_text_ar'
     ];
 }

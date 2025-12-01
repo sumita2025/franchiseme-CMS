@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContactInquiry;
+use App\Models\ConsultingInquiry;
 use App\Models\ContactMessage;
 use App\Models\ApplicationForm;
 
@@ -29,5 +30,12 @@ class InquiryController extends Controller
     {
         $inquiries = ApplicationForm::latest()->get();
         return view('specific', compact('inquiries'));
+    }
+
+    //
+    public function consultationInquiries()
+    {
+        $inquiries = ConsultingInquiry::latest()->get();
+        return view('consulting', compact('inquiries'));
     }
 }

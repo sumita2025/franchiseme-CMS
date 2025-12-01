@@ -20,9 +20,9 @@
                     @forelse($inquiries as $index => $row)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td>{{ $row->full_name ?? '-' }}</td>
+                            <td>{{ $row->name ?? '-' }}</td>
                             <td>{{ $row->email ?? '-' }}</td>
-                            <td>{{ $row->phone_number ?? '-' }}</td>
+                            <td>{{ $row->phone ?? '-' }}</td>
                             <td>{{ Str::limit($row->message, 40) ?? '-' }}</td>
                             <td>{{ $row->created_at->format('d M Y') }}</td>
                             <td>
@@ -31,11 +31,11 @@
                                         type="button" 
                                         class="border-0 bg-transparent btn-view"
                                         data-id="{{ $row->id }}"
-                                        data-name="{{ $row->full_name }}"
+                                        data-name="{{ $row->name }}"
                                         data-email="{{ $row->email }}"
-                                        data-phone="{{ $row->phone_number }}"
+                                        data-phone="{{ $row->phone }}"
                                         data-message="{{ $row->message }}"
-                                        data-brand_name="{{ $row->brand_name }}"
+                                        data-subject= "{{ $row->subject }}"
                                         data-date="{{ $row->created_at->format('d M Y h:i A') }}"
                                         data-bs-toggle="modal" 
                                         data-bs-target="#contactInquiryDetails"
@@ -84,8 +84,8 @@
                         <p class="fw-medium mb-0" id="modalPhone">-</p>
                     </div>
                     <div class="col-md-12">
-                        <label class="text-muted">Brand Name:</label>
-                        <p class="fw-medium mb-0" id="modalBrandName">-</p>
+                        <label class="text-muted">Subject:</label>
+                        <p class="fw-medium mb-0" id="modalSubject">-</p>
                     </div>
                     <div class="col-md-12">
                         <label class="text-muted">Message:</label>
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $('#modalName').text(button.data('name') ?? '-');
         $('#modalEmail').text(button.data('email') ?? '-');
         $('#modalPhone').text(button.data('phone') ?? '-');
-        $('#modalBrandName').text(button.data('brand_name') ?? '-');
+        $('#modalSubject').text(button.data('subject') ?? '-');
         $('#modalMessage').text(button.data('message') ?? '-');
         $('#modalInquiryDate').text(button.data('date') ?? '');
     });
