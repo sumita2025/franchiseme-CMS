@@ -6,8 +6,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Franchise Me</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/favicon.png') }}">
+        
+        @php
+            $favicon = app()->getLocale() === 'ar'? get_setting('favicon_logo_ar')  : get_setting('favicon_logo');
+            $site_logo =  app()->getLocale() === 'ar'? get_setting('header_logo_ar')  : get_setting('header_logo');
+            $footer_logo =  app()->getLocale() === 'ar'? get_setting('footer_logo_ar')  : get_setting('footer_logo');
+            $site_title = app()->getLocale() === 'ar'? get_setting('title_ar')  : get_setting('title');
+            $copy_right_text = app()->getLocale() === 'ar'? get_setting('copy_right_text_ar')  : get_setting('copy_right_text');
+            $copy_right_link = app()->getLocale() === 'ar'? get_setting('copy_right_link_ar')  : get_setting('copy_right_link');
+        @endphp
+
+        <title>{{$site_title ?? 'Franchise Me'}}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset($favicon ?? 'assets/image/favicon.png') }}">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         
@@ -33,7 +43,7 @@
             <div class="container-fluid px-0">
                 <nav class="navbar navbar-expand-lg py-0 justify-content-between gap-3">
                     <a class="navbar-brand py-0 mx-0 bg_box" href="{{ route('index') }}">
-                        <img src="{{ asset('assets/image/logo.png') }}" alt="" class="img-fluid logo">
+                        <img src="{{ asset($site_logo ?? 'assets/image/logo.png') }}" alt="" class="img-fluid logo">
                     </a>
                     <div class="main_menu bg_box 1w-100">
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -126,16 +136,19 @@
                     <div class="col-lg-3">
                         <div class="px-3">
                             <a href="{{ route('index') }}" class="footer_logo d-block mb-5">
-                                <img src="{{ asset('assets/image/logo.png') }}" alt="" class="img-fluid">
+                                <img src="{{ asset($footer_logo ?? 'assets/image/logo.png') }}" alt="" class="img-fluid">
                             </a>
                             <div class="contain my-3 footer_title">
-                                <p data-en="Empowering Brands for Sustainable Franchise Growth." data-ar="تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز.">Empowering Brands for Sustainable Franchise Growth.</p>
+                                <p data-en="Empowering Brands for Sustainable Franchise Growth." data-ar="تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز.">@if(app()->getLocale() == 'ar') تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز. @else Empowering Brands for Sustainable Franchise Growth. @endif</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg col-12">
                         <div class="px-3">
-                            <h4 class="sub_title text-white mb-4" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                            <h4 class="sub_title text-white mb-4" data-en="Quick Links" data-ar="روابط سريعة">
+                                 @if(app()->getLocale() == 'ar') روابط سريعة @else Quick Links  @endif
+
+                            </h4>
                             <div class="d-flex flex-column gap-3 footer_links">
                                 <a href="{{ route('index') }}" 
                                 class="{{ request()->routeIs('index') ? 'active' : '' }}">
@@ -177,13 +190,15 @@
                     </div>
                     <div class="col-lg col-12">
                         <div class="px-3">
-                            <h4 class="sub_title text-white mb-4" data-en="Connect With Us" data-ar="تواصل معنا">Connect With Us</h4>
+                            <h4 class="sub_title text-white mb-4" data-en="Connect With Us" data-ar="تواصل معنا">
+                                 @if(app()->getLocale() == 'ar') تواصل معنا  @else  Connect With Us  @endif
+                            </h4>
                             <div class="d-flex flex-column gap-3 footer_links">
                                 <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank">
-                                    Instagram
+                                    @if(app()->getLocale() == 'ar') انستغرام @else Instagram @endif
                                 </a>
                                 <a href="https://www.linkedin.com/company/franchiseme/" target="_blank">
-                                    LinkedIn
+                                     @if(app()->getLocale() == 'ar') ينكدين  @else LinkedIn @endif
                                 </a>
                                 <a href="https://x.com/FranchiseME24" target="_blank">
                                     X
@@ -198,10 +213,10 @@
                     </div>
                 </div>
                 <div class="copy_right contain text-center d-flex flex-wrap justify-content-center gap-2">
-                    <p class="mb-0" data-en="Copyright ©" data-ar="حقوق النشر ©">Copyright ©</p>
+                    <p class="mb-0" data-en="Copyright ©" data-ar="حقوق النشر ©">   @if(app()->getLocale() == 'ar') حقوق الطبع والنشر © @else  Copyright © @endif </p>
                     <p class="mb-0"><span id="currentYear"></span></p>
-                    <p class="mb-0" data-en="FranchiseME - All Rights Reserved. Powered by:" data-ar="فرانشايز مي - جميع الحقوق محفوظة. تم التطوير بواسطة:">FranchiseME - All Rights Reserved. Powered by:</p>
-                    <a href="https://shreedaconsulting.com/" target="_blank" class="text-white" data-en="Shreeda Consulting" data-ar="شريدا للاستشارات">Shreeda Consulting</a>
+                    <p class="mb-0" data-en="FranchiseME - All Rights Reserved. Powered by:" data-ar="فرانشايز مي - جميع الحقوق محفوظة. تم التطوير بواسطة:"> @if(app()->getLocale() == 'ar') جميع الحقوق محفوظة لشركة FranchiseME. تصميم: @else FranchiseME - All Rights Reserved. Designed by: @endif</p>
+                    <a href='https://shreedaconsulting.com/' class="text-white" data-en="Shreeda Consulting" data-ar="شريدا للاستشارات">@if(app()->getLocale() == 'ar') شريدا للاستشارات @else   Shreeda Consulting @endif </a>
                 </div>
             </div> 
         </footer>
