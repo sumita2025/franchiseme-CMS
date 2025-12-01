@@ -15,16 +15,36 @@ class FranchiseHomeController extends Controller
         $content = PageFranchise::first();
         $brands = FranchiseBrand::get();
         $franchises = Franchise::get();
-        $countries = Franchise::select('country')
-            ->distinct()
-            ->pluck('country')
-            ->toArray();
-        $countries_ar =  Franchise::select('country_ar')->distinct()->pluck('country_ar')->groupBy('country_ar')->toArray();
-        $sector =  Franchise::select('sector')->distinct()->pluck('sector')->groupBy('sector')->toArray();
-        $sector_ar =  Franchise::select('sector_ar')->distinct()->pluck('sector_ar')->groupBy('sector_ar')->toArray();
-        $investment_level =  Franchise::select('investment_level')->distinct()->pluck('investment_level')->groupBy('investment_level')->toArray();
-        $investment_level_ar =  Franchise::select('investment_level_ar')->distinct()->pluck('investment_level_ar')->groupBy('investment_level_ar')->toArray();
-   
-        return view('frontend.franchise', compact('content', 'brands', 'franchises', 'countries', 'countries_ar','sector','sector_ar','investment_level','investment_level_ar'));
+        $countries = Franchise::pluck('country')
+            ->map(fn($item) => trim(ucwords(strtolower($item))))
+            ->unique()
+            ->values();
+
+        $sector = Franchise::pluck('sector')
+            ->map(fn($item) => trim(ucwords(strtolower($item))))
+            ->unique()
+            ->values();
+
+        $investment_level = Franchise::pluck('investment_level')
+            ->map(fn($item) => trim(ucwords(strtolower($item))))
+            ->unique()
+            ->values();
+
+        $countries_ar = Franchise::pluck('country_ar')
+            ->map(fn($item) => trim(mb_strtolower($item)))
+            ->unique()
+            ->values();
+
+        $sector_ar = Franchise::pluck('sector_ar')
+            ->map(fn($item) => trim(mb_strtolower($item)))
+            ->unique()
+            ->values();
+
+        $investment_level_ar = Franchise::pluck('investment_level_ar')
+            ->map(fn($item) => trim(mb_strtolower($item)))
+            ->unique()
+            ->values();
+
+        return view('frontend.franchise', compact('content', 'brands', 'franchises', 'countries', 'countries_ar', 'sector', 'sector_ar', 'investment_level', 'investment_level_ar'));
     }
 }

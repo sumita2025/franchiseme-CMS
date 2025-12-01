@@ -73,7 +73,8 @@
                             </div>
                             <div class="d-flex">
                                 <!-- <a href="{!! $service->button_url ?? '' !!}" class="button btn_primary mt-4"> -->
-                                <a href="{{ route('contact') }}" class="button btn_primary mt-4">
+                                <a href="{{ route('contact', ['type' => 'consulting']) }}" class="button btn_primary mt-4">
+
                                     <div class="btn_text">
                                         @if(app()->getLocale() == 'ar')
                                             {!! $service->button_text_ar ?? '' !!}
@@ -324,7 +325,8 @@
                             </div>
                             <div class="col-md-3 d-flex align-items-center justify-content-center">
                                 <div class="d-flex justify-content-end">
-                                    <a href="{!! $service->package_button_url ?? '' !!}" class="button btn_primary" data-bs-toggle="modal" data-bs-target="#fdp_contactus">
+                                    {{-- <a href="{!! $service->package_button_url ?? '' !!}" class="button btn_primary" data-bs-toggle="modal" data-bs-target="#fdp_contactus"> --}}
+                                    <a href="{{route('contact')}}" class="button btn_primary">
                                         <div class="btn_text">
                                             @if(app()->getLocale() == 'ar')
                                                 {!! $service->package_button_text_ar ?? '' !!}
@@ -402,7 +404,7 @@
                     <div class="mt-4">
                         <a href="javascript:void(0);" class="button btn_secoundry" data-bs-toggle="modal" data-bs-target="#FranchiseTrainingServices">
                             <div class="btn_text">
-                                Fill out the form for more details.
+                                  @if(app()->getLocale() == 'ar')  {!! $service->service_button_text_ar ?? '' !!} @else   {!! $service->service_button_text ?? '' !!} @endif
                             </div>
                         </a>
                     </div>
@@ -424,30 +426,30 @@
             <button type="button" class="btn-close position-absolute top-0 end-0 me-4 mt-4 z-1" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="modal-body px-md-5 py-md-5">
                 <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
-                    <h2 class="title mb-0">Application</h2>
-                    <h2 class="title mb-0 yellow">Form</h2>
+                    <h2 class="title mb-0">@if(app()->getLocale() == 'ar') طلب @else Application @endif </h2>
+                    <h2 class="title mb-0 yellow">@if(app()->getLocale() == 'ar') استمارة @else Form @endif </h2>
                 </div>
                 <div class="contact_section">
                     <form action="">
                         <div class="row g-4">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Full Name *" data-en="Full Name *" data-ar="الاسم الكامل *" required>
+                                <input type="text" class="form-control" placeholder="@if(app()->getLocale() == 'ar') الاسم الكامل @else Full Name @endif*" data-en="Full Name *" data-ar="الاسم الكامل *" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Email *" data-en="Email *" data-ar="البريد الإلكتروني *" required>
+                                <input type="text" class="form-control" placeholder="@if(app()->getLocale() == 'ar') بريد إلكتروني @else Email @endif  *" data-en="Email *" data-ar="البريد الإلكتروني *" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="number" class="form-control" placeholder="Phone Number *" data-en="Phone Number *" data-ar="رقم الهاتف *" required>
+                                <input type="number" class="form-control" placeholder="@if(app()->getLocale() == 'ar') رقم التليفون @else  Phone Number @endif  *" data-en="Phone Number *" data-ar="رقم الهاتف *" required>
                             </div>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Brand Name (optional)" data-en="Brand Name (optional)" data-ar="اسم العلامة التجارية (اختياري)">
+                                <input type="text" class="form-control" placeholder="@if(app()->getLocale() == 'ar') اسم العلامة التجارية (اختياري) @else  Brand Name (optional) @endif" data-en="Brand Name (optional)" data-ar="اسم العلامة التجارية (اختياري)">
                             </div>
                             <div class="col-md-12">
-                                <textarea class="form-control" placeholder="Message / Additional Notes *" rows="3" data-en="Message / Additional Notes *" data-ar="الرسالة / ملاحظات إضافية *" required></textarea>
+                                <textarea class="form-control" placeholder="@if(app()->getLocale() == 'ar') الرسالة / ملاحظات إضافية @else Message / Additional Notes @endif*" rows="3" data-en="Message / Additional Notes *" data-ar="الرسالة / ملاحظات إضافية *" required></textarea>
                             </div>
                             <div class="col-md-12 d-flex">
                                 <a href="javascript:void(0);" class="button btn_secoundry">
-                                    <div class="btn_text" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</div>
+                                    <div class="btn_text" data-en="Send Message" data-ar="إرسال الرسالة">@if(app()->getLocale() == 'ar') أرسل رسالة @else Send Message @endif</div>
                                 </a>
                             </div>
                         </div>

@@ -150,6 +150,8 @@
             <div class="col-xl-6 px-0">
                 <form id="contactForm">
                     @csrf
+                    <input type="hidden" name="inquiry_type" id="inquiry_type" value="{{ request('type') }}">
+
                     <div class="row g-4">
                         <div class="col-md-12">
                             <input type="text" name="name" class="form-control" placeholder="Name">
@@ -208,7 +210,8 @@ $('#contactForm').on('submit', function(e) {
     e.preventDefault();
 
     $.ajax({
-        url: "{{ route('contact.store') }}",
+        // url: "{{ route('contact.store') }}",
+        url: "{{ route('contact.store') }}" + "?type=" + $('#inquiry_type').val(),
         method: "POST",
         data: $(this).serialize(),
         success: function(response) {
