@@ -14,6 +14,11 @@
         ? asset('storage/' . $content->strategy_image)
         : asset('assets/image/logo.png');
 
+    $strategyImageAr = isset($content->strategy_image_ar) && $content->strategy_image_ar
+        ? asset('storage/' . $content->strategy_image_ar)
+        : asset('assets/image/logo.png');
+
+
     $achivementImage = isset($content->achievement_image) && $content->achievement_image
         ? asset('storage/' . $content->achievement_image)
         : asset('assets/image/ifa.png');
@@ -244,7 +249,17 @@
                                 <div class="col-md-3 d-flex align-items-center">
                                     <div class="px-xxl-4 px-xl-3 center_circle_pedding">
                                         <div class="center_cicel z-2 position-relative bg-white">
-                                            <img src="{{ $strategyImage }}" alt="" class="img-fluid">
+                                            {{-- <img src="{{ $strategyImage }}" alt="" class="img-fluid"> --}}
+                                             @if(app()->getLocale() == 'ar')
+                                                <div class="center_cicel z-2 position-relative bg-white">
+                                                    <img src="{{ $strategyImageAr }}" alt="" class="img-fluid">
+                                                </div>
+                                            @else
+                                                <div class="center_cicel z-2 position-relative bg-white">
+                                                    <img src="{{ $strategyImage }}" alt="" class="img-fluid">
+                                                </div>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
