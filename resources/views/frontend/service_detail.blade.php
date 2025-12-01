@@ -19,8 +19,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div class="position-sticky top-0">
-                    <div class="feature_img rounded-4">
+                <div class="">
+                    <div class="feature_img">
                         <img src="{{ asset($franchise->logo) }}" alt="" class="img-fluid">
                     </div>
                     <div class="contain black small fw-semibold text-center mt-3">
@@ -35,40 +35,42 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <h4 class="sub_title mb-3">
-                    @if(app()->getLocale() == 'ar')
-                        {!! $franchise->title_ar ?? '' !!}
-                    @else
-                        {!! $franchise->title ?? '' !!}
-                    @endif
-                </h4>
-                <div class="row gx-3 gy-2">
-                    <div class="col-md-6">
-                        <div class="contain black d-flex align-items-center gap-2">
-                            <p class="mb-0 fw-bold" data-en="Sector:" data-ar="القطاع:">Sector:</p>
-                            <p>
-                                @if(app()->getLocale() == 'ar')
-                                    {!! $franchise->sector_ar ?? '' !!}
-                                @else
-                                    {!! $franchise->sector ?? '' !!}
-                                @endif
-                            </p>
+                <div class="header_box mb-3">
+                    <h4 class="sub_title mb-3">
+                        @if(app()->getLocale() == 'ar')
+                            {!! $franchise->title_ar ?? '' !!}
+                        @else
+                            {!! $franchise->title ?? '' !!}
+                        @endif
+                    </h4>
+                    <div class="row gx-3 gy-2">
+                        <div class="col-md-6">
+                            <div class="contain black d-flex align-items-center gap-2">
+                                <p class="mb-0 fw-bold" data-en="Sector:" data-ar="القطاع:">Sector:</p>
+                                <p>
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $franchise->sector_ar ?? '' !!}
+                                    @else
+                                        {!! $franchise->sector ?? '' !!}
+                                    @endif
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="contain black d-flex align-items-center gap-2">
-                            <p class="mb-0 fw-bold">Investment level:</p>
-                            <p>
-                                @if(app()->getLocale() == 'ar')
-                                    {!! $franchise->investment_level_ar ?? '' !!}
-                                @else
-                                    {!! $franchise->investment_level ?? '' !!}
-                                @endif
-                            </p>
+                        <div class="col-md-6">
+                            <div class="contain black d-flex align-items-center gap-2">
+                                <p class="mb-0 fw-bold">Investment level:</p>
+                                <p>
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $franchise->investment_level_ar ?? '' !!}
+                                    @else
+                                        {!! $franchise->investment_level ?? '' !!}
+                                    @endif
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="contain black mt-2">
+                <div class="contain black description_box">
                     <p>
                         @if(app()->getLocale() == 'ar')
                             {!! $franchise->description_ar ?? '' !!}

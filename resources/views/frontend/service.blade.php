@@ -48,38 +48,41 @@
 
 <section class="about_cta" data-aos="fade-up">
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-9">
-                <div class="box br-30">
-                    <div class="d-flex flex-column align-items-center text-center gap-3">
-                        <div class="d-flex flex-wrap title_wrap justify-content-center">
-                            <h2 class="title mb-0 white">
-                                @if(app()->getLocale() == 'ar')
-                                    {!! $service->consultant_title_ar ?? '' !!}
-                                @else
-                                    {!! $service->consultant_title ?? '' !!}
-                                @endif
-                            </h2>
-                        </div>
-                        <div class="contain">
-                            <p class="mb-0">
-                                @if(app()->getLocale() == 'ar')
-                                    {!! $service->consultant_description_ar ?? '' !!}
-                                @else
-                                    {!! $service->consultant_description ?? '' !!}
-                                @endif
-                            </p>
-                        </div>
-                        <div class="d-flex">
-                            <a href="{!! $service->button_url ?? '' !!}" class="button btn_primary mt-4">
-                                <div class="btn_text">
+        <div class="row g-0 justify-content-center">
+            <div class="col-md-11">
+                <div class="box">
+                    <div class="container">
+                        <div class="d-flex flex-column align-items-center text-center gap-3">
+                            <div class="d-flex flex-wrap title_wrap justify-content-center">
+                                <h2 class="title mb-0 white">
                                     @if(app()->getLocale() == 'ar')
-                                        {!! $service->button_text_ar ?? '' !!}
+                                        {!! $service->consultant_title_ar ?? '' !!}
                                     @else
-                                        {!! $service->button_text ?? '' !!}
+                                        {!! $service->consultant_title ?? '' !!}
                                     @endif
-                                </div>
-                            </a>
+                                </h2>
+                            </div>
+                            <div class="contain">
+                                <p class="mb-0">
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $service->consultant_description_ar ?? '' !!}
+                                    @else
+                                        {!! $service->consultant_description ?? '' !!}
+                                    @endif
+                                </p>
+                            </div>
+                            <div class="d-flex">
+                                <!-- <a href="{!! $service->button_url ?? '' !!}" class="button btn_primary mt-4"> -->
+                                <a href="{{ route('contact') }}" class="button btn_primary mt-4">
+                                    <div class="btn_text">
+                                        @if(app()->getLocale() == 'ar')
+                                            {!! $service->button_text_ar ?? '' !!}
+                                        @else
+                                            {!! $service->button_text ?? '' !!}
+                                        @endif
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -305,9 +308,9 @@
 
 <section class="about_cta">
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-9">
-                <div class="box br-30">
+        <div class="row g-0 justify-content-center">
+            <div class="col-md-11">
+                <div class="box">
                     <div class="container">
                         <div class="row" data-aos="fade-up">
                             <div class="col-md-9">

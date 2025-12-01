@@ -190,9 +190,13 @@
     </div>
 </section>
 
-<section data-aos="fade-up">
-    <div class="container">
-        {!! $contact->map_embed ?? '' !!}
+<section data-aos="fade-up" class="contact_map">
+    <div class="container-fluid">
+        <div class="row g-0 justify-content-center">
+            <div class="col-md-11">
+                {!! $contact->map_embed ?? '' !!}
+            </div>
+        </div>
     </div>
 </section>
 @endsection

@@ -30,6 +30,8 @@
     --text-color : #494945;
     /* --title-color: #003c4e; */
     --title-color: #085570;
+
+    --bg-color-gradient: linear-gradient(278deg, #0C7FA9 0%, #032F3E 100%);
 }
 :focus,
 :focus-visible {
@@ -344,7 +346,7 @@ a {
 /*--------------------- Home ---------------------*/
 /*------ Hero Section ------*/
 .hs_container_fluid {
-    padding: 30px 50px 0;
+    padding-top: 30px;
 }
 
 .hero_section {
@@ -731,7 +733,7 @@ a {
 .as_section_new .as_main_card {
     background: #FDFCF9;
     border: none;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     padding: 40px;
 }
 .as_section_new .as_main_card .ib_card {
@@ -756,9 +758,9 @@ a {
 
 /*------ Our Achievements ------*/
 .our_achievements {
-    background: var(--secoundry-color);
-    margin-left: 50px;
-    margin-right: 50px;
+    background: var(--bg-color-gradient);
+    /* margin-left: 50px;
+    margin-right: 50px; */
 }
 .our_achievements .title {
     color: white;
@@ -924,11 +926,11 @@ a {
 
 .about_cta .box {
     /* background-color: var(--black); */
-    background-color: var(--secoundry-color);
-    background-image: url("../image/work-together-bg.png");
+    background: var(--bg-color-gradient);
+    /* background-image: url("../image/work-together-bg.png");
     background-position: 65% -50px;
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     padding: 80px 50px;
 }
 .about_cta .box .button.btn_primary .btn_text {
@@ -963,6 +965,11 @@ a {
 .contact_section input.form-control::-webkit-inner-spin-button {
   -webkit-appearance: none !important;
   margin: 0 !important;
+}
+
+.contact_map iframe {
+    -webkit-filter: grayscale(99%);
+    height: 400px !important;
 }
 /*--------------------- Contact Us ---------------------*/
 
@@ -1262,12 +1269,32 @@ a {
 /*--------------------- Investment ---------------------*/
 
 /*--------------------- Opportunities ---------------------*/
+.opportunities_feature {
+    /* background: var(--secoundry-color); */
+    /* background: linear-gradient(278deg, rgb(0, 88, 151) 0%, rgb(0, 36, 69) 100%) 0% 0% transparent; */
+    /* background: linear-gradient(278deg, #0A6C8D 0%, #085570 100%); */
+    /* background: linear-gradient(278deg, #0A7FA3 0%, #085570 100%); */
+    
+    /* margin-left: 50px;
+    margin-right: 50px; */
+}
+.opportunities_feature .bg_section {
+    padding: 50px 0;
+    background: var(--bg-color-gradient);
+}
+.opportunities_feature .title {
+    color: white;
+}
 .opportunities_feature .lSSlideOuter {
-    border-radius: 30px !important;
+    /* border-radius: 30px !important; */
     overflow: hidden !important;
 }
+.opportunities_feature .card .sub_title {
+    font-size: 34px;
+    color: white;
+}
 .opportunities_feature .card {
-    padding: 40px;
+    /* padding: 40px; */
     /* border-radius: 30px; */
     transition: all 0.4s ease-in-out;
     background-position: center center;
@@ -1276,6 +1303,15 @@ a {
     position: relative;
     border: none;
     overflow: hidden;
+}
+.opportunities_feature .card {
+    padding: 40px;
+}
+.opportunities_feature .card .card_right {
+    padding: 40px 0 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .opportunities_feature .card::before {
     content: "";
@@ -1293,6 +1329,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* border-radius: 30px !important; */
 }
 .opportunities_feature .card .feature_img {
     aspect-ratio: 1/1; 
@@ -1300,8 +1337,17 @@ a {
 }
 .opportunities_feature .card .feature_img img {
     aspect-ratio: 1/1; 
-    object-fit: contain;
-    max-width: 240px;
+    object-fit: cover;
+    /* max-width: 400px; */
+    width: 100%;
+    /* border-radius: 30px; */
+}
+.opportunities_feature .card .contain,
+.opportunities_feature .card .contain p {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .opportunities_feature .lSPager {
@@ -1333,7 +1379,10 @@ a {
 }
 
 .franchise_listing_section_container .container {
-    max-width: 1300px;
+    max-width: 1500px;
+}
+.franchise_listing_section_container .bg_color {
+    background: var(--bg-color-gradient);
 }
 .franchise_listing_section_new .card {
     overflow: hidden;
@@ -1344,10 +1393,12 @@ a {
 .franchise_listing_section_new .icon img {
     width: 100%;
     height: 100%;
-    max-width: 375px;
-    max-height: 199px;
+    max-width: 442px;
+    max-height: 338px;
     object-fit: contain;
     border-radius: 20px;
+    aspect-ratio: 17/13;
+    background: #eee;
 }
 .franchise_listing_section_new .sub_title {
     display: -webkit-box;
@@ -1376,6 +1427,38 @@ a {
     padding: 0 5px 5px;
 }
 
+/* .franchise_listing_section_container .opportunities_filter {
+    border: 1px solid var(--secoundry-color);
+    border-radius: 60px;
+} */
+.franchise_listing_section_container .opportunities_filter .of_block {
+    padding: 0 20px;
+}
+/* .franchise_listing_section_container .opportunities_filter .of_block:not(:last-child) {
+    border-right: 1px solid var(--secoundry-color);
+} */
+.franchise_listing_section_container .opportunities_filter .of_block .form-control {
+    /* background-color: var(--secoundry-color); */
+    border-color: transparent;
+    border-radius: 0;
+    /* color: #FFF; */
+}
+.franchise_listing_section_container .opportunities_filter .of_block .form-control::placeholder {
+    /* opacity: 0.75; */
+    /* color: white; */
+}
+/* .franchise_listing_section_container .opportunities_filter .of_block .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+} */
+/* .franchise_listing_section_container .opportunities_filter .of_block .form-select option {
+    color: #FFF;
+} */
+.franchise_listing_section_container .opportunities_filter .of_block .button.btn_secoundry:hover .btn_text,
+.franchise_listing_section_container .opportunities_filter .of_block .button.btn_primary:hover .btn_text {
+    border-color: white;
+    color: white;
+}
+
 .opportunities_filter .form-control {
     padding: 10px 15px;
     border-radius: 16px;
@@ -1393,6 +1476,20 @@ a {
     padding-left: 40px;
 }
 
+.brand_deatils_modal .header_box {
+    background: var(--bg-color-gradient);
+    padding: 20px;
+}
+.brand_deatils_modal .description_box {
+    overflow-y: auto;
+    max-height: 270px;
+}
+.brand_deatils_modal .header_box .contain.black p {
+    color: white;
+}
+.brand_deatils_modal .header_box .sub_title {
+    color: white;
+}
 .brand_deatils_modal .feature_img {
     aspect-ratio: 1/1;
     background: #f5f5f5;
@@ -1424,9 +1521,9 @@ a {
 /*--------------------- circel data ---------------------*/
 .circel_data {
     /* background: var(--bg-color); */
-    background: var(--secoundry-color);
-    margin-left: 50px;
-    margin-right: 50px;
+    background: var(--bg-color-gradient);
+    /* margin-left: 50px;
+    margin-right: 50px; */
 }
 .circel_data .card {
     /* padding: 0 10px; */
