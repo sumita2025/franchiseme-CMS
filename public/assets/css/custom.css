@@ -69,7 +69,7 @@ body:before {
 /*--------------------- General ---------------------*/
 .bg_section {
     /* background: #FDFCF9; */
-    background: var(--bg-color);
+    background: var(--bg-color-gradient);
 }
 section {
     margin-top: 100px;
@@ -99,17 +99,21 @@ a {
     font-weight: 700;
     /* font-weight: 300; */
     line-height: 1.2;
+    border-bottom: 3px solid var(--primary-color);
+}
+.title p {
+    margin-bottom: 0;
 }
 .title.white {
     color: white;
 }
-.title.title_counter,
+/* .title.title_counter,
 .title.yellow,
 .sub_title.yellow,
 .title span {
     color: var(--primary-color);
     font-weight: 700;
-}
+} */
 .title_wrap {
     gap: 0 8px;
 }
@@ -355,7 +359,7 @@ a {
     background-size: cover; */
     background-position: center center;
     /* background-size: contain; */
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     /* height: 100vh; */
     height: 70vh;
@@ -976,8 +980,8 @@ a {
 /*--------------------- Blog ---------------------*/
 .blog_list .blog_item {
     padding: 20px;
-    border-radius: 30px;
-    border: 1px dashed #999;
+    /* border-radius: 30px; */
+    border: 1px solid var(--primary-color);
 }
 .blog_list .blog_item .feature_image {
     aspect-ratio: 3/1;
@@ -996,6 +1000,25 @@ a {
     overflow: hidden; 
 }
 
+.recent_post_section .bg_section {
+    background: var(--secoundry-color);
+}
+.recent_post_section .box_title {
+    display: inline-block;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 3px;
+}
+.recent_post_section .sub_title {
+    color: white;
+}
+.recent_post_section .recent_posts .blog_item:not(:last-child) {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--primary-color);
+}
+.recent_post_section .contain, 
+.recent_post_section .contain p {
+    color: #eee;
+}
 .recent_posts .blog_item {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -1482,7 +1505,7 @@ a {
 }
 .brand_deatils_modal .description_box {
     overflow-y: auto;
-    max-height: 270px;
+    max-height: 280px;
 }
 .brand_deatils_modal .header_box .contain.black p {
     color: white;
@@ -1521,7 +1544,8 @@ a {
 /*--------------------- circel data ---------------------*/
 .circel_data {
     /* background: var(--bg-color); */
-    background: var(--bg-color-gradient);
+    /* background: var(--bg-color-gradient); */
+    background: radial-gradient(circle,rgba(12, 127, 169, 1) 0%, rgba(3, 47, 62, 1) 100%);
     /* margin-left: 50px;
     margin-right: 50px; */
 }
@@ -2005,36 +2029,48 @@ html[dir=rtl] {
 /*--------------------- Responsive ---------------------*/
 /* 1680 */
 @media only screen and (min-width: 1650px) and (max-width: 1700px) {
+header,
+footer,
     section:not(.not_zoom) {
         zoom: 87.5%;   
     }
 }
 /* 1600 */
 @media only screen and (min-width: 1550px) and (max-width: 1649px) {
+    header,
+    footer,
     section:not(.not_zoom) {
         zoom: 83.33%;   
     }
 }
 /* 1520 */
 @media only screen and (min-width: 1450px) and (max-width: 1549px) {
+    header,
+    footer,
     section:not(.not_zoom) {
         zoom: 79.17%;   
     }
 }
 /* 1440 */
 @media only screen and (min-width: 1400px) and (max-width: 1449px) {
+    header,
+    footer,
     section:not(.not_zoom) {
         zoom: 75%;   
     }
 }
 /* 1366 */
 @media only screen and (min-width: 1300px) and (max-width: 1399px) {
+    header,
+    footer,
     section:not(.not_zoom) {
         zoom: 71.15%;   
     }
 }
 /* 1280 */
 @media only screen and (min-width: 1200px) and (max-width: 1299px) {
+    header,
+    footer,
     section:not(.not_zoom) {
         zoom: 66.67%;   
     }

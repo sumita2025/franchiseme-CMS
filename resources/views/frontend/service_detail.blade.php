@@ -23,14 +23,14 @@
                     <div class="feature_img">
                         <img src="{{ asset($franchise->logo) }}" alt="" class="img-fluid">
                     </div>
-                    <div class="contain black small fw-semibold text-center mt-3">
-                        <h6 class="mb-0">
+                    <div class="contain black fw-semibold text-center mt-3">
+                        <p class="mb-0">
                             @if(app()->getLocale() == 'ar')
                                 {!! $franchise->country_ar ?? '' !!}
                             @else
                                 {!! $franchise->country ?? '' !!}
                             @endif
-                        </h6>
+                        </p>
                     </div>
                 </div>
             </div>

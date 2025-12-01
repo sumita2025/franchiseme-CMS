@@ -41,7 +41,7 @@
                         <div class="blog_item" data-aos="fade-up">
 
                             <img src="{{ asset($blog->feature_image) }}" 
-                                 alt="" class="img-fluid mb-4 feature_image rounded-4">
+                                 alt="" class="img-fluid mb-4 feature_image">
 
                             <!-- DATE -->
                             <div class="contain black mb-1 d-flex align-items-center gap-2">
@@ -59,7 +59,8 @@
                             <!-- SHORT DESCRIPTION -->
                             <div class="contain black">
                                 <p class="mb-0">
-                                    {!! Str::limit(app()->getLocale() == 'ar' ? $blog->description_ar : $blog->description, 200) !!}
+                                    <!-- {!! Str::limit(app()->getLocale() == 'ar' ? $blog->description_ar : $blog->description, 200) !!} -->
+                                    {!! html_limit_safe(app()->getLocale() == 'ar' ? $blog->description_ar : $blog->description, 200) !!}
                                 </p>
                             </div>
 
@@ -94,23 +95,23 @@
             </div>
 
             <!-- RIGHT SIDE RECENT POSTS -->
-            <div class="col-md-4">
-                <div class="bg_section rounded-4 p-3">
-                    <h4 class="sub_title mb-3" data-en="Recent Posts" data-ar="أحدث المقالات">
+            <div class="col-md-4 recent_post_section">
+                <div class="bg_section p-3">
+                    <h4 class="sub_title box_title mb-3" data-en="Recent Posts" data-ar="أحدث المقالات">
                         {{ app()->getLocale() == 'ar' ? 'أحدث المقالات' : 'Recent Posts' }}
                     </h4>
 
-                    <div class="recent_posts d-flex flex-column gap-4">
+                    <div class="recent_posts d-flex flex-column gap-3">
                         @foreach($recentBlogs as $recent)
                             <div class="blog_item d-flex">
 
                                 <img src="{{ asset($recent->feature_image) }}" 
-                                     alt="" class="img-fluid feature_image rounded-4" width="90">
+                                     alt="" class="img-fluid feature_image" width="90">
 
                                 <div class="right_contain black ps-2">
 
                                     <div class="contain black mb-1 d-flex align-items-center gap-2">
-                                        <img src="{{asset('assets/image/calendar.png')}}" alt="" class="img-fluid" width="16px">
+                                        <img src="{{asset('assets/image/calendar-white.png')}}" alt="" class="img-fluid" width="16px">
                                         <p class="mb-0 small">
                                             {{ \Carbon\Carbon::parse($recent->published_at)->format('F d, Y') }}
                                         </p>

@@ -242,7 +242,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3 d-flex align-items-center">
-                                    <div class="px-xxl-5 px-xl-3 center_circle_pedding">
+                                    <div class="px-xxl-4 px-xl-3 center_circle_pedding">
                                         <div class="center_cicel z-2 position-relative bg-white">
                                             <img src="{{ $strategyImage }}" alt="" class="img-fluid">
                                         </div>
@@ -706,12 +706,13 @@
                 <div class="section_padding our_achievements">
                     <div class="container">
                         <div class="d-flex flex-wrap justify-content-center title_wrap mb-md-4">
+                            <h2 class="title mb-0">
                                 @if(app()->getLocale() == 'ar')
                                     {!! $content->achievement_title_ar ?? '' !!}
                                 @else
                                     {!! $content->achievement_title ?? '' !!}
                                 @endif
-                
+                            </h2>
                         </div>
                         <div class="contain text-center mx-md-5 mb-5">
                                 @if(app()->getLocale() == 'ar')
