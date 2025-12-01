@@ -221,20 +221,50 @@
                             </div>
                             <div class="col-md of_block">
                                 <select name="" id="" class="form-control form-select ps-2">
-                                    <option value="" data-en="Country" data-ar="الدولة">Country</option>
-                                    @foreach ($countries as $key=>$country)
-                                            <option value="{{$key}}" data-en="Country" data-ar="الدولة">{{$key}}</option>
+                                   
+                                     @if(app()->getLocale() == 'ar')
+                                      <option value="" data-en="Country" data-ar="الدولة">دولة</option>
+                                        @foreach ($countries_ar as $country_ar)
+                                            <option value="{{$country_ar}}">{{$country_ar}}</option>
                                         @endforeach
+                                     @else
+                                      <option value="" data-en="Country" data-ar="الدولة">Country</option>
+                                      @foreach ($countries as $country)
+                                            <option value="{{$country}}" data-en="Country" data-ar="الدولة">{{$country}}</option>
+                                      @endforeach
+                                     @endif
+                                   
                                 </select>
                             </div>
                             <div class="col-md of_block">
                                 <select name="" id="" class="form-control form-select ps-2">
-                                    <option value="" data-en="Sector" data-ar="القطاع">Sector</option>
+                                     @if(app()->getLocale() == 'ar')
+                                      <option value="" data-en="Sector" data-ar="القطاع">قطاع</option>
+                                        @foreach ($sector_ar as $sec_ar)
+                                            <option value="{{$sec_ar}}">{{$sec_ar}}</option>
+                                        @endforeach
+                                     @else
+                                      <option value="" >Sector</option>
+                                      @foreach ($sector as $sector)
+                                            <option value="{{$sector}}" >{{$sector}}</option>
+                                      @endforeach
+                                     @endif
                                 </select>
                             </div>
                             <div class="col-md of_block">
                                 <select name="" id="" class="form-control form-select ps-2">
-                                    <option value="" data-en="Investment Range" data-ar="نطاق الاستثمار">Investment Range</option>
+                                    
+                                       @if(app()->getLocale() == 'ar')
+                                      <option value="">نطاق الاستثمار</option>
+                                        @foreach ($investment_level_ar as $inv_ar)
+                                            <option value="{{$inv_ar}}">{{$inv_ar}}</option>
+                                        @endforeach
+                                     @else
+                                      <option value="">Investment Range</option>
+                                      @foreach ($investment_level as $investment)
+                                            <option value="{{$investment}}" >{{$investment}}</option>
+                                      @endforeach
+                                     @endif
                                 </select>
                             </div>
                             <div class="col-md of_block d-flex align-items-center justify-content-end gap-3">
@@ -307,15 +337,6 @@
                                 @else
                                   <img src="{{asset('/assets/image/blog.jpg')}}" alt="" class="img-fluid w-100">
                                 @endif
-                                <!-- <div class="contain small fw-semibold text-center mt-2 ms-2 position-absolute top-0 start-0 px-2 py-1 bg-dark rounded-5">
-                                    <h6 class="mb-0">
-                                         @if(app()->getLocale() == 'ar')
-                                                {!! $franchise->sector_ar ?? '' !!}
-                                            @else
-                                                {!! $franchise->sector ?? '' !!}
-                                            @endif
-                                    </h6>
-                                </div> -->
                             </div>
                             <div class="d-flex justify-content-between py-3 my-3 mx-4 investment_level">
                                 <div class="contain black d-flex align-items-center gap-2">
