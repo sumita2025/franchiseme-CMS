@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\FranchiseController;
 use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\ServicePackageController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\ServiceController;
@@ -114,6 +115,9 @@ Route::prefix('admin')->group(function () {
         Route::delete('/blogs/delete/{id}', [BlogPageController::class, 'destroy'])->name('admin.blogs.delete');
 
         Route::post('/blog_page_store/save', [BlogPageController::class, 'blog_page_store'])->name('admin.blogs.blog_page_store');
+
+        Route::get('/setting', [SettingController::class, 'index'])->name('admin.setting.index');
+        Route::post('/setting/save', [SettingController::class, 'save'])->name('admin.setting.save');
 
 
 

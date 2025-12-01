@@ -15,6 +15,10 @@ class FranchiseHomeController extends Controller
         $content = PageFranchise::first();
         $brands = FranchiseBrand::get();
         $franchises = Franchise::get();
-        return view('frontend.franchise', compact('content', 'brands', 'franchises'));
+        $countries =  Franchise::pluck('country')->groupBy('country')->toArray();
+        $countries_ar =  Franchise::pluck('country_ar')->groupBy('country_ar')->toArray();
+
+    
+        return view('frontend.franchise', compact('content', 'brands', 'franchises','countries','countries_ar'));
     }   
 }

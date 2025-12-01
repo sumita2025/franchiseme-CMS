@@ -374,7 +374,7 @@
                         <p class="mt-3 mb-0 text-danger" data-en="Something went wrong. Please try again." data-ar="حدث خطأ ما. يُرجى المحاولة مرة أخرى.">Something went wrong. Please try again.</p>
                     </div>
                 </form> -->
-                <img src="{{asset('/assets/image/fts.jpg')}}" alt="" class="img-fluid rounded-4">
+                <img src="{{asset('storage/'.$service->side_image ?? '/assets/image/fts.jpg')}}" alt="" class="img-fluid rounded-4">
             </div>
             <div class="col-xl-6 pe-0 ps-4 d-flex align-items-center">
                 <div class="ps-5 ms-5">

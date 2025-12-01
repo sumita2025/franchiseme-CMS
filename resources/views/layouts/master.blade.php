@@ -200,6 +200,12 @@
                 <i class="bi bi-wrench"></i> Specific Service Inquiry
             </a>
         </div>
+        <!-- Settings Section -->
+        <a href="{{ route('admin.setting.index') }}"
+        class="{{ request()->routeIs('admin.setting.*') ? 'active' : '' }}">
+           <i class="bi bi-gear"></i> Settings
+        </a>
+
     </div>
 
     {{-- Main Content --}}
