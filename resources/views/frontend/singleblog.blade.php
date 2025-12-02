@@ -17,9 +17,9 @@
 
         <section class="single_blog">
             <div class="container">
-                <img src="{{asset('assets/image/blog.jpg')}}" alt="" class="br-30 img-fluid feature_image mb-4">
+                <img src="{{asset($blog->feature_image ?? 'assets/image/blog.jpg')}}" alt="" class="br-30 img-fluid feature_image mb-4">
                 <div class="details contain black">
-                    <p data-en="An operations manual is the backbone of any franchise system." data-ar="دليل التشغيل هو العمود الفقري لأي نظام امتياز.">An operations manual is the backbone of any franchise system.</p>
+                    {{-- <p data-en="An operations manual is the backbone of any franchise system." data-ar="دليل التشغيل هو العمود الفقري لأي نظام امتياز.">An operations manual is the backbone of any franchise system.</p>
                     <p data-en="It defines how the brand operates and ensures that every branch maintains the same level of quality and service." data-ar="يُحدد كيفية تشغيل العلامة التجارية ويضمن أن تحافظ كل فرع على نفس مستوى الجودة والخدمة.">It defines how the brand operates and ensures that every branch maintains the same level of quality and service.</p>
                     <p data-en="However, one of the most common mistakes franchisors make is including procedures or information that are not actually implemented in their current branches." data-ar="ومع ذلك، من أكثر الأخطاء شيوعًا التي يرتكبها مانحو الامتياز هو تضمين إجراءات أو معلومات غير مطبقة فعليًا في فروعهم الحالية.">However, one of the most common mistakes franchisors make is including procedures or information that are not actually implemented in their current branches.</p>
                     <h4 data-en="Why is this a problem?" data-ar="لماذا تعد هذه مشكلة؟">Why is this a problem?</h4>
@@ -34,7 +34,12 @@
                     </ul>
                     <h4 data-en="FranchiseME Insight" data-ar="رؤية FranchiseME">FranchiseME Insight</h4>
                     <p data-en="A true operations manual is not just documentation — it’s a living operational agreement. Every policy written must be followed by the franchisor first, before it can be enforced on the franchisee." data-ar="دليل التشغيل الحقيقي ليس مجرد توثيق — بل هو اتفاق تشغيلي حي. يجب على مانح الامتياز الالتزام بكل سياسة مكتوبة أولاً قبل فرضها على صاحب الامتياز.">A true operations manual is not just documentation — it’s a living operational agreement. Every policy written must be followed by the franchisor first, before it can be enforced on the franchisee.</p>
-                    <p data-en="Consistency starts from the top." data-ar="الاتساق يبدأ من القمة.">Consistency starts from the top.</p>
+                    <p data-en="Consistency starts from the top." data-ar="الاتساق يبدأ من القمة.">Consistency starts from the top.</p> --}}
+                     @if(app()->getLocale() == 'ar')
+                        {!! $blog->description_ar ?? '' !!}
+                    @else
+                        {!! $blog->description ?? '' !!}
+                    @endif
                 </div>                
             </div>
         </section>
