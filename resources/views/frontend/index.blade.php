@@ -25,7 +25,7 @@
 @endphp
 <div class="container-fluid hs_container_fluid">
     <div class="row g-0 justify-content-center">
-        <div class="col-md-11">
+        <div class="col-xxl-11 col-xl-12 col-12">
             <section class="hero_section position-relative my-0" style="background-image: url('{{ $heroImage }}');">
                 <div class="overlay d-flex align-items-center justify-content-center position-relative">
                     <div class="container text-center d-flex flex-column align-items-center gap-3 z-3" data-aos="fade-up">
