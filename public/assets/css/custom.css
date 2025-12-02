@@ -276,14 +276,14 @@ a {
 }
 .main_header {
     /* padding: 10px 0; */
-    padding: 0 50px;
+    /* padding: 0 50px; */
     /* border-bottom: 1px solid #999; */
     position: relative !important;
     
     /* background: var(--primary-color); */
     /* background: #DDD; */
-    margin: 30px auto 0;
-    max-width: calc(100% - 100px);
+    margin-top: 30px;
+    /* max-width: calc(100% - 100px); */
 }
 /* .main_header .container-fluid {
     padding-right: 1.5rem !important;
@@ -359,10 +359,10 @@ a {
     background-size: cover; */
     background-position: center center;
     /* background-size: contain; */
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     /* height: 100vh; */
-    height: 70vh;
+    height: 660px;
     position: relative;
 }
 .hero_section::before {
@@ -384,7 +384,7 @@ a {
 }
 .hero_section .overlay {
     /* height: 100vh; */
-    height: 70vh;
+    height: 100%;
     /* background-image: url("../image/decor-planet.webp");
     background-position: center center;
     background-repeat: no-repeat;
@@ -2029,49 +2029,42 @@ html[dir=rtl] {
 /*--------------------- Responsive ---------------------*/
 /* 1680 */
 @media only screen and (min-width: 1650px) and (max-width: 1700px) {
-header,
-footer,
-    section:not(.not_zoom) {
-        zoom: 87.5%;   
+    .hero_section {
+        height: 576px;
     }
 }
+
 /* 1600 */
 @media only screen and (min-width: 1550px) and (max-width: 1649px) {
-    header,
-    footer,
-    section:not(.not_zoom) {
-        zoom: 83.33%;   
+    .hero_section {
+        height: 548px;
     }
 }
+
 /* 1520 */
 @media only screen and (min-width: 1450px) and (max-width: 1549px) {
-    header,
-    footer,
-    section:not(.not_zoom) {
-        zoom: 79.17%;   
+    .hero_section {
+        height: 520px;
     }
 }
+
 /* 1440 */
 @media only screen and (min-width: 1400px) and (max-width: 1449px) {
-    header,
-    footer,
-    section:not(.not_zoom) {
-        zoom: 75%;   
+    .hero_section {
+        height: 492px;
     }
 }
+
 /* 1366 */
 @media only screen and (min-width: 1300px) and (max-width: 1399px) {
-    header,
-    footer,
-    section:not(.not_zoom) {
-        zoom: 71.15%;   
+    .hero_section {
+        height: 466px;
     }
 }
+
 /* 1280 */
 @media only screen and (min-width: 1200px) and (max-width: 1299px) {
-    header,
-    footer,
-    section:not(.not_zoom) {
-        zoom: 66.67%;   
+    .hero_section {
+        height: 436px;
     }
 }

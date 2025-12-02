@@ -51,7 +51,7 @@
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-12">
-                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - 1805 x 662
+                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - W-1724 x H-660
                                             )</span></label>
                                     <input type="file" name="hero_background_image" class="form-control preview-input"
                                         data-preview="#hero_bg_preview">

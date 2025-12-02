@@ -40,91 +40,95 @@
     </head>
     <body>
         <header class="main_header position-absolute top-0 w-100 z-3">
-            <div class="container-fluid px-0">
-                <nav class="navbar navbar-expand-lg py-0 justify-content-between gap-3">
-                    <a class="navbar-brand py-0 mx-0 bg_box" href="{{ route('index') }}">
-                        <img src="{{ asset($site_logo ?? 'assets/image/logo.png') }}" alt="" class="img-fluid logo">
-                    </a>
-                    <div class="main_menu bg_box 1w-100">
-                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                            <ul class="navbar-nav">
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link text-white" data-en="Blog" data-ar="المدونة" href="">Blog</a>
-                                </li> -->
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ request()->routeIs('index') ? 'active' : '' }}" href="{{ route('index') }}">
-                                        @if(app()->getLocale() == 'ar')
-                                            الرئيسية
-                                        @else
-                                            Home
-                                        @endif
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">
-                                        @if(app()->getLocale() == 'ar')
-                                            مدونة
-                                        @else
-                                            Blog
-                                        @endif
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">
-                                        @if(app()->getLocale() == 'ar')
-                                            خدماتنا
-                                        @else
-                                            Our Services
-                                        @endif
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ request()->routeIs('franchise') ? 'active' : '' }}" href="{{ route('franchise') }}">
-                                        @if(app()->getLocale() == 'ar')
-                                            استكشف فرص الامتياز التجاري
-                                        @else
-                                            Explore Franchise Opportunities
-                                        @endif
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ request()->routeIs('faq-page') ? 'active' : '' }}" href="{{ route('faq-page') }}">
-                                        @if(app()->getLocale() == 'ar')
-                                            الأسئلة الشائعة
-                                        @else
-                                            FAQ
-                                        @endif
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">
-                                        @if(app()->getLocale() == 'ar')
-                                            اتصل بنا
-                                        @else
-                                            Contact Us
-                                        @endif
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    </div>
-                    <div class="bg_box justify-content-end">
-                        <!-- <a href="javascript:void(0);" class="button btn_primary" id="changeLanguage">
-                            <div class="btn_text" data-ar="English" data-en="عربي">عربي</div>
-                        </a> -->
-                        <a href="{{ route('change.language', app()->getLocale() == 'en' ? 'ar' : 'en') }}" class="button btn_primary">
-                            <div class="btn_text">
-                                {{ app()->getLocale() == 'en' ? 'عربي' : 'English' }}
+            <div class="container-fluid">
+                <div class="row g-0 justify-content-center">
+                    <div class="col-md-11">
+                        <nav class="navbar navbar-expand-lg py-0 justify-content-between gap-3">
+                            <a class="navbar-brand py-0 mx-0 bg_box" href="{{ route('index') }}">
+                                <img src="{{ asset($site_logo ?? 'assets/image/logo.png') }}" alt="" class="img-fluid logo">
+                            </a>
+                            <div class="main_menu bg_box 1w-100">
+                                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                                    <ul class="navbar-nav">
+                                        <!-- <li class="nav-item">
+                                            <a class="nav-link text-white" data-en="Blog" data-ar="المدونة" href="">Blog</a>
+                                        </li> -->
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white {{ request()->routeIs('index') ? 'active' : '' }}" href="{{ route('index') }}">
+                                                @if(app()->getLocale() == 'ar')
+                                                    الرئيسية
+                                                @else
+                                                    Home
+                                                @endif
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white {{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">
+                                                @if(app()->getLocale() == 'ar')
+                                                    مدونة
+                                                @else
+                                                    Blog
+                                                @endif
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">
+                                                @if(app()->getLocale() == 'ar')
+                                                    خدماتنا
+                                                @else
+                                                    Our Services
+                                                @endif
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white {{ request()->routeIs('franchise') ? 'active' : '' }}" href="{{ route('franchise') }}">
+                                                @if(app()->getLocale() == 'ar')
+                                                    استكشف فرص الامتياز التجاري
+                                                @else
+                                                    Explore Franchise Opportunities
+                                                @endif
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white {{ request()->routeIs('faq-page') ? 'active' : '' }}" href="{{ route('faq-page') }}">
+                                                @if(app()->getLocale() == 'ar')
+                                                    الأسئلة الشائعة
+                                                @else
+                                                    FAQ
+                                                @endif
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">
+                                                @if(app()->getLocale() == 'ar')
+                                                    اتصل بنا
+                                                @else
+                                                    Contact Us
+                                                @endif
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                             </div>
-                        </a>
+                            <div class="bg_box justify-content-end">
+                                <!-- <a href="javascript:void(0);" class="button btn_primary" id="changeLanguage">
+                                    <div class="btn_text" data-ar="English" data-en="عربي">عربي</div>
+                                </a> -->
+                                <a href="{{ route('change.language', app()->getLocale() == 'en' ? 'ar' : 'en') }}" class="button btn_primary">
+                                    <div class="btn_text">
+                                        {{ app()->getLocale() == 'en' ? 'عربي' : 'English' }}
+                                    </div>
+                                </a>
+                            </div>
+                        </nav>
                     </div>
-                </nav>
+                </div>
             </div>
         </header>
 
