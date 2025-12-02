@@ -154,37 +154,77 @@
 
                     <div class="row g-4">
                         <div class="col-md-12">
-                            <input type="text" name="name" class="form-control" placeholder="Name">
+                            <input type="text" name="name" class="form-control" placeholder="@if(app()->getLocale() == 'ar') اسم @else Name @endif">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="email" class="form-control" placeholder="Email">
+                            <input type="email" name="email" class="form-control" placeholder="@if(app()->getLocale() == 'ar') بريد إلكتروني @else Email @endif">
                         </div>
                         <div class="col-md-6">
-                            <input type="number" name="phone" class="form-control" placeholder="Phone Number">
+                            <input type="number" name="phone" class="form-control" placeholder="@if(app()->getLocale() == 'ar') رقم التليفون @else Phone Number @endif ">
                         </div>
                         <div class="col-md-12">
                             <select name="subject" class="form-control form-select ps-2">
-                                <option value="">Subject</option>
+                                {{-- <option value="">Subject</option>
                                 <option value="General Inquiry">General Inquiry</option>
                                 <option value="Franchise Consultation">Franchise Consultation</option>
                                 <option value="Partnership">Partnership</option>
-                                <option value="Support">Support</option>
+                                <option value="Support">Support</option> --}}
+                                <option value="">
+                                    @if(app()->getLocale() == 'ar')
+                                        الموضوع
+                                    @else
+                                        Subject
+                                    @endif
+                                </option>
+
+                                <option value="General Inquiry">
+                                    @if(app()->getLocale() == 'ar')
+                                        استفسار عام
+                                    @else
+                                        General Inquiry
+                                    @endif
+                                </option>
+
+                                <option value="Franchise Consultation">
+                                    @if(app()->getLocale() == 'ar')
+                                        استشارة الفرنشايز
+                                    @else
+                                        Franchise Consultation
+                                    @endif
+                                </option>
+
+                                <option value="Partnership">
+                                    @if(app()->getLocale() == 'ar')
+                                        شراكة
+                                    @else
+                                        Partnership
+                                    @endif
+                                </option>
+
+                                <option value="Support">
+                                    @if(app()->getLocale() == 'ar')
+                                        دعم
+                                    @else
+                                        Support
+                                    @endif
+                                </option>
+
                             </select>
                         </div>
                         <div class="col-md-12">
-                            <textarea name="message" class="form-control" placeholder="Message" rows="3"></textarea>
+                            <textarea name="message" class="form-control" placeholder=" @if(app()->getLocale() == 'ar') رسالة @else Message @endif" rows="3"></textarea>
                         </div>
                         <div class="col-md-12 d-flex">
                             <button type="submit" class="button btn_secoundry border-0 bg-transparent p-0">
-                                <div class="btn_text">Send Message</div>
+                                <div class="btn_text">@if(app()->getLocale() == 'ar') أرسل رسالة @else Send Message @endif</div>
                             </button>
                         </div>
                     </div>
                     <div class="contain black d-none">
-                        <p class="mt-3 mb-0 text-success" data-en="Thank you for contacting FranchiseME! Our team will get back to you shortly." data-ar="شكرًا لتواصلك مع FranchiseME! سيتواصل معك فريقنا قريبًا.">Thank you for contacting FranchiseME! Our team will get back to you shortly.</p>
+                        <p class="mt-3 mb-0 text-success" data-en="Thank you for contacting FranchiseME! Our team will get back to you shortly." data-ar="شكرًا لتواصلك مع FranchiseME! سيتواصل معك فريقنا قريبًا.">   @if(app()->getLocale() == 'ar') شكرًا لتواصلك مع FranchiseME! سيتواصل فريقنا معك قريبًا. @else Thank you for contacting FranchiseME! Our team will get back to you shortly. @endif</p>
                     </div>
                     <div class="contain black d-none">
-                        <p class="mt-3 mb-0 text-danger" data-en="Something went wrong. Please try again." data-ar="حدث خطأ ما. يُرجى المحاولة مرة أخرى.">Something went wrong. Please try again.</p>
+                        <p class="mt-3 mb-0 text-danger" data-en="Something went wrong. Please try again." data-ar="حدث خطأ ما. يُرجى المحاولة مرة أخرى.">@if(app()->getLocale() == 'ar') حدث خطأ ما. يُرجى المحاولة مرة أخرى. @else Something went wrong. Please try again. @endif</p>
                     </div>
                 </form>
             </div>

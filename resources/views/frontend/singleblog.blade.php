@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('content')
-     <section class="page_title position-relative my-0">
+     <section class="page_title position-relative my-0"  style="background-image: url('{{ asset($pageBlog->background_image ?? 'default.jpg') }}');">
             <div class="container" data-aos="fade-up">
                 <div class="contain">
                     <a href="{{ route('blog') }}" class="text-white d-flex align-items-center gap-1">

@@ -46,7 +46,7 @@
                     <div class="row gx-3 gy-2">
                         <div class="col-md-6">
                             <div class="contain black d-flex align-items-center gap-2">
-                                <p class="mb-0 fw-bold" data-en="Sector:" data-ar="القطاع:">Sector:</p>
+                                <p class="mb-0 fw-bold" data-en="Sector:" data-ar="القطاع:">@if(app()->getLocale() == 'ar')  قطاع: @else Sector: @endif </p>
                                 <p>
                                     @if(app()->getLocale() == 'ar')
                                         {!! $franchise->sector_ar ?? '' !!}
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="contain black d-flex align-items-center gap-2">
-                                <p class="mb-0 fw-bold">Investment level:</p>
+                                <p class="mb-0 fw-bold">  @if(app()->getLocale() == 'ar') مستوى الاستثمار: @else Investment level: @endif</p>
                                 <p>
                                     @if(app()->getLocale() == 'ar')
                                         {!! $franchise->investment_level_ar ?? '' !!}
@@ -88,11 +88,11 @@
     <div class="container">
         <div class="text-center mb-5">
             <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
-                <h2 class="title mb-0" data-en="Application" data-ar="نموذج">Application</h2>  
-                <h2 class="title mb-0 yellow" data-en="Form" data-ar="التقديم">Form</h2>  
+                <h2 class="title mb-0" data-en="Application" data-ar="نموذج">@if(app()->getLocale() == 'ar') طلب @else Application @endif </h2>  
+                <h2 class="title mb-0 yellow" data-en="Form" data-ar="التقديم">@if(app()->getLocale() == 'ar') استمارة @else Form @endif</h2>  
             </div>
             <div class="contain black text-center">
-                <p class="mb-0" data-en="Allows investors to apply for a franchise opportunity directly." data-ar="يتيح للمستثمرين التقدم مباشرة للحصول على فرصة امتياز تجاري.">Allows investors to apply for a franchise opportunity directly.</p>
+                <p class="mb-0" data-en="Allows investors to apply for a franchise opportunity directly." data-ar="يتيح للمستثمرين التقدم مباشرة للحصول على فرصة امتياز تجاري.">  @if(app()->getLocale() == 'ar') يتيح للمستثمرين التقدم بطلب للحصول على فرصة الامتياز بشكل مباشر. @else Allows investors to apply for a franchise opportunity directly. @endif</p>
             </div>
         </div>
         <div class="row mx-0 justify-content-center" data-aos="fade-up">
@@ -100,16 +100,16 @@
                 <form action="">
                     <div class="row g-4"> 
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="Full Name" data-en="Full Name" data-ar="الاسم الكامل">
+                            <input type="text" class="form-control" placeholder="@if(app()->getLocale() == 'ar') الاسم الكامل @else Full Name @endif" data-en="Full Name" data-ar="الاسم الكامل">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Email" data-en="Email" data-ar="البريد الإلكتروني">
+                            <input type="text" class="form-control" placeholder="@if(app()->getLocale() == 'ar') بريد إلكتروني @else Email  @endif" data-en="Email" data-ar="البريد الإلكتروني">
                         </div>
                         <div class="col-md-6">
-                            <input type="number" class="form-control" placeholder="Phone Number" data-en="Phone Number" data-ar="رقم الهاتف">
+                            <input type="number" class="form-control" placeholder="@if(app()->getLocale() == 'ar') رقم التليفون @else Phone Number  @endif" data-en="Phone Number" data-ar="رقم الهاتف">
                         </div>
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="Country" data-en="Country" data-ar="الدولة">
+                            <input type="text" class="form-control" placeholder="@if(app()->getLocale() == 'ar') دولة @else Country @endif" data-en="Country" data-ar="الدولة">
                         </div>
                         {{-- <div class="col-md-6">
                             <select name="" id="" class="form-control form-select ps-2">
@@ -117,17 +117,17 @@
                             </select>
                         </div> --}}
                          <div class="col-md-6">
-                            <input type="text" class="form-control" value="{{ $franchise->title ?? null }}" data-en="Brand" data-ar="ماركة" readonly>
+                            <input type="text" class="form-control" value="@if(app()->getLocale() == 'ar') {{ $franchise->title_ar ?? null }} @else {{ $franchise->title ?? null }} @endif" data-en="Brand" data-ar="ماركة" readonly>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Investment Range" data-en="Investment Range" data-ar="نطاق الاستثمار">
+                            <input type="text" class="form-control" placeholder="@if(app()->getLocale() == 'ar')  نطاق الاستثمار @else Investment Range @endif " data-en="Investment Range" data-ar="نطاق الاستثمار">
                         </div>
                         <div class="col-md-12">
-                            <textarea class="form-control" placeholder="Message" rows="3" data-en="Message" data-ar="الرسالة"></textarea>
+                            <textarea class="form-control" placeholder="@if(app()->getLocale() == 'ar') رسالة @else Message @endif " rows="3" data-en="Message" data-ar="الرسالة"></textarea>
                         </div>
                         <div class="col-md-12 d-flex">
                             <a href="javascript:void(0);" class="button btn_secoundry">
-                                <div class="btn_text" data-en="Submit" data-ar="إرسال">Submit</div>
+                                <div class="btn_text" data-en="Submit" data-ar="إرسال">@if(app()->getLocale() == 'ar') يُقدِّم @else Submit @endif</div>
                             </a>
                         </div>
                     </div>

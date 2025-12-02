@@ -20,6 +20,7 @@ class BlogController extends Controller
     public function singleblog($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('frontend.singleblog', compact('blog'));
+        $pageBlog = PageBlog::first();
+        return view('frontend.singleblog', compact('blog','pageBlog'));
     }
 }

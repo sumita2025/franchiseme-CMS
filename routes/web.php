@@ -35,6 +35,7 @@ Route::get('/service', [ServiceController::class, 'service'])->name('service');
 Route::get('/service-detail/{slug}', [ServiceController::class, 'serviceDetail'])->name('service-detail');
 Route::get('/faq-page', [FaqController::class, 'faqs'])->name('faq-page');
 Route::get('/franchise', [FranchiseHomeController::class, 'franchise_brand'])->name('franchise');
+Route::get('/franchise/filter', [FranchiseHomeController::class, 'filterFranchises'])->name('franchise.filter');
 Route::post('/contact/submit', [ContactMessageController::class, 'store'])->name('contact.submit');
 Route::post('/application/submit', [ApplicationFormController::class, 'store'])->name('application.submit');
 Route::get('/change-language/{lang}', [LanguageController::class, 'changeLanguage'])->name('change.language');
