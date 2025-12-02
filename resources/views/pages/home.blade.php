@@ -477,9 +477,9 @@
                             <div class="card-body">
                                 <div class="row g-4">
                                         <div class="col-4">
-                                                <label>Counter One</label>
-                                                 <textarea name="achievement_counter_one" class="form-control summernote">{!! $home->achievement_counter_one ?? '' !!}</textarea>
-
+                                            <label>Counter One</label>
+                                            {{-- <textarea name="achievement_counter_one" class="form-control summernote">{!! $home->achievement_counter_one ?? '' !!}</textarea> --}}
+                                             <input name="achievement_counter_one" value="{{$home->achievement_counter_one }}" type="number" class="form-control "> 
                                         </div>
                                         <div class="col-4">
                                                 <label>Counter One Text (English)</label>
@@ -490,40 +490,45 @@
                                                <textarea name="achievement_counter_one_ar" class="form-control summernote"> {!!  $home->achievement_counter_one_ar?? '' !!}</textarea>
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Two</label>
-                                               <textarea name="achievement_counter_two" class="form-control summernote"> {!!  $home->achievement_counter_two?? '' !!}</textarea>
+                                            <label>Counter Two</label>
+                                            {{-- <textarea name="achievement_counter_two" class="form-control summernote"> {!!  $home->achievement_counter_two?? '' !!}</textarea> --}}
+                                            <input name="achievement_counter_two" value="{{$home->achievement_counter_two }}" type="number" class="form-control ">
+
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Two Text (English)</label>
-                                               <textarea name="achievement_counter_two_en" class="form-control summernote"> {!!  $home->achievement_counter_two_en?? '' !!}</textarea>
+                                            <label>Counter Two Text (English)</label>
+                                            <textarea name="achievement_counter_two_en" class="form-control summernote"> {!!  $home->achievement_counter_two_en?? '' !!}</textarea>
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Two Text (Arabic)</label>
-                                               <textarea name="achievement_counter_two_ar" class="form-control summernote"> {!!  $home->achievement_counter_two_ar?? '' !!}</textarea>
+                                            <label>Counter Two Text (Arabic)</label>
+                                            <textarea name="achievement_counter_two_ar" class="form-control summernote"> {!!  $home->achievement_counter_two_ar?? '' !!}</textarea>
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Three</label>
-                                               <textarea name="achievement_counter_three" class="form-control summernote"> {!!  $home->achievement_counter_three?? '' !!}</textarea>
+                                            <label>Counter Three</label>
+                                            {{-- <textarea name="achievement_counter_three" class="form-control summernote"> {!!  $home->achievement_counter_three?? '' !!}</textarea> --}}
+                                            <input name="achievement_counter_three" value="{{$home->achievement_counter_three }}" type="number" class="form-control ">
+
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Three Text (English)</label>
-                                               <textarea name="achievement_counter_three_en" class="form-control summernote"> {!!  $home->achievement_counter_three_en?? '' !!}</textarea>
+                                            <label>Counter Three Text (English)</label>
+                                            <textarea name="achievement_counter_three_en" class="form-control summernote"> {!!  $home->achievement_counter_three_en?? '' !!}</textarea>
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Three Text (Arabic)</label>
-                                               <textarea name="achievement_counter_three_ar" class="form-control summernote"> {!!  $home->achievement_counter_three_ar?? '' !!}</textarea>
+                                            <label>Counter Three Text (Arabic)</label>
+                                            <textarea name="achievement_counter_three_ar" class="form-control summernote"> {!!  $home->achievement_counter_three_ar?? '' !!}</textarea>
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Four</label>
-                                               <textarea name="achievement_counter_four" class="form-control summernote"> {!!  $home->achievement_counter_four?? '' !!}</textarea>
+                                            <label>Counter Four</label>
+                                            {{-- <textarea name="achievement_counter_four" class="form-control summernote"> {!!  $home->achievement_counter_four?? '' !!}</textarea> --}}
+                                            <input name="achievement_counter_four" value="{{$home->achievement_counter_four }}" type="number" class="form-control ">
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Four Text (English)</label>
-                                               <textarea name="achievement_counter_four_en" class="form-control summernote"> {!!  $home->achievement_counter_four_en?? '' !!}</textarea>
+                                            <label>Counter Four Text (English)</label>
+                                            <textarea name="achievement_counter_four_en" class="form-control summernote"> {!!  $home->achievement_counter_four_en?? '' !!}</textarea>
                                         </div>
                                         <div class="col-4">
-                                                <label>Counter Four Text (Arabic)</label>
-                                               <textarea name="achievement_counter_four_ar" class="form-control summernote"> {!!  $home->achievement_counter_four_ar?? '' !!}</textarea>
+                                            <label>Counter Four Text (Arabic)</label>
+                                            <textarea name="achievement_counter_four_ar" class="form-control summernote"> {!!  $home->achievement_counter_four_ar?? '' !!}</textarea>
                                         </div>
                                 </div>
                             </div>
