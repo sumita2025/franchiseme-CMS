@@ -104,7 +104,7 @@
 <section class="mt-0">
     <div class="container-fluid hs_container_fluid">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="circel_data mt-0 section_padding">
                     <div class="row justify-content-center">
                         <div class="col-md-10 d-flex flex-column gap-3 position-relative">
@@ -461,7 +461,7 @@
 <section class="">
     <div class="container-fluid">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="text-center">
                     <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
                         <h2 class="title mb-0">
@@ -717,7 +717,7 @@
 <section>
     <div class="container-fluid">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="section_padding our_achievements">
                     <div class="container">
                         <div class="d-flex flex-wrap justify-content-center title_wrap mb-md-4">
@@ -814,8 +814,8 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-11">
+        <div class="row g-0 justify-content-center">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="brand_logos">
                     <div class="splide brand_logo_slider">
                         <div class="splide__track">

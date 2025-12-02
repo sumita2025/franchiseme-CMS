@@ -49,7 +49,7 @@
 <section class="about_cta" data-aos="fade-up">
     <div class="container-fluid">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="box">
                     <div class="container">
                         <div class="d-flex flex-column align-items-center text-center gap-3">
@@ -310,7 +310,7 @@
 <section class="about_cta">
     <div class="container-fluid">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="box">
                     <div class="container">
                         <div class="row" data-aos="fade-up">

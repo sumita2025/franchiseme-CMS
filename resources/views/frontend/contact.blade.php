@@ -235,7 +235,7 @@
 <section data-aos="fade-up" class="contact_map">
     <div class="container-fluid">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 {!! $contact->map_embed ?? '' !!}
             </div>
         </div>

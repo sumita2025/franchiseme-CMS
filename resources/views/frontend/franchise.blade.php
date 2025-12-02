@@ -47,7 +47,7 @@
 <section class="opportunities_feature">
     <div class="container-fluid">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="bg_section">
                     <div class="container">
                         <div class="d-flex flex-wrap title_wrap mb-5 justify-content-center">
@@ -140,7 +140,7 @@
 <section class="franchise_listing_section_container">
     <div class="container-fluid mb-4">
         <div class="row g-0 justify-content-center">
-            <div class="col-md-11">
+            <div class="col-xxl-11 col-xl-12 col-12">
                 <div class="bg_color">
                     <div class="px-5 py-4">
                         <form id="franchise-filter-form"> 
