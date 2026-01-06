@@ -28,7 +28,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Store new blog
+     * Store new team
      */
     public function store(Request $request)
     {
@@ -50,7 +50,7 @@ class TeamController extends Controller
         
         Team::create($validated);
 
-        return redirect()->route('admin.teams.index')->with('success', 'Team saved successfully.');
+        return redirect()->route('admin.home.index')->with('success', 'Team saved successfully.');
     }
 
     /**
@@ -63,7 +63,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Update blog
+     * Update team
      */
     public function update(Request $request, $id)
     {
@@ -86,23 +86,36 @@ class TeamController extends Controller
 
         $team->update($validated);
 
-         return redirect()->route('admin.teams.index')->with('success', 'Team updated successfully.');
+         return redirect()->route('admin.home.index')->with('success', 'Team updated successfully.');
     }
 
     /**
-     * Delete blog
+     * Delete team
      */
     public function destroy($id)
     {
-        $blog = Blog::findOrFail($id);
+        try {
+            $team = Team::findOrFail($id);
 
-        // delete image if exist
-        if ($blog->feature_image && file_exists(public_path('storage/' . $blog->feature_image))) {
-            unlink(public_path('storage/' . $blog->feature_image));
+            // delete image if exist
+            if ($team->image && file_exists(public_path($team->image))) {
+                unlink(public_path($team->image));
+            }
+
+            $team->delete();
+            
+            // Return JSON response for AJAX requests
+            if (request()->expectsJson()) {
+                return response()->json(['success' => true, 'message' => 'Team deleted successfully']);
+            }
+            
+            return redirect()->route('admin.home.index')->with('success', 'Team deleted successfully.');
+        } catch (\Exception $e) {
+            if (request()->expectsJson()) {
+                return response()->json(['success' => false, 'message' => $e->getMessage()], 404);
+            }
+            return redirect()->route('admin.home.index')->with('error', 'Team not found.');
         }
-
-        $blog->delete();
-        return redirect()->route('admin.blogs.index')->with('success', 'Blog deleted successfully.');
     }
 
     public function team_page_store(Request $request)

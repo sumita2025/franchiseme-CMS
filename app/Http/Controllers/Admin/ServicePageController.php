@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageService;
+use App\Models\ServicePackage;
 
 class ServicePageController extends Controller
 {
     public function index()
     {
         $service = PageService::first();
-        return view('pages.services', compact('service'));
+        $services = ServicePackage::get();
+        return view('pages.services', compact('service', 'services'));
     }
 
     public function store(Request $request)

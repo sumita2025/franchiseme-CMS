@@ -49,7 +49,7 @@ class ServicePackageController extends Controller
 
         ServicePackage::create($validated);
 
-        return redirect()->route('admin.services.index')->with('success', 'Service saved successfully.');
+        return redirect()->route('admin.service.index')->with('success', 'Service saved successfully.');
     }
 
     /**
@@ -87,7 +87,7 @@ class ServicePackageController extends Controller
 
         $team->update($validated);
 
-        return redirect()->route('admin.services.index')->with('success', 'Service updated successfully.');
+        return redirect()->route('admin.service.index')->with('success', 'Service updated successfully.');
     }
 
     /**
@@ -102,7 +102,7 @@ class ServicePackageController extends Controller
             unlink(public_path($service->image));
         }
         $service->delete();
-        return redirect()->route('admin.services.index')->with('success', 'Service deleted successfully.');
+        return response()->json(['success' => true, 'message' => 'Service deleted successfully']);
     }
 
     public function service_page_store(Request $request)

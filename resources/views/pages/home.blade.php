@@ -2,7 +2,13 @@
 
 @section('content')
     <div>
-        <!-- <h3 class="mb-4">Home Page Editor</h3> -->
+        {{-- Page Title --}}
+        <div class="mb-4">
+            <h3 class="fw-bold text-dark">
+                <i class="bi bi-house-fill me-2 text-primary"></i>Home Management
+            </h3>
+            <p class="text-muted mb-0">Manage your homepage sections and content</p>
+        </div>
 
         <form action="{{ route('admin.home.save') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -40,6 +46,11 @@
                 <li class="nav-item">
                     <a href="#tab_client_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
                         <span>Client Section</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tab_teams_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                        <span>Teams Management</span>
                     </a>
                 </li>
             </ul>
@@ -471,68 +482,73 @@
                                 </div>
                             </div>
                         </div>
-                      </div>
-                        <div class="card mb-3">
-                            <div class="card-header bg-primary text-white">Counters Section</div>
-                            <div class="card-body">
-                                <div class="row g-4">
-                                        <div class="col-4">
-                                            <label>Counter One</label>
-                                            {{-- <textarea name="achievement_counter_one" class="form-control summernote">{!! $home->achievement_counter_one ?? '' !!}</textarea> --}}
-                                             <input name="achievement_counter_one" value="{{$home->achievement_counter_one }}" type="number" class="form-control "> 
-                                        </div>
-                                        <div class="col-4">
-                                                <label>Counter One Text (English)</label>
-                                               <textarea name="achievement_counter_one_en" class="form-control summernote"> {!!  $home->achievement_counter_one_en?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-4">
-                                                <label>Counter One Text (Arabic)</label>
-                                               <textarea name="achievement_counter_one_ar" class="form-control summernote"> {!!  $home->achievement_counter_one_ar?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Two</label>
-                                            {{-- <textarea name="achievement_counter_two" class="form-control summernote"> {!!  $home->achievement_counter_two?? '' !!}</textarea> --}}
-                                            <input name="achievement_counter_two" value="{{$home->achievement_counter_two }}" type="number" class="form-control ">
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">Counters Section</div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-4">
+                                    <label>Counter One</label>
+                                    {{-- <textarea name="achievement_counter_one" class="form-control summernote">{!! $home->achievement_counter_one ?? '' !!}</textarea> --}}
+                                    <input name="achievement_counter_one" value="{{ $home->achievement_counter_one }}"
+                                        type="number" class="form-control ">
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter One Text (English)</label>
+                                    <textarea name="achievement_counter_one_en" class="form-control summernote"> {!! $home->achievement_counter_one_en ?? '' !!}</textarea>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter One Text (Arabic)</label>
+                                    <textarea name="achievement_counter_one_ar" class="form-control summernote"> {!! $home->achievement_counter_one_ar ?? '' !!}</textarea>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Two</label>
+                                    {{-- <textarea name="achievement_counter_two" class="form-control summernote"> {!!  $home->achievement_counter_two?? '' !!}</textarea> --}}
+                                    <input name="achievement_counter_two" value="{{ $home->achievement_counter_two }}"
+                                        type="number" class="form-control ">
 
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Two Text (English)</label>
-                                            <textarea name="achievement_counter_two_en" class="form-control summernote"> {!!  $home->achievement_counter_two_en?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Two Text (Arabic)</label>
-                                            <textarea name="achievement_counter_two_ar" class="form-control summernote"> {!!  $home->achievement_counter_two_ar?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Three</label>
-                                            {{-- <textarea name="achievement_counter_three" class="form-control summernote"> {!!  $home->achievement_counter_three?? '' !!}</textarea> --}}
-                                            <input name="achievement_counter_three" value="{{$home->achievement_counter_three }}" type="number" class="form-control ">
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Two Text (English)</label>
+                                    <textarea name="achievement_counter_two_en" class="form-control summernote"> {!! $home->achievement_counter_two_en ?? '' !!}</textarea>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Two Text (Arabic)</label>
+                                    <textarea name="achievement_counter_two_ar" class="form-control summernote"> {!! $home->achievement_counter_two_ar ?? '' !!}</textarea>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Three</label>
+                                    {{-- <textarea name="achievement_counter_three" class="form-control summernote"> {!!  $home->achievement_counter_three?? '' !!}</textarea> --}}
+                                    <input name="achievement_counter_three"
+                                        value="{{ $home->achievement_counter_three }}" type="number"
+                                        class="form-control ">
 
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Three Text (English)</label>
-                                            <textarea name="achievement_counter_three_en" class="form-control summernote"> {!!  $home->achievement_counter_three_en?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Three Text (Arabic)</label>
-                                            <textarea name="achievement_counter_three_ar" class="form-control summernote"> {!!  $home->achievement_counter_three_ar?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Four</label>
-                                            {{-- <textarea name="achievement_counter_four" class="form-control summernote"> {!!  $home->achievement_counter_four?? '' !!}</textarea> --}}
-                                            <input name="achievement_counter_four" value="{{$home->achievement_counter_four }}" type="number" class="form-control ">
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Four Text (English)</label>
-                                            <textarea name="achievement_counter_four_en" class="form-control summernote"> {!!  $home->achievement_counter_four_en?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-4">
-                                            <label>Counter Four Text (Arabic)</label>
-                                            <textarea name="achievement_counter_four_ar" class="form-control summernote"> {!!  $home->achievement_counter_four_ar?? '' !!}</textarea>
-                                        </div>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Three Text (English)</label>
+                                    <textarea name="achievement_counter_three_en" class="form-control summernote"> {!! $home->achievement_counter_three_en ?? '' !!}</textarea>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Three Text (Arabic)</label>
+                                    <textarea name="achievement_counter_three_ar" class="form-control summernote"> {!! $home->achievement_counter_three_ar ?? '' !!}</textarea>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Four</label>
+                                    {{-- <textarea name="achievement_counter_four" class="form-control summernote"> {!!  $home->achievement_counter_four?? '' !!}</textarea> --}}
+                                    <input name="achievement_counter_four" value="{{ $home->achievement_counter_four }}"
+                                        type="number" class="form-control ">
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Four Text (English)</label>
+                                    <textarea name="achievement_counter_four_en" class="form-control summernote"> {!! $home->achievement_counter_four_en ?? '' !!}</textarea>
+                                </div>
+                                <div class="col-4">
+                                    <label>Counter Four Text (Arabic)</label>
+                                    <textarea name="achievement_counter_four_ar" class="form-control summernote"> {!! $home->achievement_counter_four_ar ?? '' !!}</textarea>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
 
                 </div>
@@ -609,8 +625,93 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab-pane" id="tab_teams_section">
+                    {{-- TEAMS SECTION --}}
+                    <div class="card mb-3">
+                        <div class="card mb-3">
+                            <div class="card-header bg-primary text-white">Team Section</div>
+                            <div class="card-body">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                {{-- English --}}
+                                                <h6 class="text-primary">English Content 123</h6>
+                                                <label>Title (English)</label>
+                                                <textarea name="team_title" class="form-control summernote">{!! $home->team_title ?? '' !!}</textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <label>Description (English)</label>
+                                                <textarea name="team_description" class="form-control summernote">{!! $home->team_description ?? '' !!}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                {{-- Arabic --}}
+                                                <h6 class="text-success">Arabic Content</h6>
+                                                <label>Title (Arabic)</label>
+                                                <textarea name="team_title_ar" class="form-control summernote">{!! $home->team_title_ar ?? '' !!}</textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <label>Description (Arabic)</label>
+                                                <textarea name="team_description_ar" class="form-control summernote">{!! $home->team_description_ar ?? '' !!}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- TEAMS LIST --}}
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">Teams List</div>
+                        <div class="d-flex justify-content-end align-items-center m-2">
+                            <a href="{{ route('admin.teams.create') }}" class="btn btn-primary">Add New</a>
+                        </div>
+                        <div class="card-body">
+                            @if ($teams && $teams->count() > 0)
+                                <table class="table table-striped table-borderless table-centered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Image</th>
+                                            <th>Title</th>
+                                            <th>Title AR</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($teams as $i => $team)
+                                            <tr>
+                                                <td>{{ $i + 1 }}</td>
+                                                <td><img src="{{ asset($team->image) }}" width="80"></td>
+                                                <td>{{ $team->title }}</td>
+                                                <td>{{ $team->title_ar }}</td>
+                                                <td>
+                                                    <div class="d-flex gap-3 align-items-center actions_btn">
+                                                        <a href="{{ route('admin.teams.edit', $team->id) }}" class="border-0 bg-transparent" title="Edit">
+                                                            <img src="{{ asset('assets/admin/image/edit.png') }}" alt="">
+                                                        </a>
+                                                        <button type="button" class="border-0 bg-transparent delete-team-btn" data-team-id="{{ $team->id }}" title="Delete" onclick="return confirm('Delete Team?') && deleteTeam({{ $team->id }})">
+                                                            <img src="{{ asset('assets/admin/image/delete.png') }}" alt="">
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                <div class="alert alert-info">No teams added yet.</div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-success py-2">Save All Sections</button>
+                    <button type="submit" class="btn btn-success py-2">Save All Sections</button>
                 </div>
         </form>
     </div>
@@ -657,16 +758,16 @@
             // Add new logo input
             $('#addLogoBtn').on('click', function() {
                 let logoItem = `
-            <div class="col-3 logo-item">
-                <div class="position-relative">
-                    <input type="file" name="client_logo_image[]" class="form-control logo-input mb-2" accept="image/*">
-                    <img class="img-thumbnail w-100 mb-2 logo-preview d-none" style="max-height:150px;">
-                    <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 mt-1 me-1 remove-logo delete_btn">
-                        <img src="{{ asset('/assets/admin/image/delete-w.png') }}" alt="" width="20px">
-                    </button>
-                </div>
-            </div>
-        `;
+                    <div class="col-3 logo-item">
+                        <div class="position-relative">
+                            <input type="file" name="client_logo_image[]" class="form-control logo-input mb-2" accept="image/*">
+                            <img class="img-thumbnail w-100 mb-2 logo-preview d-none" style="max-height:150px;">
+                            <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 mt-1 me-1 remove-logo delete_btn">
+                                <img src="{{ asset('/assets/admin/image/delete-w.png') }}" alt="" width="20px">
+                            </button>
+                        </div>
+                    </div>
+                `;
                 $('#clientLogosContainer').append(logoItem);
             });
 
@@ -718,12 +819,12 @@
                             } else {
                                 // alert('Something went wrong. Please try again.');
                                 toastr.error('Something went wrong. Please try again.',
-                                "Error", {
-                                    closeButton: true,
-                                    progressBar: true,
-                                    positionClass: "toast-top-right",
-                                    timeOut: "2000"
-                                });
+                                    "Error", {
+                                        closeButton: true,
+                                        progressBar: true,
+                                        positionClass: "toast-top-right",
+                                        timeOut: "2000"
+                                    });
                             }
                         },
                         error: function() {
@@ -737,5 +838,45 @@
         $(document).on('click', '.remove-logo', function() {
             $(this).closest('.logo-item').remove();
         });
+
+        // Delete Team Function
+        function deleteTeam(teamId) {
+            $.ajax({
+                url: `/admin/teams/delete/${teamId}`,
+                type: 'DELETE',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    team_id: teamId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        toastr.success('Team deleted successfully!', "Success", {
+                            closeButton: true,
+                            progressBar: true,
+                            positionClass: "toast-top-right",
+                            timeOut: "1000"
+                        });
+                        // Reload page after short delay
+                        setTimeout(() => location.reload(), 1000);
+                    } else {
+                        toastr.error('Failed to delete team.', "Error", {
+                            closeButton: true,
+                            progressBar: true,
+                            positionClass: "toast-top-right",
+                            timeOut: "2000"
+                        });
+                    }
+                },
+                error: function() {
+                    toastr.error('Error deleting team.', "Error", {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: "toast-top-right",
+                        timeOut: "2000"
+                    });
+                }
+            });
+            return false;
+        }
     </script>
 @endsection

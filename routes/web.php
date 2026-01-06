@@ -58,6 +58,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/teams/create', [TeamController::class, 'create'])->name('admin.teams.create');
         Route::post('/teams/save', [TeamController::class, 'store'])->name('admin.teams.store');
         Route::get('/teams/edit/{id}', [TeamController::class, 'edit'])->name('admin.teams.edit');
+        Route::get('/teams/get-data/{id}', [TeamController::class, 'getTeamData'])->name('admin.teams.getData');
         Route::put('/teams/update/{id}', [TeamController::class, 'update'])->name('admin.teams.update');
         Route::delete('/teams/delete/{id}', [TeamController::class, 'destroy'])->name('admin.teams.delete');
         Route::post('/team_page_store/save', [TeamController::class, 'team_page_store'])->name('admin.teams.team_page_store');

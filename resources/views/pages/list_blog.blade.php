@@ -1,7 +1,13 @@
 @extends('layouts.master')
 @section('content')
     <div class="">
-
+        {{-- Page Title --}}
+        <div class="mb-4">
+            <h3 class="fw-bold text-dark">
+                <i class="bi bi-journal-text me-2 text-primary"></i>Blog Management
+            </h3>
+            <p class="text-muted mb-0">Manage your blog page content and articles</p>
+        </div>
 
         {{-- Blog Page Setting Title and Banner Image Start --}}
         <form action="{{ route('admin.blogs.blog_page_store') }}" method="POST" enctype="multipart/form-data">

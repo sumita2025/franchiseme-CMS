@@ -2,6 +2,14 @@
 
 @section('content')
 <div>
+    {{-- Page Title --}}
+    <div class="mb-4">
+        <h3 class="fw-bold text-dark">
+            <i class="bi bi-chat-square-text me-2 text-primary"></i>Specific Service Inquiries
+        </h3>
+        <p class="text-muted mb-0">View and manage specific service inquiries from users</p>
+    </div>
+
     <div class="card shadow-sm">
         <div class="card-body">
             <table class="table table-striped table-borderless table-centered align-middle">

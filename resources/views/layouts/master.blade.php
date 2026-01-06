@@ -5,6 +5,9 @@
     <title>FranchiseMe CMS Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {{-- Favicon --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/favicon.png') }}">
+
     {{-- Bootstrap & Icons --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -98,18 +101,17 @@
             <i class="bi bi-house"></i> Home Page
         </a> --}}
 
-        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#home_tab" aria-expanded="{{ request()->is('admin.home') || request()->is('admin/teams*') ? 'active-parent' : '' }}">
+        <a href="{{ route('admin.home.index') }}" class="{{ request()->routeIs('admin.home.index') ? 'active' : '' }}">
             <i class="bi bi-house"></i> Home Management
-            <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
-        <div class="collapse {{ request()->is('admin/home') || request()->is('admin/teams')  ? 'show' : '' }}" id="home_tab">
-            <a href="{{ route('admin.home.index') }}" class="{{ request()->is('admin.home*') ? 'active' : '' }}">
+        {{-- <div class="collapse {{ request()->is('admin/home') || request()->is('admin/teams')  ? 'show' : '' }}" id="home_tab">
+            <a href="{{ route('admin.home.index') }}" class="{{ request()->is('admin/home*') ? 'active' : '' }}">
                 <i class="bi bi-gear"></i> General
             </a>
-            <a href="{{ route('admin.teams.index') }}" class="{{ request()->is('admin/teams*') ? 'active' : '' }}">
+            <a href="{{ route('admin.home.index') }}?tab=teams" class="{{ request()->is('admin/teams*') ? 'active' : '' }}" data-activate-tab="tab_teams_section">
                 <i class="bi bi-people"></i> Teams
             </a>
-        </div>
+        </div> --}}
 
         <!-- Service Page -->
         {{-- <a href="{{ route('admin.service.index') }}"
@@ -117,7 +119,11 @@
             <i class="bi bi-person-lines-fill"></i> Service Page
         </a> --}}
 
-        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#service_page_tab" aria-expanded="{{ request()->is('admin.service') || request()->is('admin/services*') ? 'active-parent' : '' }}">
+        <a href="{{ route('admin.service.index') }}" class="{{ request()->routeIs('admin.service.index') ? 'active' : '' }}">
+            <i class="bi bi-person-lines-fill"></i> Service Management
+        </a>
+
+        {{-- <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#service_page_tab" aria-expanded="{{ request()->is('admin.service') || request()->is('admin/services*') ? 'active-parent' : '' }}">
             <i class="bi bi-person-lines-fill"></i> Service Management
             <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
@@ -128,7 +134,7 @@
             <a href="{{ route('admin.services.index') }}" class="{{ request()->is('admin/services*') ? 'active' : '' }}">
                 <i class="bi bi-box-seam"></i> Packages
             </a>
-        </div>
+        </div> --}}
 
 
         <!-- Contact Page -->
@@ -167,8 +173,11 @@
             </a>
         </div> --}}
 
-         <!-- Franchise Section -->
-        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#franchise_tab" aria-expanded="{{ request()->is('admin/franchises*') || request()->is('admin/brands*') ? 'active-parent' : '' }}">
+        <!-- Franchise Section -->
+        <a href="{{ route('admin.franchise.index') }}" class="{{ request()->routeIs('admin.franchise.index') ? 'active' : '' }}">
+            <i class="bi bi-building"></i> Franchise Management
+        </a>
+        {{-- <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#franchise_tab" aria-expanded="{{ request()->is('admin/franchises*') || request()->is('admin/brands*') ? 'active-parent' : '' }}">
             <i class="bi bi-building"></i> Franchise Management
             <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
@@ -176,20 +185,20 @@
             <a href="{{ route('admin.franchise.index') }}" class="{{ request()->is('admin/franchise*') ? 'active' : '' }}">
                 <i class="bi bi-file-text"></i> Franchise Page
             </a>
-            {{-- <a href="{{ route('admin.brands.index') }}" class="{{ request()->is('admin/brands*') ? 'active' : '' }}">
+             <a href="{{ route('admin.brands.index') }}" class="{{ request()->is('admin/brands*') ? 'active' : '' }}">
                 <i class="bi bi-tags"></i> Brand Management
-            </a> --}}
+            </a>
             <a href="{{ route('admin.franchises.index') }}" class="{{ request()->is('admin/franchises*') ? 'active' : '' }}">
                 <i class="bi bi-grid"></i> Franchise Lists
             </a>
-        </div>
+        </div> --}}
 
         <!-- Inquiry Section -->
-        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#inquiry_tab" aria-expanded="{{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/consultation-inquiries')  ||request()->is('admin/specific-service-inquiries') ? 'true' : 'false' }}">
+        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#inquiry_tab" aria-expanded="{{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/consultation-inquiries') || request()->is('admin/specific-service-inquiries') ? 'true' : 'false' }}" class="{{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/consultation-inquiries') || request()->is('admin/specific-service-inquiries') ? 'active' : '' }}">
             <i class="bi bi-chat-square-text"></i> Inquiry
             <i class="bi bi-chevron-down float-end toggle-arrow"></i>
         </a>
-        <div class="collapse {{ request()->is('admin/consultation-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/specific-service-inquiries') ? 'show' : '' }}" id="inquiry_tab">
+        <div class="collapse {{ request()->is('admin/contact-inquiries') || request()->is('admin/service-training-inquiries') || request()->is('admin/consultation-inquiries') || request()->is('admin/specific-service-inquiries') ? 'show' : '' }}" id="inquiry_tab">
             
             <a href="{{ route('admin.inquiries.contact') }}" class="{{ request()->is('admin/contact-inquiries') ? 'active' : '' }}">
                 <i class="bi bi-chat-dots"></i> Contact Inquiry
@@ -398,6 +407,12 @@
             @if(session('warning'))
                 toastr.warning("{{ session('warning') }}");
             @endif
+
+            // Auto-activate Teams tab when coming from sidebar or via query parameter
+            const tabParam = new URLSearchParams(window.location.search).get('tab');
+            if (tabParam === 'teams') {
+                $('a[href="#tab_teams_section"]').tab('show');
+            }
         });
     </script>
 

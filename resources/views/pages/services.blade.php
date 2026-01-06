@@ -2,7 +2,13 @@
 
 @section('content')
 <div>
-    <!-- <h3 class="mb-4">🛠 Service Page Editor</h3> -->
+    {{-- Page Title --}}
+    <div class="mb-4">
+        <h3 class="fw-bold text-dark">
+            <i class="bi bi-tools me-2 text-primary"></i>Service Page Management
+        </h3>
+        <p class="text-muted mb-0">Manage your service page sections and packages</p>
+    </div>
 
     <form action="{{ route('admin.service.save') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -18,11 +24,11 @@
                     <span>Consultant Section</span>
                 </a>
             </li>
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a href="#tab_package_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
                     <span>Package Section</span>
                 </a>
-            </li> --}}
+            </li>
             <li class="nav-item">
                 <a href="#tab_package_details" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
                     <span>Package Details</span>
@@ -168,53 +174,52 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="d-flex flex-column gap-3">
-                                    @for($i=1; $i<=5; $i++)
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h6 class="mb-0">Service {{ $i }}</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <label>Image <span class="text-danger">(Image Size (Pixels) - 70 x 70 )</span></label>
-                                                <input type="file" name="service_image{{ $i }}" class="form-control preview-input" data-preview="#img_preview_{{ $i }}">
-                                                @if(!empty($service->{'service_image'.$i}))
-                                                    <img id="img_preview_{{ $i }}" src="{{ asset('storage/'.$service->{'service_image'.$i}) }}" class="img-thumbnail mt-2" style="max-width:150px;">
-                                                @else
-                                                    <img id="img_preview_{{ $i }}" class="img-thumbnail mt-2 d-none" style="max-width:150px;">
-                                                @endif
-                                                <div class="mt-3">
-                                                    <div class="row g-4">
-                                                        <div class="col-md-6">
-                                                            <h6 class="text-primary">English Content</h6>
-                                                            <div class="mb-3">
-                                                                <label>Title (English)</label>
-                                                                <input type="text" name="service_title{{ $i }}" value="{{ $service->{'service_title'.$i} ?? '' }}" class="form-control">
-                                                            </div>
-                                                            <div>
-                                                                <label>Description (English)</label>
-                                                                <input type="text" name="service_description{{ $i }}" value="{{ $service->{'service_description'.$i} ?? '' }}" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <h6 class="text-success">Arabic Content</h6>
-                                                            <div class="mb-3">
-                                                                <label>Title (Arabic)</label>
-                                                                <input type="text" name="service_title{{ $i }}" value="{{ $service->{'service_title'.$i} ?? '' }}" class="form-control">
-                                                            </div>
-                                                            <div>
-                                                                <label>Description (Arabic)</label>
-                                                                <input type="text" name="service_description{{ $i }}" value="{{ $service->{'service_description'.$i} ?? '' }}" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endfor
-                                </div>
-                            </div>
                         </div>
+                    </div>
+                </div>
+
+                {{-- Services List --}}
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">Services List</div>
+                    <div class="d-flex justify-content-end align-items-center m-2">
+                        <a href="{{ route('admin.services.create') }}" class="btn btn-primary">Add New</a>
+                    </div>
+                    <div class="card-body">
+                        @if ($services && $services->count() > 0)
+                            <table class="table table-striped table-borderless table-centered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Image</th>
+                                        <th>Title</th>
+                                        <th>Title Ar</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($services as $i => $service)
+                                        <tr>
+                                            <td>{{ $i + 1 }}</td>
+                                            <td><img src="{{ asset($service->image) }}" width="80"></td>
+                                            <td>{{ $service->title }}</td>
+                                            <td>{{ $service->title_ar }}</td>
+                                            <td>
+                                                <div class="d-flex gap-3 align-items-center actions_btn">
+                                                    <a href="{{ route('admin.services.edit', $service->id) }}" class="border-0 bg-transparent" title="Edit">
+                                                        <img src="{{ asset('assets/admin/image/edit.png') }}" alt="">
+                                                    </a>
+                                                    <button type="button" class="border-0 bg-transparent delete-service-btn" data-service-id="{{ $service->id }}" title="Delete" onclick="return confirm('Delete Service?') && deleteService({{ $service->id }})">
+                                                        <img src="{{ asset('assets/admin/image/delete.png') }}" alt="">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <div class="alert alert-info">No services added yet.</div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -320,7 +325,7 @@
         </div>
 
         <div class="d-flex justify-content-end">
-            <button class="btn btn-success py-2">Save Service Page</button>
+            <button type="submit" class="btn btn-success py-2">Save Service Page</button>
         </div>
     </form>
 </div>
@@ -366,5 +371,43 @@
             }
         });
     });
+    // Delete Service Function
+    function deleteService(serviceId) {
+        $.ajax({
+            url: `/admin/services/delete/${serviceId}`,
+            type: 'DELETE',
+            data: {
+                _token: "{{ csrf_token() }}"
+            },
+            success: function(response) {
+                if (response.success) {
+                    toastr.success('Service deleted successfully!', "Success", {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: "toast-top-right",
+                        timeOut: "1000"
+                    });
+                    // Reload page after short delay
+                    setTimeout(() => location.reload(), 1000);
+                } else {
+                    toastr.error('Failed to delete service.', "Error", {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: "toast-top-right",
+                        timeOut: "2000"
+                    });
+                }
+            },
+            error: function() {
+                toastr.error('Error deleting service.', "Error", {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-right",
+                    timeOut: "2000"
+                });
+            }
+        });
+        return false;
+    }
 </script>
 @endsection

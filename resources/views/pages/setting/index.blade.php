@@ -2,7 +2,13 @@
 
 @section('content')
     <div>
-        <!-- <h3 class="mb-4">Home Page Editor</h3> -->
+        {{-- Page Title --}}
+        <div class="mb-4">
+            <h3 class="fw-bold text-dark">
+                <i class="bi bi-gear me-2 text-primary"></i>Settings
+            </h3>
+            <p class="text-muted mb-0">Configure site settings, logos, and email configuration</p>
+        </div>
 
         <form action="{{ route('admin.setting.save') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -216,7 +222,7 @@
     
       
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-success py-2">Save All</button>
+                    <button type="submit" class="btn btn-success py-2">Save All</button>
                 </div>
         </form>
     </div>

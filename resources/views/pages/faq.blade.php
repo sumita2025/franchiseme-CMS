@@ -2,7 +2,14 @@
 
 @section('content')
 <div>
-    <!-- <h2 class="mb-4">FAQ Page Editor</h2> -->
+    {{-- Page Title --}}
+    <div class="mb-4">
+        <h3 class="fw-bold text-dark">
+            <i class="bi bi-question-circle me-2 text-primary"></i>FAQ Page Management
+        </h3>
+        <p class="text-muted mb-0">Manage your FAQ page content and items</p>
+    </div>
+
     <form id="faqPageForm" enctype="multipart/form-data">
         @csrf
 

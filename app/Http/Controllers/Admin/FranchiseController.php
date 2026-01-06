@@ -55,7 +55,7 @@ class FranchiseController extends Controller
 
         Franchise::create($data);
 
-        return redirect()->route('admin.franchises.index')->with('success', 'Franchise created successfully!');
+        return redirect()->route('admin.franchise.index')->with('success', 'Franchise created successfully!');
     }
 
     public function edit($id)
@@ -86,14 +86,28 @@ class FranchiseController extends Controller
         $data['slug'] = Str::slug($request->title);
         $franchise->update($data);
 
-        return redirect()->route('admin.franchises.index')->with('success', 'Franchise updated successfully!');
+        return redirect()->route('admin.franchise.index')->with('success', 'Franchise updated successfully!');
     }
 
     public function destroy($id)
     {
-        $franchise = Franchise::findOrFail($id);
+        $franchise = Franchise::find($id);
+        
+        if (!$franchise) {
+            if (request()->expectsJson()) {
+                return response()->json(['success' => false, 'message' => 'Franchise not found'], 404);
+            }
+            return redirect()->route('admin.franchise.index')->with('error', 'Franchise not found.');
+        }
+
         $franchise->delete();
-        return redirect()->route('admin.franchises.index')->with('success', 'Franchise deleted successfully!');
+        
+        // Return JSON response for AJAX requests
+        if (request()->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'Franchise deleted successfully']);
+        }
+        
+        return redirect()->route('admin.franchise.index')->with('success', 'Franchise deleted successfully!');
     }
 
     public function updateStatus(Request $request)

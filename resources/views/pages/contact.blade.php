@@ -2,7 +2,14 @@
 
 @section('content')
 <div>
-    <!-- <h2 class="mb-4">Contact Page Editor</h2> -->
+    {{-- Page Title --}}
+    <div class="mb-4">
+        <h3 class="fw-bold text-dark">
+            <i class="bi bi-envelope me-2 text-primary"></i>Contact Page Management
+        </h3>
+        <p class="text-muted mb-0">Manage your contact page sections and information</p>
+    </div>
+
     <form id="contactPageForm" enctype="multipart/form-data">
         @csrf
         <div class="card mb-3">
