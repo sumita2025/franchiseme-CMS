@@ -14,7 +14,7 @@ class FranchiseHomeController extends Controller
     {
         $content = PageFranchise::first();
         $brands = FranchiseBrand::get();
-        $franchises = Franchise::get();
+        $franchises = Franchise::take(6)->get(); // Show 6 records initially
         $countries = Franchise::pluck('country')
             ->map(fn($item) => trim(ucwords(strtolower($item))))
             ->unique()
@@ -45,6 +45,7 @@ class FranchiseHomeController extends Controller
             ->unique()
             ->values();
 
+        // return view('frontend.franchise_old', compact('content', 'brands', 'franchises', 'countries', 'countries_ar', 'sector', 'sector_ar', 'investment_level', 'investment_level_ar'));
         return view('frontend.franchise', compact('content', 'brands', 'franchises', 'countries', 'countries_ar', 'sector', 'sector_ar', 'investment_level', 'investment_level_ar'));
     }
 
@@ -110,5 +111,76 @@ class FranchiseHomeController extends Controller
 
         // Return JSON response for AJAX
         return response()->json(['html' => $html]);
+    }
+
+    // LOAD MORE FUNCTION
+    public function loadMore(Request $request)
+    {
+        $offset = $request->input('offset', 0);
+        $perPage = 4;
+        
+        $query = Franchise::query();
+
+        // Apply existing filters
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search, $request) {
+                $q->where('title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('sector', 'LIKE', '%' . $search . '%')
+                    ->orWhere('description', 'LIKE', '%' . $search . '%');
+
+                if ($request->input('locale') == 'ar') {
+                    $q->orWhere('title_ar', 'LIKE', '%' . $search . '%')
+                        ->orWhere('sector_ar', 'LIKE', '%' . $search . '%')
+                        ->orWhere('description_ar', 'LIKE', '%' . $search . '%');
+                }
+            });
+        }
+
+        if ($request->filled('country')) {
+            $country = $request->input('country');
+            if ($request->input('locale') == 'ar') {
+                $query->where('country_ar', $country);
+            } else {
+                $query->where('country', $country);
+            }
+        }
+
+        if ($request->filled('sector')) {
+            $sector = $request->input('sector');
+            if ($request->input('locale') == 'ar') {
+                $query->where('sector_ar', $sector);
+            } else {
+                $query->where('sector', $sector);
+            }
+        }
+
+        if ($request->filled('investment_level')) {
+            $investment_level = $request->input('investment_level');
+            if ($request->input('locale') == 'ar') {
+                $query->where('investment_level_ar', $investment_level);
+            } else {
+                $query->where('investment_level', $investment_level);
+            }
+        }
+
+        // Get total count
+        $totalCount = $query->count();
+        
+        // Get franchises with offset
+        $franchises = $query->skip($offset)->take($perPage)->get();
+
+        // Check if there are more records
+        $hasMore = ($offset + $perPage) < $totalCount;
+
+        // RENDER THE LISTING CARDS
+        $html = view('frontend.franchise_listings', compact('franchises'))->render();
+
+        // Return JSON response for AJAX
+        return response()->json([
+            'html' => $html,
+            'hasMore' => $hasMore,
+            'nextOffset' => $offset + $perPage
+        ]);
     }
 }

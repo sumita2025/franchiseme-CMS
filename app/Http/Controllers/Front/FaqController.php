@@ -13,6 +13,7 @@ class FaqController extends Controller
     {
         $faq = PageFaq::first();
         $faqItems = PageFaqItem::get();
+        // return view('frontend.faq_old', compact('faq', 'faqItems'));
         return view('frontend.faq', compact('faq', 'faqItems'));
     }
 }

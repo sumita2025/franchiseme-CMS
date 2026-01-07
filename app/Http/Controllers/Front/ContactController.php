@@ -16,6 +16,7 @@ class ContactController extends Controller
     public function contact()
     {
         $contact = PageContact::first();
+        // return view('frontend.contact_old', compact('contact'));
         return view('frontend.contact', compact('contact'));
     }
 

@@ -24,11 +24,7 @@
                     <span>Consultant Section</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#tab_package_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
-                    <span>Package Section</span>
-                </a>
-            </li>
+          
             <li class="nav-item">
                 <a href="#tab_package_details" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
                     <span>Package Details</span>
@@ -37,6 +33,11 @@
             <li class="nav-item">
                 <a href="#tab_service_bottom_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
                     <span>Service Bottom Section</span>
+                </a>
+            </li>
+              <li class="nav-item">
+                <a href="#tab_package_section" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                    <span>Package Section</span>
                 </a>
             </li>
         </ul>
@@ -142,87 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="tab_package_section">
-                {{-- Package Section --}}
-                <div class="card mb-3">
-                    <div class="card-header bg-warning text-dark">Package Section</div>
-                    <div class="card-body">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <h6 class="text-primary">English Content</h6>
-                                        <label>Package Title (English)</label>
-                                        <textarea name="package_section_title" class="form-control summernote">{!! $service->package_section_title ?? '' !!}</textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Description (English)</label>
-                                        <input type="text" name="package_section_description" value="{{ $service->package_section_description ?? '' }}" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <h6 class="text-success">Arabic Content</h6>
-                                        <label>Package Title (Arabic)</label>
-                                        <textarea name="package_section_title_ar" class="form-control summernote">{!! $service->package_section_title_ar ?? '' !!}</textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Description (Arabic)</label>
-                                        <input type="text" name="package_section_description_ar" value="{{ $service->package_section_description_ar ?? '' }}" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Services List --}}
-                <div class="card mb-3">
-                    <div class="card-header bg-primary text-white">Services List</div>
-                    <div class="d-flex justify-content-end align-items-center m-2">
-                        <a href="{{ route('admin.services.create') }}" class="btn btn-primary">Add New</a>
-                    </div>
-                    <div class="card-body">
-                        @if ($services && $services->count() > 0)
-                            <table class="table table-striped table-borderless table-centered">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Image</th>
-                                        <th>Title</th>
-                                        <th>Title Ar</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($services as $i => $service)
-                                        <tr>
-                                            <td>{{ $i + 1 }}</td>
-                                            <td><img src="{{ asset($service->image) }}" width="80"></td>
-                                            <td>{{ $service->title }}</td>
-                                            <td>{{ $service->title_ar }}</td>
-                                            <td>
-                                                <div class="d-flex gap-3 align-items-center actions_btn">
-                                                    <a href="{{ route('admin.services.edit', $service->id) }}" class="border-0 bg-transparent" title="Edit">
-                                                        <img src="{{ asset('assets/admin/image/edit.png') }}" alt="">
-                                                    </a>
-                                                    <button type="button" class="border-0 bg-transparent delete-service-btn" data-service-id="{{ $service->id }}" title="Delete" onclick="return confirm('Delete Service?') && deleteService({{ $service->id }})">
-                                                        <img src="{{ asset('assets/admin/image/delete.png') }}" alt="">
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @else
-                            <div class="alert alert-info">No services added yet.</div>
-                        @endif
-                    </div>
-                </div>
-            </div>
+        
             <div class="tab-pane" id="tab_package_details">
                 {{-- Package Details --}}
                 <div class="card mb-3">
@@ -319,6 +240,88 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="tab-pane" id="tab_package_section">
+                {{-- Package Section --}}
+                <div class="card mb-3">
+                    <div class="card-header bg-warning text-dark">Package Section</div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h6 class="text-primary">English Content</h6>
+                                        <label>Package Title (English)</label>
+                                        <textarea name="package_section_title" class="form-control summernote">{!! $service->package_section_title ?? '' !!}</textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Description (English)</label>
+                                        <input type="text" name="package_section_description" value="{{ $service->package_section_description ?? '' }}" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h6 class="text-success">Arabic Content</h6>
+                                        <label>Package Title (Arabic)</label>
+                                        <textarea name="package_section_title_ar" class="form-control summernote">{!! $service->package_section_title_ar ?? '' !!}</textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Description (Arabic)</label>
+                                        <input type="text" name="package_section_description_ar" value="{{ $service->package_section_description_ar ?? '' }}" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Services List --}}
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">Services List</div>
+                    <div class="d-flex justify-content-end align-items-center m-2">
+                        <a href="{{ route('admin.services.create') }}" class="btn btn-primary">Add New</a>
+                    </div>
+                    <div class="card-body">
+                        @if ($services && $services->count() > 0)
+                            <table class="table table-striped table-borderless table-centered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Image</th>
+                                        <th>Title</th>
+                                        <th>Title Ar</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($services as $i => $service)
+                                        <tr>
+                                            <td>{{ $i + 1 }}</td>
+                                            <td><img src="{{ asset($service->image) }}" width="80"></td>
+                                            <td>{{ $service->title }}</td>
+                                            <td>{{ $service->title_ar }}</td>
+                                            <td>
+                                                <div class="d-flex gap-3 align-items-center actions_btn">
+                                                    <a href="{{ route('admin.services.edit', $service->id) }}" class="border-0 bg-transparent" title="Edit">
+                                                        <img src="{{ asset('assets/admin/image/edit.png') }}" alt="">
+                                                    </a>
+                                                    <button type="button" class="border-0 bg-transparent delete-service-btn" data-service-id="{{ $service->id }}" title="Delete" onclick="return confirm('Delete Service?') && deleteService({{ $service->id }})">
+                                                        <img src="{{ asset('assets/admin/image/delete.png') }}" alt="">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <div class="alert alert-info">No services added yet.</div>
+                        @endif
                     </div>
                 </div>
             </div>

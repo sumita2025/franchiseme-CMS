@@ -15,6 +15,7 @@ class ServiceController extends Controller
     {
         $service = PageService::first();
         $service_packages = ServicePackage::get();
+        // return view('frontend.service_old', compact('service','service_packages'));
         return view('frontend.service', compact('service','service_packages'));
     }
 

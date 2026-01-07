@@ -15,12 +15,15 @@ class BlogController extends Controller
         $blogs = Blog::latest()->paginate(6);
         $recentBlogs = Blog::latest()->take(5)->get();
         $pageBlog = PageBlog::first();
-        return view('frontend.blogs', compact('blogs', 'recentBlogs','pageBlog'));
+        // return view('frontend.blog_old', compact('blogs', 'recentBlogs','pageBlog'));
+        return view('frontend.blog', compact('blogs', 'recentBlogs','pageBlog'));
     }
+
     public function singleblog($id)
     {
         $blog = Blog::findOrFail($id);
         $pageBlog = PageBlog::first();
-        return view('frontend.singleblog', compact('blog','pageBlog'));
+        // return view('frontend.blog-detail_old', compact('blog','pageBlog'));
+        return view('frontend.blog-detail', compact('blog','pageBlog'));
     }
 }

@@ -1,145 +1,139 @@
-@extends('frontend.master')
+@extends('frontend.master-new')
 
 @section('content')
-{{-- <section class="page_title position-relative my-0">
-    <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
-        <h1 class="text-white mb-0">
-            <span>
-                @if(app()->getLocale() == 'ar')
-                    {!! $contact->page_title_ar ?? '' !!}
-                @else
-                    {!! $contact->page_title ?? '' !!}
-                @endif
-            </span>
-        </h1>
-    </div>
-</section> --}}
-<section class="page_title position-relative my-0"
-         style="background-image: url('{{ asset('storage/'.$contact->background_image ?? 'default.jpg') }}'); 
-                background-size: cover; 
-                background-position: center; 
-                background-repeat: no-repeat;">
-    
-    <div class="container text-center d-flex flex-column align-items-center gap-3" data-aos="fade-up">
-        <h1 class="text-white mb-0">
-            <span>
-                @if(app()->getLocale() == 'ar')
-                    {!! $contact->page_title_ar ?? '' !!}
-                @else
-                    {!! $contact->page_title ?? '' !!}
-                @endif
-            </span>
-        </h1>
-    </div>
-</section>
-<section class="contact_section">
-    <div class="container">
-        <div class="row mx-0">
-            <div class="col-xl-6 ps-0 pe-4">
-                <div class="pe-4 me-4">
-                    <div class="mb-md-4">
-                        <h2 class="title mb-0">
+<div class="topbar">
+    <section class="contactus_Section pagetitle" @if($contact && $contact->background_image) 
+        style="background-image: url('{{ asset('storage/'.$contact->background_image) }}')" @endif>
+        <div class="container-fluid px-5">
+            <div class="container container_box position-relative">
+                <h1 class="hero-title mb-3">
+                    @if(app()->getLocale() == 'ar')
+                        {!! $contact->page_title_ar ?? 'اتصل بنا' !!}
+                    @else
+                        {!! $contact->page_title ?? 'Contact Us' !!}
+                    @endif
+                </h1>
+                <div class="breadcrumbs">
+                    <a href="{{ route('index') }}">{{ app()->getLocale() == 'ar' ? 'الرئيسية' : 'Home' }}</a>
+                    <p class="mb-0">{{ app()->getLocale() == 'ar' ? 'اتصل بنا' : 'Contact Us' }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="section-container">
+    <div class="container container_small">
+        <div class="row g-3 g-md-4 g-lg-5">
+            <!-- Left Section - Contact Info -->
+            <div class="col-lg-6">
+                <div>
+                    <h2 class="title">
+                        @if(app()->getLocale() == 'ar')
+                            {!! $contact->title_ar ?? 'تواصل مع خبراء الفرنشايز الخاصين بنا' !!}
+                        @else
+                            {!! $contact->title ?? 'Get in Touch with Our Franchise Experts' !!}
+                        @endif
+                    </h2>
+                    <div class="decription">
+                        <p>
                             @if(app()->getLocale() == 'ar')
-                                {!! $contact->title_ar ?? '' !!}
+                                {!! $contact->description_ar ?? 'نحن هنا لدعم رحلتك في الفرنشايز.' !!}
                             @else
-                                {!! $contact->title ?? '' !!}
+                                {!! $contact->description ?? 'We\'re here to support your journey in franchising.' !!}
                             @endif
-                        </h2>  
+                        </p>
                     </div>
-                    <div class="d-flex flex-column gap-3">
-                        <div class="contain black">
-                            <p class="mb-0">
-                                @if(app()->getLocale() == 'ar')
-                                    {!! $contact->description_ar ?? '' !!}
-                                @else
-                                    {!! $contact->description ?? '' !!}
-                                @endif
-                            </p>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <h4 class="sub_title mb-2">
-                                    @if(app()->getLocale() == 'ar')
-                                        {!! $contact->phone_text_ar ?? '' !!}
-                                    @else
-                                        {!! $contact->phone_text ?? '' !!}
-                                    @endif
-                                </h4>
-                                <div class="contain black">
-                                    <p class="mb-0">
-                                        @if(app()->getLocale() == 'ar')
-                                            {!! $contact->phone_value_ar ?? '' !!}
-                                        @else
-                                            {!! $contact->phone_value ?? '' !!}
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h4 class="sub_title mb-2">
-                                    @if(app()->getLocale() == 'ar')
-                                        {!! $contact->whatsapp_text_ar ?? '' !!}
-                                    @else
-                                        {!! $contact->whatsapp_text ?? '' !!}
-                                    @endif
-                                </h4>
-                                <div class="contain black">
-                                    <p class="mb-0">
-                                        @if(app()->getLocale() == 'ar')
-                                            {!! $contact->whatsapp_value_ar ?? '' !!}
-                                        @else
-                                            {!! $contact->whatsapp_value ?? '' !!}
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <h4 class="sub_title mb-2">
-                                    @if(app()->getLocale() == 'ar')
-                                        {!! $contact->email_text_ar ?? '' !!}
-                                    @else
-                                        {!! $contact->email_text ?? '' !!}
-                                    @endif
-                                </h4>
-                                <div class="contain black">
-                                    <a href="mailto:{!! $contact->email_value ?? '' !!}" class="mb-0">
-                                        @if(app()->getLocale() == 'ar')
-                                            {!! $contact->email_value_ar ?? '' !!}
-                                        @else
-                                            {!! $contact->email_value ?? '' !!}
-                                        @endif
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-4">
+                    <div class="row g-4 my-3 my-md-4">
+                        <!-- Phone -->
+                        <div class="col-md-6">
                             <h4 class="sub_title mb-2">
                                 @if(app()->getLocale() == 'ar')
-                                    {!! $contact->social_media_text_ar ?? '' !!}
+                                    {!! $contact->phone_text_ar ?? 'الهاتف' !!}
                                 @else
-                                    {!! $contact->social_media_text ?? '' !!}
+                                    {!! $contact->phone_text ?? 'Phone' !!}
                                 @endif
                             </h4>
-                            <div class="d-flex social_links gap-4">
+                            <div class="decription">
+                                <a href="tel:{{ $contact->phone_value ?? '+1 840 841 25 69' }}" class="mb-0">
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $contact->phone_value_ar ?? $contact->phone_value ?? '+1 840 841 25 69' !!}
+                                    @else
+                                        {!! $contact->phone_value ?? '+1 840 841 25 69' !!}
+                                    @endif
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="col-md-6">
+                            <h4 class="sub_title mb-2">
+                                @if(app()->getLocale() == 'ar')
+                                    {!! $contact->whatsapp_text_ar ?? 'واتس آب' !!}
+                                @else
+                                    {!! $contact->whatsapp_text ?? 'WhatsApp' !!}
+                                @endif
+                            </h4>
+                            <div class="decription">
+                                <a href="tel:{{ $contact->whatsapp_value ?? '+1 840 841 25 69' }}" class="mb-0">
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $contact->whatsapp_value_ar ?? $contact->whatsapp_value ?? '+1 840 841 25 69' !!}
+                                    @else
+                                        {!! $contact->whatsapp_value ?? '+1 840 841 25 69' !!}
+                                    @endif
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-6">
+                            <h4 class="sub_title mb-2">
+                                @if(app()->getLocale() == 'ar')
+                                    {!! $contact->email_text_ar ?? 'البريد الإلكتروني' !!}
+                                @else
+                                    {!! $contact->email_text ?? 'Email' !!}
+                                @endif
+                            </h4>
+                            <div class="decription">
+                                <a href="mailto:{{ $contact->email_value ?? 'info@franchiseme.com' }}" class="mb-0">
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $contact->email_value_ar ?? $contact->email_value ?? 'info@franchiseme.com' !!}
+                                    @else
+                                        {!! $contact->email_value ?? 'info@franchiseme.com' !!}
+                                    @endif
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="col-md-6">
+                            <h4 class="sub_title mb-2">
+                                @if(app()->getLocale() == 'ar')
+                                    {!! $contact->social_media_text_ar ?? 'حسابات وسائل التواصل الاجتماعي' !!}
+                                @else
+                                    {!! $contact->social_media_text ?? 'Social Media Accounts' !!}
+                                @endif
+                            </h4>
+                            <div class="d-flex social_links gap-4 decription">
                                 <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank">
                                     @if(app()->getLocale() == 'ar')
-                                        {!! $contact->social_link_1_ar ?? '' !!}
+                                        {!! $contact->social_link_1_ar ?? 'Instagram' !!}
                                     @else
-                                        {!! $contact->social_link_1 ?? '' !!}
+                                        {!! $contact->social_link_1 ?? 'Instagram' !!}
                                     @endif
                                 </a>
                                 <a href="https://www.linkedin.com/company/franchiseme/" target="_blank">
                                     @if(app()->getLocale() == 'ar')
-                                        {!! $contact->social_link_2_ar ?? '' !!}
+                                        {!! $contact->social_link_2_ar ?? 'LinkedIn' !!}
                                     @else
-                                        {!! $contact->social_link_2 ?? '' !!}
+                                        {!! $contact->social_link_2 ?? 'LinkedIn' !!}
                                     @endif
                                 </a>
                                 <a href="https://x.com/FranchiseME24" target="_blank">
                                     @if(app()->getLocale() == 'ar')
-                                        {!! $contact->social_link_3_ar ?? '' !!}
+                                        {!! $contact->social_link_3_ar ?? 'X' !!}
                                     @else
-                                        {!! $contact->social_link_3 ?? '' !!}
+                                        {!! $contact->social_link_3 ?? 'X' !!}
                                     @endif
                                 </a>
                             </div>
@@ -147,98 +141,95 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 px-0">
-                <form id="contactForm">
-                    @csrf
-                    <input type="hidden" name="inquiry_type" id="inquiry_type" value="{{ request('type') }}">
 
-                    <div class="row g-4">
-                        <div class="col-md-12">
-                            <input type="text" name="name" class="form-control" placeholder="@if(app()->getLocale() == 'ar') اسم @else Name @endif">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" name="email" class="form-control" placeholder="@if(app()->getLocale() == 'ar') بريد إلكتروني @else Email @endif">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" name="phone" class="form-control" placeholder="@if(app()->getLocale() == 'ar') رقم التليفون @else Phone Number @endif ">
-                        </div>
-                        <div class="col-md-12">
-                            <select name="subject" class="form-control form-select ps-2">
-                                {{-- <option value="">Subject</option>
-                                <option value="General Inquiry">General Inquiry</option>
-                                <option value="Franchise Consultation">Franchise Consultation</option>
-                                <option value="Partnership">Partnership</option>
-                                <option value="Support">Support</option> --}}
-                                <option value="">
-                                    @if(app()->getLocale() == 'ar')
-                                        الموضوع
-                                    @else
-                                        Subject
-                                    @endif
-                                </option>
+            <!-- Right Section - Contact Form -->
+            <div class="col-lg-6">
+                <div class="form_box contact_page_form" data-aos="fade-up">
+                    <form id="contactForm">
+                        @csrf
+                        <input type="hidden" name="inquiry_type" id="inquiry_type" value="{{ request('type') }}">
 
-                                <option value="General Inquiry">
-                                    @if(app()->getLocale() == 'ar')
-                                        استفسار عام
-                                    @else
-                                        General Inquiry
-                                    @endif
-                                </option>
-
-                                <option value="Franchise Consultation">
-                                    @if(app()->getLocale() == 'ar')
-                                        استشارة الفرنشايز
-                                    @else
-                                        Franchise Consultation
-                                    @endif
-                                </option>
-
-                                <option value="Partnership">
-                                    @if(app()->getLocale() == 'ar')
-                                        شراكة
-                                    @else
-                                        Partnership
-                                    @endif
-                                </option>
-
-                                <option value="Support">
-                                    @if(app()->getLocale() == 'ar')
-                                        دعم
-                                    @else
-                                        Support
-                                    @endif
-                                </option>
-
-                            </select>
+                        <div class="row g-4">
+                            <div class="col-md-12">
+                                <input type="text" name="name" class="form-control" placeholder="{{ app()->getLocale() == 'ar' ? 'الاسم' : 'Name' }}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" class="form-control" placeholder="{{ app()->getLocale() == 'ar' ? 'بريد إلكتروني' : 'Email' }}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="number" name="phone" class="form-control" placeholder="{{ app()->getLocale() == 'ar' ? 'رقم الهاتف' : 'Phone Number' }}" required>
+                            </div>
+                            <div class="col-md-12">
+                                <select name="subject" class="form-control form-select ps-2" required>
+                                    <option value="">
+                                        @if(app()->getLocale() == 'ar')
+                                            الموضوع
+                                        @else
+                                            Subject
+                                        @endif
+                                    </option>
+                                    <option value="General Inquiry">
+                                        @if(app()->getLocale() == 'ar')
+                                            استفسار عام
+                                        @else
+                                            General Inquiry
+                                        @endif
+                                    </option>
+                                    <option value="Franchise Consultation">
+                                        @if(app()->getLocale() == 'ar')
+                                            استشارة الفرنشايز
+                                        @else
+                                            Franchise Consultation
+                                        @endif
+                                    </option>
+                                    <option value="Partnership">
+                                        @if(app()->getLocale() == 'ar')
+                                            شراكة
+                                        @else
+                                            Partnership
+                                        @endif
+                                    </option>
+                                    <option value="Support">
+                                        @if(app()->getLocale() == 'ar')
+                                            دعم
+                                        @else
+                                            Support
+                                        @endif
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea name="message" class="form-control" placeholder="{{ app()->getLocale() == 'ar' ? 'الرسالة' : 'Message' }}" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-12 d-flex">
+                                <button type="submit" class="button button_secoundary">
+                                    {{ app()->getLocale() == 'ar' ? 'أرسل الرسالة' : 'Send Message' }}
+                                </button>
+                            </div>
+                            <div class="col-md-12">
+                                <div id="successMessage" class="alert alert-success d-none" role="alert">
+                                    {{ app()->getLocale() == 'ar' ? 'شكرًا لتواصلك مع FranchiseME! سيتواصل فريقنا معك قريبًا.' : 'Thank you for contacting FranchiseME! Our team will get back to you shortly.' }}
+                                </div>
+                                <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                                    {{ app()->getLocale() == 'ar' ? 'حدث خطأ ما. يُرجى المحاولة مرة أخرى.' : 'Something went wrong. Please try again.' }}
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <textarea name="message" class="form-control" placeholder=" @if(app()->getLocale() == 'ar') رسالة @else Message @endif" rows="3"></textarea>
-                        </div>
-                        <div class="col-md-12 d-flex">
-                            <button type="submit" class="button btn_secoundry border-0 bg-transparent p-0">
-                                <div class="btn_text">@if(app()->getLocale() == 'ar') أرسل رسالة @else Send Message @endif</div>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="contain black d-none">
-                        <p class="mt-3 mb-0 text-success" data-en="Thank you for contacting FranchiseME! Our team will get back to you shortly." data-ar="شكرًا لتواصلك مع FranchiseME! سيتواصل معك فريقنا قريبًا.">   @if(app()->getLocale() == 'ar') شكرًا لتواصلك مع FranchiseME! سيتواصل فريقنا معك قريبًا. @else Thank you for contacting FranchiseME! Our team will get back to you shortly. @endif</p>
-                    </div>
-                    <div class="contain black d-none">
-                        <p class="mt-3 mb-0 text-danger" data-en="Something went wrong. Please try again." data-ar="حدث خطأ ما. يُرجى المحاولة مرة أخرى.">@if(app()->getLocale() == 'ar') حدث خطأ ما. يُرجى المحاولة مرة أخرى. @else Something went wrong. Please try again. @endif</p>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section data-aos="fade-up" class="contact_map">
-    <div class="container-fluid">
-        <div class="row g-0 justify-content-center">
-            <div class="col-xxl-11 col-xl-12 col-12">
-                {!! $contact->map_embed ?? '' !!}
-            </div>
-        </div>
+<!-- Map Section -->
+<section data-aos="zoom-in" class="map-container">
+    <div class="container">
+        @if($contact && $contact->map_embed)
+            {!! $contact->map_embed !!}
+        @else
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7243.595038896445!2d46.738512!3d24.802386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd496c6fdc93%3A0xeabf6fe007f9dda1!2sFranchiseME!5e0!3m2!1sen!2sin!4v1758536250251!5m2!1sen!2sin" width="100%" height="540" style="border-radius:30px; -webkit-filter: grayscale(99%);" class="contact-map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        @endif
     </div>
 </section>
 @endsection
@@ -246,24 +237,33 @@
 @section('script')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$('#contactForm').on('submit', function(e) {
-    e.preventDefault();
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
 
-    $.ajax({
-        // url: "{{ route('contact.store') }}",
-        url: "{{ route('contact.store') }}" + "?type=" + $('#inquiry_type').val(),
-        method: "POST",
-        data: $(this).serialize(),
-        success: function(response) {
-            if (response.success) {
-                alert(response.message);
-                $('#contactForm')[0].reset();
+        $.ajax({
+            url: "{{ route('contact.store') }}" + "?type=" + $('#inquiry_type').val(),
+            method: "POST",
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.success) {
+                    $('#successMessage').removeClass('d-none');
+                    $('#errorMessage').addClass('d-none');
+                    $('#contactForm')[0].reset();
+                    
+                    setTimeout(function() {
+                        $('#successMessage').addClass('d-none');
+                    }, 5000);
+                }
+            },
+            error: function() {
+                $('#errorMessage').removeClass('d-none');
+                $('#successMessage').addClass('d-none');
+                
+                setTimeout(function() {
+                    $('#errorMessage').addClass('d-none');
+                }, 5000);
             }
-        },
-        error: function() {
-            alert('Something went wrong.');
-        }
+        });
     });
-});
 </script>
 @endsection
