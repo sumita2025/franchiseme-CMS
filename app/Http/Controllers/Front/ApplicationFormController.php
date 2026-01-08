@@ -35,6 +35,6 @@ class ApplicationFormController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Thank you for your interest! Our team will contact you soon.'
-        ]);
+        ], 200);
     }
 }
