@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 mt-5 mt-md-0">
-                    <div class="services_list d-flex gap-1" id="lightSlider">
+                    {{-- <div class="services_list d-flex gap-1" id="lightSlider">
                         @forelse($service_packages as $package)
                             <div class="sl_item">
                                 <img src="{{ asset($package->image) }}" alt="{{ app()->getLocale() == 'ar' ? $package->title_ar : $package->title }}" class="img-fluid sli_img">
@@ -131,7 +131,47 @@
                                 <p class="text-muted">{{ app()->getLocale() == 'ar' ? 'لا توجد حزم خدمات' : 'No service packages available' }}</p>
                             </div>
                         @endforelse
-                    </div>
+                    </div> --}}
+                    <div class="services_slider">
+    <div id="servicesSplide" class="splide">
+        <div class="splide__track slider-track">
+            <ul class="splide__list services_list">
+
+                @forelse($service_packages as $package)
+                    <li class="splide__slide">
+                        <div class="sl_item">
+                            <img src="{{ asset($package->image) }}"
+                                 alt="{{ app()->getLocale() == 'ar' ? $package->title_ar : $package->title }}"
+                                 class="img-fluid sli_img">
+
+                            <h4 class="sub_title mb-2">
+                                {{ app()->getLocale() == 'ar' ? $package->title_ar : $package->title }}
+                            </h4>
+
+                            <div class="decription">
+                                <p>
+                                    @if(app()->getLocale() == 'ar')
+                                        {!! $package->description_ar ?? '' !!}
+                                    @else
+                                        {!! $package->description ?? '' !!}
+                                    @endif
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                @empty
+                    <li class="splide__slide">
+                        <p class="text-muted">
+                            {{ app()->getLocale() == 'ar' ? 'لا توجد حزم خدمات' : 'No service packages available' }}
+                        </p>
+                    </li>
+                @endforelse
+
+            </ul>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
@@ -209,8 +249,10 @@
             <button type="button" class="btn-close position-absolute top-0 end-0 me-4 mt-4 z-1" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="modal-body px-md-5 py-md-5">
                 <div class="d-flex flex-wrap title_wrap mb-3 justify-content-center">
-                    <h2 class="title mb-0">@if(app()->getLocale() == 'ar') طلب @else Application @endif </h2>
-                    <h2 class="title mb-0 yellow">@if(app()->getLocale() == 'ar') استمارة @else Form @endif </h2>
+                    <h2 class="title mb-0">
+                        {{ app()->getLocale() == 'ar' ? 'نموذج' : 'Application' }}
+                        <span>{{ app()->getLocale() == 'ar' ? 'التقديم' : 'Form' }}</span>
+                    </h2>
                 </div>
                 <div class="contact_section form_box bg-transparent p-0">
                     <form id="serviceForm">
@@ -283,6 +325,7 @@
             loop: true,
             slideMargin: 0,
             thumbItem: 0,
+            rtl: {{ app()->getLocale() == 'ar' ? 'true' : 'false' }},
             responsive: [
                 {
                     breakpoint: 1440,
@@ -365,4 +408,32 @@
         });
     });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#servicesSplide', {
+        type       : 'loop',
+        perPage    : 3,
+        perMove    : 1,
+        gap        : '6px',
+        arrows     : false,
+        pagination : false,
+        autoplay   : true,
+        interval   : 3000,
+        pauseOnHover: true,
+        direction  : '{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}',
+
+        breakpoints: {
+            1024: {
+                perPage: 2,
+            },
+            576: {
+                perPage: 1,
+            },
+        },
+
+    }).mount();
+});
+</script>
+
 @endsection

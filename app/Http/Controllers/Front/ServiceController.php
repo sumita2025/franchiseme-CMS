@@ -23,6 +23,7 @@ class ServiceController extends Controller
     {
         $franchise = Franchise::where('franchise_slug', $slug)->first();
 
+        // return view('frontend.service_detail_old', compact('franchise'));
         return view('frontend.service_detail', compact('franchise'));
     }
 }

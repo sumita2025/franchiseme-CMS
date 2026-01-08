@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: 'AlbertSans-Variable';
-    src: url('/font/AlbertSans-Variable.ttf');
+    src: url('../font/AlbertSans-Variable.ttf');
     font-display: swap;
 }
 
@@ -1451,77 +1451,6 @@ footer .maps-container {
     color: var(--secondary-color);
 }
 
-html[dir=rtl] {
-    .circel_data .last_row .card_left .card:after,
-    .circel_data .first_row .card_left .card:after {
-        right: unset;
-        left: -80px;
-        background-image: url(../assest/chartline1-r.png);
-        
-    }
-    .circel_data .last_row .card_left .card:after {
-        background-image: url(../assest/chartline1.png);
-    }
-    .circel_data .last_row .card_right .card:after,
-    .circel_data .first_row .card_right .card:after {
-        left: unset;
-        right: -80px;
-        background-image: url(../assest/chartline1.png);
-    }
-    .circel_data .last_row .card_right .card:after {
-        background-image: url(../assest/chartline1-l-rtl.png);
-        transform: unset;
-        top: -56px;
-    }
-
-    .circel_data .middle_row .card_left .card_third .card:after,
-    .circel_data .middle_row .card_left .card_first .card:after {
-        right: unset;
-        left: -100px;
-        background-image: url(../assest/chartline2-r.png);
-    }
-    .circel_data .middle_row .card_left .card_third .card:after {
-        background-image: url(../assest/chartline2.png);
-        top: -10px;
-    }
-    .circel_data .middle_row .card_right .card_third .card:after,
-    .circel_data .middle_row .card_right .card_first .card:after {
-        left: unset;
-        right: -100px;
-        background-image: url(../assest/chartline2.png);
-    }
-    .circel_data .middle_row .card_right .card_third .card:after {
-        background-image: url(../assest/chartline2-r.png);
-        transform: rotate(180deg);
-        top: -10px;
-    }
-
-    .circel_data .middle_row .card_left .card_secound .card:after,
-    .circel_data .middle_row .card_right .card_secound .card:after {
-        right: unset;
-        left: -140px;
-    }
-    .circel_data .middle_row .card_right .card_secound .card:after {
-        left: unset;
-        right: -140px;
-    }
-
-
-    .circel_data .card_left .card {
-        padding-right: unset;
-        padding-left: 10px;
-    }
-    .circel_data .card_right .card {
-        padding-left: unset;
-        padding-right: 10px;
-    }
-    .circel_data .card_left .card .cb_text {
-        border-radius: 0 16px 16px 0;
-    }
-    .circel_data .card_right .card .cb_text {
-        border-radius: 16px 0 0 16px;
-    }
-}
 /*--------------------- circel data ---------------------*/
 
 /*--------------------- RTL SUPPORT ---------------------*/

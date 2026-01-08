@@ -97,23 +97,8 @@
                                             <h1>01</h1>
                                         </div>
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title1_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title1 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc1 = app()->getLocale() == 'ar' ? ($content->strategy_description1_ar ?? '') : ($content->strategy_description1 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc1 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description1_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description1 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -124,23 +109,8 @@
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title6_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title6 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc6 = app()->getLocale() == 'ar' ? ($content->strategy_description6_ar ?? '') : ($content->strategy_description6 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc6 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description6_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description6 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                         <div class="count">
                                             <h1>06</h1>
@@ -160,23 +130,8 @@
                                             <h1>02</h1>
                                         </div>
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title2_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title2 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc2 = app()->getLocale() == 'ar' ? ($content->strategy_description2_ar ?? '') : ($content->strategy_description2 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc2 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description2_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description2 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,23 +143,8 @@
                                             <h1>03</h1>
                                         </div>
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title3_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title3 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc3 = app()->getLocale() == 'ar' ? ($content->strategy_description3_ar ?? '') : ($content->strategy_description3 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc3 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description3_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description3 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -216,23 +156,8 @@
                                             <h1>04</h1>
                                         </div>
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title4_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title4 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc4 = app()->getLocale() == 'ar' ? ($content->strategy_description4_ar ?? '') : ($content->strategy_description4 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc4 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description4_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description4 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -241,11 +166,7 @@
                         <div class="col-xl-3 align-items-center justify-content-center logo_circel d-md-flex d-none">
                             <div class="px-xxl-4 px-xl-3 center_circle_pedding">
                                 <div class="center_cicel z-2 position-relative">
-                                    @if(app()->getLocale() == 'ar')
-                                        <img src="{{ isset($content->strategy_image_ar) && $content->strategy_image_ar ? asset('storage/' . $content->strategy_image_ar) : asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
-                                    @else
-                                        <img src="{{ isset($content->strategy_image) && $content->strategy_image ? asset('storage/' . $content->strategy_image) : asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
-                                    @endif
+                                    <img src="{{ asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
                                 </div>
                             </div>
                         </div>
@@ -254,23 +175,8 @@
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title5_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title5 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc5 = app()->getLocale() == 'ar' ? ($content->strategy_description5_ar ?? '') : ($content->strategy_description5 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc5 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description5_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description5 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                         <div class="count">
                                             <h1>05</h1>
@@ -279,33 +185,14 @@
                                 </div>
                             </div>
                             <div class="d-md-none d-flex w-100 logo_in_mobile">
-                                @if(app()->getLocale() == 'ar')
-                                    <img src="{{ isset($content->strategy_image_ar) && $content->strategy_image_ar ? asset('storage/' . $content->strategy_image_ar) : asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
-                                @else
-                                    <img src="{{ isset($content->strategy_image) && $content->strategy_image ? asset('storage/' . $content->strategy_image) : asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
-                                @endif
+                                <img src="{{ asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
                             </div>
                             <div class="card_first d-xl-none d-block">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title6_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title6 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc6mobile = app()->getLocale() == 'ar' ? ($content->strategy_description6_ar ?? '') : ($content->strategy_description6 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc6mobile }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description6_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description6 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                         <div class="count">
                                             <h1>06</h1>
@@ -317,23 +204,8 @@
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title7_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title7 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc7 = app()->getLocale() == 'ar' ? ($content->strategy_description7_ar ?? '') : ($content->strategy_description7 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc7 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description7_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description7 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                         <div class="count">
                                             <h1>07</h1>
@@ -345,23 +217,8 @@
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title8_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title8 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc8 = app()->getLocale() == 'ar' ? ($content->strategy_description8_ar ?? '') : ($content->strategy_description8 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc8 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description8_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description8 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                         <div class="count">
                                             <h1>08</h1>
@@ -373,23 +230,8 @@
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title9_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title9 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc9 = app()->getLocale() == 'ar' ? ($content->strategy_description9_ar ?? '') : ($content->strategy_description9 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc9 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description9_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description9 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                         <div class="count">
                                             <h1>09</h1>
@@ -409,23 +251,8 @@
                                             <h1>05</h1>
                                         </div>
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title5_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title5 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc5last = app()->getLocale() == 'ar' ? ($content->strategy_description5_ar ?? '') : ($content->strategy_description5 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc5last }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description5_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description5 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -436,23 +263,8 @@
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
-                                            <h4 class="sub_title">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_title10_ar ?? 'استراتيجية الامتياز' !!}
-                                                @else
-                                                    {!! $content->strategy_title10 ?? 'Franchise Strategy' !!}
-                                                @endif
-                                            </h4>
-                                            @php
-                                                $desc10 = app()->getLocale() == 'ar' ? ($content->strategy_description10_ar ?? '') : ($content->strategy_description10 ?? '');
-                                            @endphp
-                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ $desc10 }}">
-                                                @if(app()->getLocale() == 'ar')
-                                                    {!! $content->strategy_description10_ar ?? '' !!}
-                                                @else
-                                                    {!! $content->strategy_description10 ?? '' !!}
-                                                @endif
-                                            </div>
+                                            <h4 class="sub_title">Franchise Strategy</h4>
+                                            <div class="contain black" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Drafting successful and customized franchise models based on brand strength and target market.">Drafting successful and customized franchise models based on brand strength and target market.</div>
                                         </div>
                                         <div class="count">
                                             <h1>10</h1>

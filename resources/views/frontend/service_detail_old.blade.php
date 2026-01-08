@@ -113,67 +113,51 @@
         </div>
 
         <div class="form_box franchise_form_box" data-aos="fade-up">
-            <form action="{{ route('application.submit') }}" method="POST">
+            <form id="applicationForm">
                 @csrf
                 <div class="row g-4">
                     <!-- Full Name -->
                     <div class="col-md-12">
                         <input 
                             type="text" 
-                            class="form-control @error('full_name') is-invalid @enderror" 
+                            class="form-control" 
                             placeholder="{{ app()->getLocale() == 'ar' ? 'الاسم الكامل' : 'Full Name' }}"
                             name="full_name"
-                            value="{{ old('full_name') }}"
                             required
                         >
-                        @error('full_name')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
                     </div>
 
                     <!-- Email -->
                     <div class="col-md-6">
                         <input 
                             type="email" 
-                            class="form-control @error('email') is-invalid @enderror" 
+                            class="form-control" 
                             placeholder="{{ app()->getLocale() == 'ar' ? 'البريد الإلكتروني' : 'Email' }}"
                             name="email"
-                            value="{{ old('email') }}"
                             required
                         >
-                        @error('email')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
                     </div>
 
                     <!-- Phone Number -->
                     <div class="col-md-6">
                         <input 
                             type="tel" 
-                            class="form-control @error('phone_number') is-invalid @enderror" 
+                            class="form-control" 
                             placeholder="{{ app()->getLocale() == 'ar' ? 'رقم الهاتف' : 'Phone Number' }}"
                             name="phone_number"
-                            value="{{ old('phone_number') }}"
                             required
                         >
-                        @error('phone_number')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
                     </div>
 
                     <!-- Country -->
                     <div class="col-md-12">
                         <input 
                             type="text" 
-                            class="form-control @error('country') is-invalid @enderror" 
+                            class="form-control" 
                             placeholder="{{ app()->getLocale() == 'ar' ? 'الدولة' : 'Country' }}"
                             name="country"
-                            value="{{ old('country') }}"
                             required
                         >
-                        @error('country')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
                     </div>
 
                     <!-- Brand (Readonly) -->
@@ -190,28 +174,21 @@
                     <div class="col-md-6">
                         <input 
                             type="text" 
-                            class="form-control @error('investment_range') is-invalid @enderror" 
+                            class="form-control" 
                             placeholder="{{ app()->getLocale() == 'ar' ? 'نطاق الاستثمار' : 'Investment Range' }}"
                             name="investment_range"
-                            value="{{ old('investment_range') }}"
                         >
-                        @error('investment_range')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
                     </div>
 
                     <!-- Message -->
                     <div class="col-md-12">
                         <textarea 
-                            class="form-control @error('message') is-invalid @enderror" 
+                            class="form-control" 
                             placeholder="{{ app()->getLocale() == 'ar' ? 'الرسالة' : 'Message' }}"
                             name="message"
                             rows="3"
                             required
-                        >{{ old('message') }}</textarea>
-                        @error('message')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
+                        ></textarea>
                     </div>
 
                     <!-- Submit Button -->
@@ -219,6 +196,20 @@
                         <button type="submit" class="button button_secoundary">
                             {{ app()->getLocale() == 'ar' ? 'إرسال الرسالة' : 'Send Message' }}
                         </button>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div class="col-md-12">
+                        <div id="successMessage" class="alert alert-success d-none" role="alert">
+                            {{ app()->getLocale() == 'ar' ? 'شكراً لاهتمامك! سيتواصل معك فريقنا قريباً.' : 'Thank you for your interest! Our team will contact you soon.' }}
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div class="col-md-12">
+                        <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                            {{ app()->getLocale() == 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'Something went wrong. Please try again.' }}
+                        </div>
                     </div>
                 </div>
             </form>
@@ -229,15 +220,46 @@
 @endsection
 
 @section('script')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Auto-close alerts after 5 seconds
-        const alerts = document.querySelectorAll('.alert');
-        alerts.forEach(alert => {
-            setTimeout(() => {
-                const bsAlert = new bootstrap.Alert(alert);
-                bsAlert.close();
-            }, 5000);
+    $(document).ready(function() {
+        // Application Form AJAX Submission
+        $('#applicationForm').on('submit', function(e) {
+            e.preventDefault();
+
+            let form = $(this);
+            let formData = form.serialize();
+
+            $.ajax({
+                url: "{{ route('application.submit') }}",
+                method: "POST",
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        // Show success message
+                        $('#successMessage').removeClass('d-none');
+                        $('#errorMessage').addClass('d-none');
+
+                        // Reset form
+                        form[0].reset();
+
+                        // Auto-hide success message after 5 seconds
+                        setTimeout(function() {
+                            $('#successMessage').addClass('d-none');
+                        }, 5000);
+                    }
+                },
+                error: function(xhr) {
+                    // Show error message
+                    $('#errorMessage').removeClass('d-none');
+                    $('#successMessage').addClass('d-none');
+
+                    // Auto-hide error message after 5 seconds
+                    setTimeout(function() {
+                        $('#errorMessage').addClass('d-none');
+                    }, 5000);
+                }
+            });
         });
     });
 </script>

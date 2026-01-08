@@ -18,10 +18,17 @@
 
 .nav {
     flex-wrap: nowrap;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 .nav-link {
     white-space: nowrap;
+}
+
+.link {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 .about-img,
@@ -54,7 +61,127 @@
     min-width: auto;
     width: 100%;
 }
+
+.cta_contact a {
+    z-index: 100 !important;
+}
+
 /* harsh */
+
+/* circel RTL */
+html[dir="rtl"] {
+    @media (min-width: 1200px) {
+        .circel_data .pe-xl-5 {
+            padding-right: 0 !important;
+            padding-left: 3rem !important;
+        }
+        .circel_data .me-xl-5 {
+            margin-right: 0 !important;
+            margin-left: 3rem !important;
+        }
+ 
+        .circel_data .ps-xl-5 {
+            padding-right: 3rem!important;
+            padding-left: 0 !important;
+        }
+        .circel_data .ms-xl-5 {
+            margin-right: 3rem!important;
+            margin-left: 0!important;
+        }
+    }
+ 
+    .circel_data .card_right .card {
+        padding-left: 10px;
+        padding-right: 0;
+    }
+    .circel_data .card_left .card {
+        padding-right: 10px;
+        padding-left: 0;
+    }
+ 
+    .circel_data .card_left .card .card-body {
+        border-radius: 0 50px 50px 0;
+    }
+    .circel_data .card_right .card .card-body {
+        border-radius: 50px 0 0 50px;
+    }
+ 
+    /* left side */
+    .circel_data .last_row .card_left .card:after,
+    .circel_data .first_row .card_left .card:after {
+        right: unset;
+        left: -40px;
+    }
+    .circel_data .last_row .card_left .card:before,
+    .circel_data .first_row .card_left .card:before {
+        right: unset;
+        left: -60px;
+        transform: rotate(20deg);
+    }
+    .circel_data .last_row .card_left .card:before{
+        transform: rotate(160deg);
+    }
+ 
+    /* right side */
+    .circel_data .last_row .card_right .card:after,
+    .circel_data .first_row .card_right .card:after {
+        left: unset;
+        right: -40px;
+    }
+    .circel_data .last_row .card_right .card:before,
+    .circel_data .first_row .card_right .card:before {
+        left: unset;
+        right: -60px;
+        transform: rotate(160deg);
+    }
+    .circel_data .last_row .card_right .card:before{
+        transform: rotate(20deg);
+    }
+ 
+    /* left */
+    .circel_data .middle_row .card_left .card_third .card:after,
+    .circel_data .middle_row .card_left .card_first .card:after {
+        right: unset;
+        left: -40px;
+    }
+    .circel_data .middle_row .card_left .card_third .card:before,
+    .circel_data .middle_row .card_left .card_first .card:before {
+        right: unset;
+        left: -79px;
+        transform: rotate(50deg);
+    }
+    .circel_data .middle_row .card_left .card_third .card:before{
+        transform: rotate(130deg);
+    }
+ 
+    /* right */
+    .circel_data .middle_row .card_right .card_third .card:after,
+    .circel_data .middle_row .card_right .card_first .card:after {
+        left: unset;
+        right: -40px;
+    }
+    .circel_data .middle_row .card_right .card_third .card:before,
+    .circel_data .middle_row .card_right .card_first .card:before {
+        left: unset;
+        right: -79px;
+        transform: rotate(130deg);
+    }
+    .circel_data .middle_row .card_right .card_third .card:before{
+        transform: rotate(50deg);
+    }
+    /* Middle */
+    .circel_data .middle_row .card_left .card_secound .card:after,
+    .circel_data .middle_row .card_right .card_secound .card:after {
+        left: -140px;
+        right: unset;
+    }
+    .circel_data .middle_row .card_right .card_secound .card:after {
+        right: -140px;
+        left: 0;
+    }
+}
+/* circel RTL */ 
+
 @media (min-width: 1250px) {
     .franchiseme_teams {
         margin-right: -20%;
@@ -92,6 +219,28 @@
         top: calc(50% - 145px);
         width: auto;
     }
+
+    html[dir="rtl"] {
+        .circel_data .card_right .card .card-body {
+            direction: ltr;
+        }  
+        .circel_data .card_right .card,
+        .circel_data .card_left .card {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
+        .circel_data .card_right .card .card-body {
+            border-radius: 0 50px 50px 0;
+        }
+        .circel_data .logo_circel {
+            left: unset;
+            right: 0;
+        }
+        .circel_data .card .card-body .sub_title,
+        .circel_data .card .card-body .contain {
+            text-align: right !important;
+        }
+    }
 }
 @media (max-width: 900px) and (min-width: 700px) {
     .circel_data .logo_circel {
@@ -115,6 +264,10 @@
 }
 /* harsh */
 @media (max-width: 1024px) {
+    body {
+        overflow-x: hidden !important;
+    }
+
     .container {
         padding-inline: 32px;
     }
@@ -404,9 +557,20 @@
         padding: 24px;
         border-radius: 20px;
     }
+
+    /* ---------------------------- */
+    .slider-track img {
+        height: 40px !important;
+        width: 40px !important;
+    }
+    /* --------------------------- */
 }
 
 @media (max-width: 576px) {
+    html, body {
+        overflow-x: hidden !important;
+    }
+
     #mobile-menu {
         top: 70px;
         padding-inline: 20px
@@ -507,4 +671,80 @@
         padding: 40px 25px !important;
         border-radius: 16px !important;
     }
+
+    /* ---------------------------- */
+    .slider-track img {
+        height: 35px !important;
+        width: 35px !important;
+    }
 }
+
+/* --------------------------- RTL styles -------------------------- */
+html[dir="rtl"] {
+    .accordion-button::after {
+        margin-left: 0px;
+        margin-right: auto;
+    }
+
+    .accordion-button {
+        text-align: right;
+    }
+
+    .franchise_list .fanchise_item .sector_tag {
+        left: auto;
+        right: 0px;
+    }
+
+    .fa-angle-left,
+    .fa-angle-right,
+    .fa-arrow-left,
+    .fa-arrow-right,
+    .fa-chevron-left,
+    .fa-chevron-right {
+        transform: rotate(180deg);
+    }
+
+    .franchiseme_teams {
+        margin-right: 0%;
+        margin-left: -20%;
+    }
+
+    .pe-md-5 {
+        padding-right: 0 !important;
+        padding-left: 3rem !important;
+    }
+
+    .cta_contact::before {
+        background-position: left 10px bottom;
+    }
+}
+
+/* ---------------------- */
+
+.slider-track,
+.splide__slide {
+    height: 320px !important;
+}
+
+.sl_item {
+    height: 320px;
+    background-color: white;
+    padding: 38px 30px 32px;
+}
+
+.sl_item img {
+    margin-bottom: 1.5rem;
+}
+
+.sl_item p {
+    font-size: 16px;
+    margin-top: .5rem;
+}
+
+.slider-track img {
+    height: 50px;
+    width: 50px;
+    filter: none;
+}
+
+/* ---------------------- */
