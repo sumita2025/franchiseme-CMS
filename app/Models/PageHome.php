@@ -34,6 +34,7 @@ class PageHome extends Model
         // VISION SECTION
         'vision_title',
         'vision_description',
+        'vision_icon_image',
 
         'vision_title_ar',
         'vision_description_ar',
@@ -41,6 +42,7 @@ class PageHome extends Model
         // MISSION SECTION
         'mission_title',
         'mission_description',
+        'mission_icon_image',
 
         'mission_title_ar',
         'mission_description_ar',

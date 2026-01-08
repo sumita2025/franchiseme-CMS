@@ -27,6 +27,9 @@ use App\Http\Controllers\Front\LanguageController;
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/index', [HomeController::class, 'home'])->name('index');
+Route::get('/login', function () {
+    return redirect()->route('admin.login');
+})->name('login');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
 Route::get('/singleblog/{id}', [BlogController::class, 'singleblog'])->name('singleblog');

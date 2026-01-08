@@ -54,7 +54,66 @@
     min-width: auto;
     width: 100%;
 }
+/* harsh */
+@media (min-width: 1250px) {
+    .franchiseme_teams {
+        margin-right: -20%;
+    }
+}
+@media (max-width: 1025px) and (min-width: 900px) {
+    .circel_data .card {
+        max-width: 550px;
+    }
+}
+@media (max-width: 1025px) {
+    .circel_data .card::before,
+    .circel_data .card::after {
+        display: none;
+    }
+    .circel_data .card_left .card,
+    .circel_data .card_right .card {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .circel_data .card_right .card .card-body {
+        direction: rtl;
+    }
+    .circel_data .card_right .card .card-body {
+        border-radius: 50px 0 0 50px;
+    }
+    .circel_data .card .cb_text {
+        direction: ltr;
+        text-align: left;
+    }
 
+    .circel_data .logo_circel {
+        position: absolute;
+        left: 0;
+        top: calc(50% - 145px);
+        width: auto;
+    }
+}
+@media (max-width: 900px) and (min-width: 700px) {
+    .circel_data .logo_circel {
+        top: calc(50% - 130px);
+    }
+    .circel_data .center_cicel img {
+        max-width: 220px;
+    }
+}
+@media (max-width: 600px) {
+    .logo_in_mobile {
+        padding: 16px;
+        border: 4px solid var(--secondary-color);
+    }
+    .logo_in_mobile img {
+        max-height: 80px;
+        max-width: 300px;
+        width: 100%;
+        object-fit: contain;
+    }
+}
+/* harsh */
 @media (max-width: 1024px) {
     .container {
         padding-inline: 32px;

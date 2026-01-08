@@ -276,15 +276,29 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="tab_mission_section">
-                    {{-- MISSION SECTION (Vision + Mission) --}}
+                    {{-- VISION SECTION --}}
                     <div class="card mb-3">
-                        <div class="card-header bg-primary text-white">Mission Section</div>
+                        <div class="card-header bg-primary text-white">Vision Section</div>
                         <div class="card-body">
                             <div class="row g-4">
+                                {{-- Vision Icon Image --}}
+                                <div class="col-12">
+                                    <label>Vision Icon Image <span class="text-danger"></span></label>
+                                    <input type="file" name="vision_icon_image" class="form-control preview-input"
+                                        data-preview="#vision_icon_preview">
+                                    @if (!empty($home->vision_icon_image))
+                                        <img id="vision_icon_preview"
+                                            src="{{ asset('storage/' . $home->vision_icon_image) }}"
+                                            class="img-thumbnail mt-2" style="max-width: 100px;">
+                                    @else
+                                        <img id="vision_icon_preview" class="img-thumbnail mt-2 d-none"
+                                            style="max-width: 100px;">
+                                    @endif
+                                </div>
+
                                 <div class="col-md-6">
                                     <div class="row g-3">
                                         <div class="col-12">
-                                            {{-- English --}}
                                             <h6 class="text-primary">English Content</h6>
                                             <label>Vision Title (English)</label>
                                             <textarea name="vision_title" class="form-control summernote">{!! $home->vision_title ?? '' !!}</textarea>
@@ -293,7 +307,49 @@
                                             <label>Vision Description (English)</label>
                                             <textarea name="vision_description" class="form-control summernote">{!! $home->vision_description ?? '' !!}</textarea>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3">
                                         <div class="col-12">
+                                            <h6 class="text-success">Arabic Content</h6>
+                                            <label>Vision Title (Arabic)</label>
+                                            <textarea name="vision_title_ar" class="form-control summernote">{!! $home->vision_title_ar ?? '' !!}</textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Vision Description (Arabic)</label>
+                                            <textarea name="vision_description_ar" class="form-control summernote">{!! $home->vision_description_ar ?? '' !!}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- MISSION SECTION --}}
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">Mission Section</div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                {{-- Mission Icon Image --}}
+                                <div class="col-12">
+                                    <label>Mission Icon Image <span class="text-danger"></span></label>
+                                    <input type="file" name="mission_icon_image" class="form-control preview-input"
+                                        data-preview="#mission_icon_preview">
+                                    @if (!empty($home->mission_icon_image))
+                                        <img id="mission_icon_preview"
+                                            src="{{ asset('storage/' . $home->mission_icon_image) }}"
+                                            class="img-thumbnail mt-2" style="max-width: 100px;">
+                                    @else
+                                        <img id="mission_icon_preview" class="img-thumbnail mt-2 d-none"
+                                            style="max-width: 100px;">
+                                    @endif
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <h6 class="text-primary">English Content</h6>
                                             <label>Mission Title (English)</label>
                                             <textarea name="mission_title" class="form-control summernote">{!! $home->mission_title ?? '' !!}</textarea>
                                         </div>
@@ -306,16 +362,7 @@
                                 <div class="col-md-6">
                                     <div class="row g-3">
                                         <div class="col-12">
-                                            {{-- Arabic --}}
                                             <h6 class="text-success">Arabic Content</h6>
-                                            <label>Vision Title (Arabic)</label>
-                                            <textarea name="vision_title_ar" class="form-control summernote">{!! $home->vision_title_ar ?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            <label>Vision Description (Arabic)</label>
-                                            <textarea name="vision_description_ar" class="form-control summernote">{!! $home->vision_description_ar ?? '' !!}</textarea>
-                                        </div>
-                                        <div class="col-12">
                                             <label>Mission Title (Arabic)</label>
                                             <textarea name="mission_title_ar" class="form-control summernote">{!! $home->mission_title_ar ?? '' !!}</textarea>
                                         </div>

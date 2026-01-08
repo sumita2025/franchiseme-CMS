@@ -17,6 +17,7 @@ class HomeController extends Controller
         $clientImages = HomeClientLogo::all();
         $teams = Team::get();
         $team_page = TeamPage::first();
+        // return view('frontend.index_old', compact('content', 'clientImages','teams','team_page'));
         return view('frontend.index', compact('content', 'clientImages','teams','team_page'));
     }
 }

@@ -57,7 +57,9 @@ class HomePageController extends Controller
             'about_image',
             'achievement_image',
             'strategy_image',
-            'strategy_image_ar'
+            'strategy_image_ar',
+            'vision_icon_image',
+            'mission_icon_image'
         ];
 
         for ($i = 1; $i <= 5; $i++) {
