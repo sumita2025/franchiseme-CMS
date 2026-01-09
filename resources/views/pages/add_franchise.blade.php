@@ -12,7 +12,7 @@
             <div class="card-body">
                 <div class="row g-4">
                     <div class="col-6">
-                        <label class="form-label fw-semibold">Background Image <span class="text-danger">(Image Size (Pixels) - W-1440 x H-420)</span></label>
+                        <label class="form-label fw-semibold">Background Image <span class="text-danger">(Image Size (Pixels) - W-1845 x H-367)</span></label>
                         <input type="file" class="form-control" name="slider_background_image">
                         @if(!empty($franchise->slider_background_image))
                             <img src="{{ asset($franchise->slider_background_image) }}" class="img-thumbnail mt-2" width="120">

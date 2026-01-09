@@ -62,7 +62,7 @@
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-12">
-                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - W-1920 x H-600)</span></label>
+                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - W-1905 x H-600)</span></label>
                                     <input type="file" name="hero_background_image" class="form-control preview-input"
                                         data-preview="#hero_bg_preview">
                                     @if (!empty($home->hero_background_image))
