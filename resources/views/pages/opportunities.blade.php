@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="row g-4">
                     <div class="col-12">
-                        <label>Image <span class="text-danger"></span></label>
+                        <label>Image <span class="text-danger">(Image Size (Pixels) - W-1845 x H-367)</span></label>
                             <input type="file" name="background_image" class="form-control preview-input" data-preview="#background_image_preview">
                             @if(!empty($page->background_image))
                                 <img id="background_image_preview" src="{{ asset('storage/'.$page->background_image) }}" class="img-thumbnail mt-2" style="max-width: 200px;">

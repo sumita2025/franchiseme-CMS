@@ -45,7 +45,7 @@
                                 
                                         <div class="col-6">
                                             {{-- <h6 class="text-primary">English Content</h6> --}}
-                                            <label>Header Logo  (English) <span class="text-danger"></span></label>
+                                            <label>Header Logo  (English) <span class="text-danger">(Image Size (Pixels) - W-250 x H-50)</span></label>
                                             <input type="file" name="header_logo" class="form-control preview-input"
                                                 data-preview="#header_logo_preview">
                                             @if (!empty($headerLogo))
@@ -59,7 +59,7 @@
                                         </div>
 
                                          <div class="col-6">
-                                            <label>Footer Logo (English)<span class="text-danger"></span></label>
+                                            <label>Footer Logo (English) <span class="text-danger">(Image Size (Pixels) - W-295 x H-60)</span></label>
                                             <input type="file" name="footer_logo" class="form-control preview-input"
                                                 data-preview="#footer_logo_preview">
                                             @if (!empty($footerLogo))
@@ -72,7 +72,7 @@
                                             @endif
                                         </div>
                                         <div class="col-12">
-                                            <label>Favicon Logo (English)<span class="text-danger"></span></label>
+                                            <label>Favicon Logo (English) <span class="text-danger">(Image Size (Pixels) - W-32 x H-32)</span></label>
                                             <input type="file" name="favicon_logo" class="form-control preview-input"
                                                 data-preview="#favicon_logo_preview">
                                             @if (!empty($faviconLogo))
@@ -104,7 +104,7 @@
                                       
                                          <div class="col-6">
                                            
-                                            <label>Header Logo (Arabic) <span class="text-danger"></span></label>
+                                            <label>Header Logo (Arabic) <span class="text-danger">(Image Size (Pixels) - W-250 x H-50)</span></label>
                                             <input type="file" name="header_logo_ar" class="form-control preview-input"
                                                 data-preview="#header_logo_ar_preview">
                                             @if (!empty($headerLogoAr))
@@ -117,7 +117,7 @@
                                             @endif
                                         </div>
                                         <div class="col-6">
-                                            <label>Footer Logo (Arabic)<span class="text-danger"></span></label>
+                                            <label>Footer Logo (Arabic) <span class="text-danger">(Image Size (Pixels) - W-295 x H-60)</span></label>
                                             <input type="file" name="footer_logo_ar" class="form-control preview-input"
                                                 data-preview="#footer_logo_ar_previfew">
                                             @if (!empty($footerLogoAr))
@@ -130,7 +130,7 @@
                                             @endif
                                         </div>
                                          <div class="col-12">
-                                            <label>Favicon Logo (Arabic)<span class="text-danger"></span></label>
+                                            <label>Favicon Logo (Arabic) <span class="text-danger">(Image Size (Pixels) - W-32 x H-32)</span></label>
                                             <input type="file" name="favicon_logo_ar" class="form-control preview-input"
                                                 data-preview="#favicon_logo_ar_preview">
                                             @if (!empty($faviconLogoAr))

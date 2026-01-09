@@ -12,14 +12,14 @@
             <div class="card-body">
                 <div class="row g-4">
                     <div class="col-6">
-                        <label class="form-label fw-semibold">Background Image <span class="text-danger">(Image Size (Pixels) - 1050 x 390 )</span></label>
+                        <label class="form-label fw-semibold">Background Image <span class="text-danger">(Image Size (Pixels) - W-1440 x H-420)</span></label>
                         <input type="file" class="form-control" name="slider_background_image">
                         @if(!empty($franchise->slider_background_image))
                             <img src="{{ asset($franchise->slider_background_image) }}" class="img-thumbnail mt-2" width="120">
                         @endif
                     </div>
                     <div class="col-6">
-                        <label>Franchise Logo <span class="text-danger">(Image Size (Pixels) - 320 x 320 )</span></label>
+                        <label>Franchise Logo <span class="text-danger">(Image Size (Pixels) - W-1440 x H-420)</span></label>
                         <input type="file" name="logo" class="form-control">
                         @if(isset($franchise->logo))
                             <img src="{{ asset($franchise->logo) }}" width="100" class="mt-2 rounded">

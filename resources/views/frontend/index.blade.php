@@ -278,7 +278,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-md-none d-flex w-100 logo_in_mobile">
+                            <div class="d-md-none d-flex justify-content-center w-100 logo_in_mobile">
                                 @if(app()->getLocale() == 'ar')
                                     <img src="{{ isset($content->strategy_image_ar) && $content->strategy_image_ar ? asset('storage/' . $content->strategy_image_ar) : asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
                                 @else

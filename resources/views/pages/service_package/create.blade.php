@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="row g-4">
                       <div class="col-12">
-                            <label>Image <span class="text-danger"></span></label>
+                            <label>Image <span class="text-danger">(Image Size (Pixels) - W-60 x H-60)</span></label>
                         
                             <input type="file" name="image" class="form-control preview-input" data-preview="#image_preview">
                             @if(!empty($service->image))

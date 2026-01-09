@@ -62,8 +62,7 @@
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-12">
-                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - W-1724 x H-660
-                                            )</span></label>
+                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - W-1920 x H-600)</span></label>
                                     <input type="file" name="hero_background_image" class="form-control preview-input"
                                         data-preview="#hero_bg_preview">
                                     @if (!empty($home->hero_background_image))
@@ -127,8 +126,7 @@
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-12">
-                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - 659 x 370
-                                            )</span></label>
+                                    <label>Background Image <span class="text-danger">(Image Size (Pixels) - W-854 x H-569)</span></label>
                                     <input type="file" name="about_image" class="form-control preview-input"
                                         data-preview="#about_img_preview">
                                     @if (!empty($home->about_image))
@@ -199,8 +197,7 @@
                         <div class="card-body">
                             <div class="row g-3">
                                 <div class="col-6">
-                                    <label>Image <span class="text-danger">(Image Size (Pixels) - 220 x 130
-                                            )</span></label>
+                                    <label>Image <span class="text-danger">(Image Size (Pixels) - W-250 x H-50)</span></label>
                                     <div class="border rounded m-1 p-2 ">
                                         <input type="file" name="strategy_image" class="form-control preview-input"
                                             data-preview="#strategy_img_preview">
@@ -215,8 +212,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <label>Image (Arabic) <span class="text-danger">(Image Size (Pixels) - 220 x 130
-                                            )</span></label>
+                                    <label>Image (Arabic) <span class="text-danger">(Image Size (Pixels) - W-250 x H-50)</span></label>
                                     <div class="border rounded m-1 p-2 ">
                                         <input type="file" name="strategy_image_ar" class="form-control preview-input"
                                             data-preview="#strategy_img_preview_ar">
@@ -283,7 +279,7 @@
                             <div class="row g-4">
                                 {{-- Vision Icon Image --}}
                                 <div class="col-12">
-                                    <label>Vision Icon Image <span class="text-danger"></span></label>
+                                    <label>Vision Icon Image <span class="text-danger">(Image Size (Pixels) - W-60 x H-60)</span></label>
                                     <input type="file" name="vision_icon_image" class="form-control preview-input"
                                         data-preview="#vision_icon_preview">
                                     @if (!empty($home->vision_icon_image))
@@ -328,12 +324,12 @@
 
                     {{-- MISSION SECTION --}}
                     <div class="card mb-3">
-                        <div class="card-header bg-primary text-white">Mission Section</div>
+                        <div class="card-header bg-primary text-white">Mission Section </div>
                         <div class="card-body">
                             <div class="row g-4">
                                 {{-- Mission Icon Image --}}
                                 <div class="col-12">
-                                    <label>Mission Icon Image <span class="text-danger"></span></label>
+                                    <label>Mission Icon Image <span class="text-danger">(Image Size (Pixels) - W-60 x H-60)</span></label>
                                     <input type="file" name="mission_icon_image" class="form-control preview-input"
                                         data-preview="#mission_icon_preview">
                                     @if (!empty($home->mission_icon_image))
@@ -464,8 +460,7 @@
                         <div class="card-body">
                             <div class="row g-4">
                                 <div class="col-12">
-                                    <label>Achievement Image <span class="text-danger">(Image Size (Pixels) - 200 x
-                                            60)</span></label>
+                                    <label>Achievement Image </label>
                                     <input type="file" name="achievement_image" class="form-control preview-input"
                                         data-preview="#ach_img_preview">
                                     @if (!empty($home->achievement_image))
@@ -637,8 +632,7 @@
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <div>
                                             <h6 class="fw-bold mb-0">Client Logos</h6>
-                                            <label class="mb-0"><span class="text-danger">(Image Size (Pixels) - 240
-                                                    x 96 )</span></label>
+                                            <label class="mb-0"><span class="text-danger">(Image Size (Pixels) - W-240 x H-96)</span></label>
                                         </div>
                                         <button type="button" class="btn btn-sm btn-success" id="addLogoBtn">
                                             Add Logo

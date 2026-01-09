@@ -35,7 +35,7 @@
                     <div class="col-md-6">
                         <label class="form-label fw-semibold">
                             Feature Image 
-                            <span class="text-danger">(Recommended Size 800 x 500)</span>
+                            <span class="text-danger">(Image Size (Pixels) - W-1440 x H-420)</span>
                         </label>
                         <input type="file" class="form-control preview-input @error('feature_image') is-invalid @enderror" name="feature_image" data-preview="#feature_image_preview">
                         

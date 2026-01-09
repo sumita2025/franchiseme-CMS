@@ -42,14 +42,14 @@
     <nav class="container">
         <div class="row nav-row align-items-center h-full">
             <!-- LOGO -->
-            <div class="col-3 d-flex align-items-center">
+            <div class="col-md-3 col-6 d-flex align-items-center">
                 <a href="{{ route('index') }}">
-                    <img src="{{ asset($site_logo ?? 'frontend/assest/logo.png') }}" height="36" class="nav-logo" />
+                    <img src="{{ asset($site_logo ?? 'frontend/assest/logo.png') }}" class="nav-logo img-fluid header_logo" />
                 </a>
             </div>
 
             <!-- CENTER MENU -->
-            <div class="col-6 d-flex justify-content-center">
+            <div class="col-md-6 col-1  d-flex justify-content-center">
                 <ul class="nav align-items-center d-none d-lg-flex">
                     <li class="nav-item">
                         <a href="{{ route('index') }}" class="nav-link fw-semibold nav-item-link {{ request()->routeIs('index') ? 'active' : '' }}">
@@ -85,7 +85,7 @@
             </div>
 
             <!-- RIGHT BUTTON -->
-            <div class="col-3 d-flex justify-content-end align-items-center gap-2">
+            <div class="col-md-3 col-5 d-flex justify-content-end align-items-center gap-2">
                 <a href="{{ route('change.language', app()->getLocale() == 'en' ? 'ar' : 'en') }}" class="button button_outline d-none d-lg-block">
                     {{ app()->getLocale() == 'ar' ? 'English' : 'يترجم' }}
                 </a>
@@ -143,7 +143,9 @@
     <div class="container">
         <div class="row justify-content-between g-4">
             <div class="col-12 col-md-5 col-lg-4">
-                <img src="{{ asset($site_logo ?? 'frontend/assest/logo.png') }}" height="60" class="nav-logo" />
+                <a href="{{ route('index') }}">
+                    <img src="{{ asset($site_logo ?? 'frontend/assest/logo.png') }}" class="nav-logo footer_logo img-fluid" />
+                </a>
                 <div class="decription mt-3 mb-4">
                     <p>{{ app()->getLocale() == 'ar' ? 'تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز.' : 'Empowering Brands for Sustainable Franchise Growth.' }}</p>
                 </div>

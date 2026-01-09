@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <div class="row g-4">
                             <div class="col-12">
-                                <label>Background Image <span class="text-danger"></span></label>
+                                <label>Background Image <span class="text-danger">(Image Size (Pixels) - W-1845 x H-367)</span></label>
                             
                                 <input type="file" name="background_image" class="form-control preview-input" data-preview="#background_image_preview">
                                 @if(!empty($service->background_image))
@@ -195,7 +195,7 @@
                     <div class="card-body">
                         <div class="row g-4">
                             <div class="col-12">
-                                <label>Image <span class="text-danger"></span></label>
+                                <label>Image <span class="text-danger">(Image Size (Pixels) - W-575 x H-575)</span></label>
                         
                                 <input type="file" name="side_image" class="form-control preview-input" data-preview="#side_image_preview">
                                 @if(!empty($service->side_image))

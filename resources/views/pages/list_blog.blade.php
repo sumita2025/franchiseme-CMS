@@ -22,7 +22,7 @@
                         <div class="col-md-12">
                             <label class="form-label fw-semibold">
                                 Background Image
-                                <span class="text-danger">(Recommended Size 800 x 500)</span>
+                                <span class="text-danger">(Image Size (Pixels) - W-1845 x H-367)</span>
                             </label>
                             <input type="file" class="form-control" name="background_image">
 

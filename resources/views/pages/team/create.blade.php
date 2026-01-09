@@ -14,7 +14,7 @@
                 <div class="row g-4">
 
                      <div class="col-12">
-                        <label>Team Image <span class="text-danger"></span></label>
+                        <label>Team Image <span class="text-danger">(Image Size (Pixels) - W-60 x H-60)</span></label>
                         <input type="file" name="image" class="form-control preview-input" data-preview="#team_image_preview">
                         @if(!empty($team->image))
                             <img id="team_image_preview" src="{{ asset($team->image) }}" class="img-thumbnail mt-2" style="max-width: 200px;">
