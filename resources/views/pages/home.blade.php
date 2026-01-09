@@ -459,7 +459,7 @@
                         <div class="card-header bg-primary text-white">Achievement Section</div>
                         <div class="card-body">
                             <div class="row g-4">
-                                <div class="col-12">
+                                {{-- <div class="col-12">
                                     <label>Achievement Image </label>
                                     <input type="file" name="achievement_image" class="form-control preview-input"
                                         data-preview="#ach_img_preview">
@@ -471,7 +471,7 @@
                                         <img id="ach_img_preview" class="img-thumbnail mt-2 d-none"
                                             style="max-width: 200px;">
                                     @endif
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="row g-3">
 

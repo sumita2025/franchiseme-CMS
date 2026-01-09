@@ -155,7 +155,9 @@
                                     <div class="col-12">
                                         <h6 class="text-primary">English Content</h6>
                                         <label>Package Title (English)</label>
+                                        {{-- <input type="text" name="package_title" value="{{ $service->package_title ?? '' }}" class="form-control"> --}}
                                         <input type="text" name="package_title" value="{{ $service->package_title ?? '' }}" class="form-control">
+                                        <textarea name="package_title" class="form-control summernote">{!! $service->package_title ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Button Text (English)</label>
@@ -172,7 +174,8 @@
                                     <div class="col-12">
                                         <h6 class="text-success">Arabic Content</h6>
                                         <label>Package Title (Arabic)</label>
-                                        <input type="text" name="package_title_ar" value="{{ $service->package_title_ar ?? '' }}" class="form-control">
+                                        {{-- <input type="text" name="package_title_ar" value="{{ $service->package_title_ar ?? '' }}" class="form-control"> --}}
+                                        <textarea name="package_title_ar" class="form-control summernote">{!! $service->package_title_ar ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
                                         <label>Button Text (Arabic)</label>
