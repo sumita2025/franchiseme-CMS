@@ -83,16 +83,16 @@
                                             <textarea name="hero_title" class="form-control summernote">{!! $home->hero_title ?? '' !!}</textarea>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <label>Button Text (English)</label>
                                             <input type="text" name="hero_button_text"
                                                 value="{{ $home->hero_button_text ?? '' }}" class="form-control">
                                         </div>
-                                        <div class="col-6">
+                                        {{-- <div class="col-6">
                                             <label>Button URL</label>
                                             <input type="text" name="hero_button_url"
                                                 value="{{ $home->hero_button_url ?? '' }}" class="form-control">
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -103,16 +103,16 @@
                                             <label>Title (Arabic)</label>
                                             <textarea name="hero_title_ar" class="form-control summernote">{!! $home->hero_title_ar ?? '' !!}</textarea>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <label>Button Text (Arabic)</label>
                                             <input type="text" name="hero_button_text_ar"
                                                 value="{{ $home->hero_button_text_ar ?? '' }}" class="form-control">
                                         </div>
-                                        <div class="col-6">
+                                        {{-- <div class="col-6">
                                             <label>Button URL (Arabic)</label>
                                             <input type="text" name="hero_button_url_ar"
                                                 value="{{ $home->hero_button_url_ar ?? '' }}" class="form-control">
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -150,16 +150,16 @@
                                             <textarea name="about_description" class="form-control summernote">{!! $home->about_description ?? '' !!}</textarea>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <label>Button Text (English)</label>
                                             <input type="text" name="about_button_text"
                                                 value="{{ $home->about_button_text ?? '' }}" class="form-control">
                                         </div>
-                                        <div class="col-6">
+                                        {{-- <div class="col-6">
                                             <label>Button URL</label>
                                             <input type="text" name="about_button_url"
                                                 value="{{ $home->about_button_url ?? '' }}" class="form-control">
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -174,16 +174,16 @@
                                             <label>Description (Arabic)</label>
                                             <textarea name="about_description_ar" class="form-control summernote">{!! $home->about_description_ar ?? '' !!}</textarea>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <label>Button Text (Arabic)</label>
                                             <input type="text" name="about_button_text_ar"
                                                 value="{{ $home->about_button_text_ar ?? '' }}" class="form-control">
                                         </div>
-                                        <div class="col-6">
+                                        {{-- <div class="col-6">
                                             <label>Button URL (Arabic)</label>
                                             <input type="text" name="about_button_url_ar"
                                                 value="{{ $home->about_button_url_ar ?? '' }}" class="form-control">
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

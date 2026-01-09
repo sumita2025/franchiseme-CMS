@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\FaqPageController;
 use App\Http\Controllers\Admin\ServicePageController;
 use App\Http\Controllers\Admin\FranchisePageController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ChangePasswordController;
 use App\Http\Controllers\Admin\FranchiseController;
 use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\TeamController;
@@ -57,6 +58,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/home/save', [HomePageController::class, 'save'])->name('admin.home.save');
         Route::delete('/client-logos/{id}', [HomePageController::class, 'destroy'])->name('client-logos.destroy');
 
+        Route::get('/change-password', [ChangePasswordController::class, 'showChangePassword'])->name('admin.change-password');
+        Route::post('/change-password', [ChangePasswordController::class, 'updatePassword'])->name('admin.change-password.update');
         //Teams
         Route::get('/teams', [TeamController::class, 'index'])->name('admin.teams.index');
         Route::get('/teams/create', [TeamController::class, 'create'])->name('admin.teams.create');

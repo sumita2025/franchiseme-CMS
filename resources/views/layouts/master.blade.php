@@ -234,17 +234,17 @@
                         <span class="fw-semibold">{{ Auth::user()->name ?? 'Admin' }}</span>
                     </a>
 
-                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="adminDropdown">
+                       <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="adminDropdown" style="min-width: 200px;">
                         <li>
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.change-password') }}">
                                 <i class="bi bi-key me-2"></i> Change Password
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li><hr class="dropdown-divider m-2"></li>
                         <li>
-                            <form action="{{ route('admin.logout') }}" method="POST" class="m-0 p-0">
+                            <form action="{{ route('admin.logout') }}" method="POST" class="m-0 p-0 w-100">
                                 @csrf
-                                <button type="submit" class="dropdown-item text-danger w-100 text-start">
+                                <button type="submit" class="dropdown-item text-danger w-100 text-start d-flex align-items-center" style="border: none; background: none; padding: 10px 15px;">
                                     <i class="bi bi-box-arrow-right me-2"></i> Logout
                                 </button>
                             </form>

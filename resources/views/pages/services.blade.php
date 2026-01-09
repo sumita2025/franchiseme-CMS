@@ -156,7 +156,7 @@
                                         <h6 class="text-primary">English Content</h6>
                                         <label>Package Title (English)</label>
                                         {{-- <input type="text" name="package_title" value="{{ $service->package_title ?? '' }}" class="form-control"> --}}
-                                        <input type="text" name="package_title" value="{{ $service->package_title ?? '' }}" class="form-control">
+                                        {{-- <input type="text" name="package_title" value="{{ $service->package_title ?? '' }}" class="form-control"> --}}
                                         <textarea name="package_title" class="form-control summernote">{!! $service->package_title ?? '' !!}</textarea>
                                     </div>
                                     <div class="col-12">
