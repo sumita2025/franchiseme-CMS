@@ -514,6 +514,23 @@ footer .maps-container {
     margin-bottom: 24px;
 }
 
+footer .footer_social_icons .social-btn {
+    display: block;
+    line-height: 1;
+}
+footer .footer_social_icons .social-btn img {
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+footer .footer_social_icons .social-btn:hover img {
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+}
 /* -------------------- NEEDS ATTENTION --------------------------- */
 
 

@@ -149,10 +149,16 @@
                 <div class="decription mt-3 mb-4">
                     <p>{{ app()->getLocale() == 'ar' ? 'تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز.' : 'Empowering Brands for Sustainable Franchise Growth.' }}</p>
                 </div>
-                <div class="d-flex gap-1 icons">
-                    <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/franchiseme/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://x.com/FranchiseME24" target="_blank" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                <div class="d-flex gap-3 icons footer_social_icons">
+                    <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank" class="social-btn">
+                        <img src="{{asset('/assets/image/instagram.png')}}" alt="">
+                    </a>
+                    <a href="https://www.linkedin.com/company/franchiseme/" target="_blank" class="social-btn">
+                        <img src="{{asset('/assets/image/linkedin.png')}}" alt="">
+                    </a>
+                    <a href="https://x.com/FranchiseME24" target="_blank" class="social-btn">
+                        <img src="{{asset('/assets/image/twitter.png')}}" alt="">
+                    </a>
                 </div>
             </div>
     
