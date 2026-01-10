@@ -88,7 +88,7 @@
                                             @for ($i = 1; $i <= 5; $i++)
                                             <div class="col-md-4">
                                                 <div class="mb-3">
-                                                    <label>Social Icon {{ $i }} (English)</label>
+                                                    <label>Social Icon {{ $i }} (English) <span class="text-danger">(Image Size (Pixels) - W-60 x H-60)</span> </label>
                                                     <input type="file" name="social_icon_image_{{ $i }}" class="form-control preview-input" data-preview="#social_icon_image_{{ $i }}_preview">
                                                     @if(!empty($page->{'social_icon_image_'.$i}))
                                                         <img id="social_icon_image_{{ $i }}_preview" src="{{ asset('storage/'.$page->{'social_icon_image_'.$i}) }}" class="img-thumbnail mt-2" style="max-width: 80px; max-height: 80px;">
@@ -173,7 +173,7 @@
                                             @for ($i = 1; $i <= 5; $i++)
                                             <div class="col-md-4">
                                                 <div class="mb-3">
-                                                    <label>Social Icon  {{ $i }} (Arabic)</label>
+                                                    <label>Social Icon  {{ $i }} (Arabic) <span class="text-danger">(Image Size (Pixels) - W-60 x H-60)</span></label>
                                                     <input type="file" name="social_icon_image_{{ $i }}_ar" class="form-control preview-input" data-preview="#social_icon_image_{{ $i }}_ar_preview">
                                                     @if(!empty($page->{'social_icon_image_'.$i.'_ar'}))
                                                         <img id="social_icon_image_{{ $i }}_ar_preview" src="{{ asset('storage/'.$page->{'social_icon_image_'.$i.'_ar'}) }}" class="img-thumbnail mt-2" style="max-width: 80px; max-height: 80px;">
