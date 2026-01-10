@@ -85,26 +85,31 @@
                                             <input type="text" name="social_media_text" class="form-control" value="{{ $page->social_media_text ?? '' }}">
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="row g-2">
-                                                    @for ($i = 1; $i <= 5; $i++)
-                                                    <div class="col-12">
-                                                        <label>Social Link {{ $i }} (English)</label>
-                                                        <input type="text" name="social_link_{{ $i }}" class="form-control" value="{{ $page->{'social_link_'.$i} ?? '' }}">
-                                                    </div>
-                                                    @endfor
+                                            @for ($i = 1; $i <= 5; $i++)
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label>Social Icon {{ $i }} (English)</label>
+                                                    <input type="file" name="social_icon_image_{{ $i }}" class="form-control preview-input" data-preview="#social_icon_image_{{ $i }}_preview">
+                                                    @if(!empty($page->{'social_icon_image_'.$i}))
+                                                        <img id="social_icon_image_{{ $i }}_preview" src="{{ asset('storage/'.$page->{'social_icon_image_'.$i}) }}" class="img-thumbnail mt-2" style="max-width: 80px; max-height: 80px;">
+                                                    @else
+                                                        <img id="social_icon_image_{{ $i }}_preview" class="img-thumbnail mt-2 d-none" style="max-width: 80px; max-height: 80px;">
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="row g-2">
-                                                    @for ($i = 1; $i <= 5; $i++)
-                                                    <div class="col-12">
-                                                        <label>Social Url {{ $i }} (English)</label>
-                                                        <input type="text" name="social_url_{{ $i }}" class="form-control" value="{{ $page->{'social_url_'.$i} ?? '' }}">
-                                                    </div>
-                                                    @endfor
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label>Social Text {{ $i }} (English)</label>
+                                                    <input type="text" name="social_link_{{ $i }}" class="form-control" value="{{ $page->{'social_link_'.$i} ?? '' }}">
                                                 </div>
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label>Social Url {{ $i }} (English)</label>
+                                                    <input type="text" name="social_url_{{ $i }}" class="form-control" value="{{ $page->{'social_url_'.$i} ?? '' }}">
+                                                </div>
+                                            </div>
+                                            @endfor
                                         </div>
                                     </div>
                                 </div>
@@ -165,26 +170,31 @@
                                             <input type="text" name="social_media_text_ar" class="form-control" value="{{ $page->social_media_text_ar ?? '' }}">
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="row g-2">
-                                                    @for ($i = 1; $i <= 5; $i++)
-                                                    <div class="col-12">
-                                                        <label>Social Link {{ $i }} (Arabic)</label>
-                                                        <input type="text" name="social_link_{{ $i }}_ar" class="form-control" value="{{ $page->{'social_link_'.$i.'_ar'} ?? '' }}">
-                                                    </div>
-                                                    @endfor
+                                            @for ($i = 1; $i <= 5; $i++)
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label>Social Icon  {{ $i }} (Arabic)</label>
+                                                    <input type="file" name="social_icon_image_{{ $i }}_ar" class="form-control preview-input" data-preview="#social_icon_image_{{ $i }}_ar_preview">
+                                                    @if(!empty($page->{'social_icon_image_'.$i.'_ar'}))
+                                                        <img id="social_icon_image_{{ $i }}_ar_preview" src="{{ asset('storage/'.$page->{'social_icon_image_'.$i.'_ar'}) }}" class="img-thumbnail mt-2" style="max-width: 80px; max-height: 80px;">
+                                                    @else
+                                                        <img id="social_icon_image_{{ $i }}_ar_preview" class="img-thumbnail mt-2 d-none" style="max-width: 80px; max-height: 80px;">
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="row g-2">
-                                                    @for ($i = 1; $i <= 5; $i++)
-                                                    <div class="col-12">
-                                                        <label>Social Url {{ $i }} (Arabic)</label>
-                                                        <input type="text" name="social_link_{{ $i }}_ar" class="form-control" value="{{ $page->{'social_url_'.$i.'_ar'} ?? '' }}">
-                                                    </div>
-                                                    @endfor
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label>Social Text {{ $i }} (Arabic)</label>
+                                                    <input type="text" name="social_link_{{ $i }}_ar" class="form-control" value="{{ $page->{'social_link_'.$i.'_ar'} ?? '' }}">
                                                 </div>
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label>Social Url {{ $i }} (Arabic)</label>
+                                                    <input type="text" name="social_url_{{ $i }}_ar" class="form-control" value="{{ $page->{'social_url_'.$i.'_ar'} ?? '' }}">
+                                                </div>
+                                            </div>
+                                            @endfor
                                         </div>
                                     </div>
                                 </div>

@@ -150,15 +150,24 @@
                     <p>{{ app()->getLocale() == 'ar' ? 'تمكين العلامات التجارية لتحقيق نمو مستدام للامتياز.' : 'Empowering Brands for Sustainable Franchise Growth.' }}</p>
                 </div>
                 <div class="d-flex gap-3 icons footer_social_icons">
-                    <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank" class="social-btn">
-                        <img src="{{asset('/assets/image/instagram.png')}}" alt="">
-                    </a>
-                    <a href="https://www.linkedin.com/company/franchiseme/" target="_blank" class="social-btn">
-                        <img src="{{asset('/assets/image/linkedin.png')}}" alt="">
-                    </a>
-                    <a href="https://x.com/FranchiseME24" target="_blank" class="social-btn">
-                        <img src="{{asset('/assets/image/twitter.png')}}" alt="">
-                    </a>
+                    @php
+                        $contact = \App\Models\PageContact::first();
+                    @endphp
+                    @for ($i = 1; $i <= 5; $i++)
+                        @php
+                            $iconKey = 'social_icon_image_' . $i;
+                            $urlKey = 'social_url_' . $i;
+
+                            $icon = $contact->$iconKey ?? null;
+                            $url = $contact->$urlKey ?? null;
+                        @endphp
+
+                        @if(!empty($icon) && !empty($url))
+                            <a href="{{ $url }}" target="_blank" class="social-btn">
+                                <img src="{{ asset('storage/' . $icon) }}" alt="Social Icon {{ $i }}">
+                            </a>
+                        @endif
+                    @endfor
                 </div>
             </div>
     
@@ -186,7 +195,7 @@
                         $copy_right_link = app()->getLocale() === 'ar' ? get_setting('copy_right_link_ar') : get_setting('copy_right_link');
                     @endphp
                     {{ $copy_right_text ?? (app()->getLocale() == 'ar' ? 'جميع الحقوق محفوظة لشركة FranchiseME. تصميم:' : 'Copyright © 2026 FranchiseME - All Rights Reserved. Designed by:') }}
-                    <a href="{{ $copy_right_link ?? 'https://shreedaconsulting.com/' }}" target="_blank">
+                    <a href="https://shreedaconsulting.com/" target="_blank">
                         {{ app()->getLocale() == 'ar' ? 'شريدا للاستشارات' : 'Shreeda Consulting' }}
                     </a>
                 </p>

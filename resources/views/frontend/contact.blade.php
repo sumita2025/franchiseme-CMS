@@ -115,27 +115,23 @@
                                 @endif
                             </h4>
                             <div class="d-flex social_links gap-4 decription">
-                                <a href="https://www.instagram.com/franchiseme_ksa/" target="_blank">
-                                    @if(app()->getLocale() == 'ar')
-                                        {!! $contact->social_link_1_ar ?? 'Instagram' !!}
-                                    @else
-                                        {!! $contact->social_link_1 ?? 'Instagram' !!}
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @php
+                                        $linkKey = 'social_link_' . $i;
+                                        $urlKey = 'social_url_' . $i;
+                                        $linkKeyAr = 'social_link_' . $i . '_ar';
+                                        $urlKeyAr = 'social_url_' . $i . '_ar';
+
+                                        $link = app()->getLocale() == 'ar' ? ($contact->$linkKeyAr ?? null) : ($contact->$linkKey ?? null);
+                                        $url = app()->getLocale() == 'ar' ? ($contact->$urlKeyAr ?? null) : ($contact->$urlKey ?? null);
+                                    @endphp
+
+                                    @if(!empty($link) && !empty($url))
+                                        <a href="{{ $url }}" target="_blank">
+                                            {!! $link !!}
+                                        </a>
                                     @endif
-                                </a>
-                                <a href="https://www.linkedin.com/company/franchiseme/" target="_blank">
-                                    @if(app()->getLocale() == 'ar')
-                                        {!! $contact->social_link_2_ar ?? 'LinkedIn' !!}
-                                    @else
-                                        {!! $contact->social_link_2 ?? 'LinkedIn' !!}
-                                    @endif
-                                </a>
-                                <a href="https://x.com/FranchiseME24" target="_blank">
-                                    @if(app()->getLocale() == 'ar')
-                                        {!! $contact->social_link_3_ar ?? 'X' !!}
-                                    @else
-                                        {!! $contact->social_link_3 ?? 'X' !!}
-                                    @endif
-                                </a>
+                                @endfor
                             </div>
                         </div>
                     </div>

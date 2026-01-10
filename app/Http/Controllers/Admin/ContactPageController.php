@@ -21,9 +21,25 @@ class ContactPageController extends Controller
         if ($request->hasFile("background_image")) {
             $background_image = $request->file("background_image")
                 ->store('uploads/pages/background', 'public');
+            $data['background_image'] = $background_image;
         }
-      
-        $data['background_image'] = $background_image ?? null;
+
+        // Handle social icon images (1-5 for English)
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile("social_icon_image_$i")) {
+                $data["social_icon_image_$i"] = $request->file("social_icon_image_$i")
+                    ->store('uploads/icons', 'public');
+            }
+        }
+
+        // Handle social icon images (1-5 for Arabic)
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile("social_icon_image_{$i}_ar")) {
+                $data["social_icon_image_{$i}_ar"] = $request->file("social_icon_image_{$i}_ar")
+                    ->store('uploads/icons', 'public');
+            }
+        }
+
         PageContact::updateOrCreate(['id' => 1], $data);
 
         return response()->json([
