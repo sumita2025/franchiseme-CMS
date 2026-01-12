@@ -214,10 +214,25 @@ a {
 }
 
 .hero-title {
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
+    color: white;
     font-size: 56px;
     font-weight: 600;
     line-height: 1.2;
+}
+
+.hero_section_main {
+    height: calc(100vh - 90px);
+    position: relative;
+}
+.hero_section_main::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
 }
 
 /*  -------------------- ABOUT STYLES ----------------------- */

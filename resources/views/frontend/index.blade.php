@@ -21,9 +21,9 @@
 @endphp
 
 <!-- Hero Section -->
-<section class="hero index-hero">
-    <div class="container hero-container" data-aos="fade-right">
-        <div class="row gap-3 gap-lg-0">
+<section class="hero index-hero hero_section_main d-flex align-items-center justify-content-center" style="background-image: url('{{ $heroImage }}');">
+    <div class="container hero-container position-relative z-3" data-aos="fade-right">
+        <div class="row gap-3 gap-lg-0 text-center d-flex justify-content-center">
             <div class="col-12 col-lg-8">
                 <h1 class="hero-title mb-0">
                     @if(app()->getLocale() == 'ar')
@@ -32,9 +32,7 @@
                         {!! $content->hero_title ?? 'Empowering Brands for Sustainable Franchise Growth.' !!}
                     @endif
                 </h1>
-            </div>
-            <div class="col-12 col-lg-4 d-flex justify-content-lg-end align-items-lg-end">
-                <a href="{{ $content->hero_button_url ?? route('contact') }}" class="button">
+                <a href="{{ $content->hero_button_url ?? route('contact') }}" class="button mt-lg-4 mt-3">
                     @if(app()->getLocale() == 'ar')
                         {!! $content->hero_button_text_ar ?? 'احصل على استشارتك المجانية' !!}
                     @else
@@ -45,7 +43,7 @@
         </div>
     </div>
 
-    <img src="{{ $heroImage }}" data-aos="fade-up" class="hero-img" />
+    <!-- <img src="{{ $heroImage }}" data-aos="fade-up" class="hero-img" /> -->
 </section>
 
 <!-- About Section -->

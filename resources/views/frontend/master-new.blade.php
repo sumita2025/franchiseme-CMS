@@ -87,7 +87,7 @@
             <!-- RIGHT BUTTON -->
             <div class="col-md-3 col-5 d-flex justify-content-end align-items-center gap-2">
                 <a href="{{ route('change.language', app()->getLocale() == 'en' ? 'ar' : 'en') }}" class="button button_outline d-none d-lg-block">
-                    {{ app()->getLocale() == 'ar' ? 'English' : 'يترجم' }}
+                    {{ app()->getLocale() == 'ar' ? 'English' : 'عربي' }}
                 </a>
                 <button class="btn d-block d-lg-none" id="menu-btn"><i class="fa fa-bars"></i></button>
             </div>
