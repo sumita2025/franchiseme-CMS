@@ -9,11 +9,15 @@
             <div class="container container_box position-relative">
                 <a class="back_btn" href="{{ route('franchise') }}"><i class="fa fa-angle-left"></i> {{ app()->getLocale() == 'ar' ? 'رجوع' : 'Back' }}</a>
                 <h1 class="hero-title">
-                    @if(app()->getLocale() == 'ar')
+                    {{-- @if(app()->getLocale() == 'ar')
                         {!! $franchise->title_ar ?? $franchise->title ?? 'Franchise Details' !!}
                     @else
                         {!! $franchise->title ?? 'Franchise Details' !!}
-                    @endif
+                    @endif --}}
+
+                    <h1 class="hero-title">
+                           @if(app()->getLocale() == 'ar') تفاصيل الخدمة    @else Service Detail  @endif
+                    </h1>
                 </h1>
                 <div class="breadcrumbs">
                     <a href="{{ route('index') }}">{{ app()->getLocale() == 'ar' ? 'الرئيسية' : 'Home' }}</a>
@@ -37,9 +41,9 @@
             </h1>
         </div>
 
-        <!-- Service Logo/Image -->
-        @if($franchise && $franchise->logo)
-            <img src="{{ asset($franchise->logo) }}" class="blog-cover-img" data-aos="zoom-in" alt="{{ app()->getLocale() == 'ar' ? $franchise->title_ar : $franchise->title }}" />
+        <!-- Service Feature Logo/Image -->
+        @if($franchise && $franchise->feature_image)
+            <img src="{{ asset($franchise->feature_image) }}" class="blog-cover-img" data-aos="zoom-in" alt="{{ app()->getLocale() == 'ar' ? $franchise->title_ar : $franchise->title }}" />
         @endif
 
         <!-- Service Details Info -->

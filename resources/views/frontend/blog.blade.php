@@ -33,7 +33,7 @@
                     <!-- Blog Card -->
                     <div class="col-12 col-md-6 blog-card" data-aos="fade-up">
                         <a href="{{ route('singleblog', $blog->id) }}" class="card-link">
-                            <img src="{{ asset($blog->feature_image) }}" class="img-fluid" alt="{{ app()->getLocale() == 'ar' ? $blog->title_ar : $blog->title }}" />
+                            <img src="{{ asset($blog->thumb_image ?? 'assets/image/our-faqs-image-1.jpg') }}" class="img-fluid" alt="{{ app()->getLocale() == 'ar' ? $blog->title_ar : $blog->title }}" />
                             <div class="blog-card-content">
                                 <p class="blog-date">
                                     {{ \Carbon\Carbon::parse($blog->published_at)->format('F d, Y') }}
@@ -71,7 +71,7 @@
                         @forelse($recentBlogs as $recent)
                             <div class="latest-blog-card">
                                 <a href="{{ route('singleblog', $recent->id) }}" class="card-link">
-                                    <img src="{{ asset($recent->feature_image) }}" class="latest-blog-img" alt="{{ app()->getLocale() == 'ar' ? $recent->title_ar : $recent->title }}" />
+                                    <img src="{{ asset($recent->thumb_image ?? 'assets/image/our-faqs-image-1.jpg') }}" class="latest-blog-img" alt="{{ app()->getLocale() == 'ar' ? $recent->title_ar : $recent->title }}" />
                                     <div>
                                         <p class="latest-blog-date">
                                             {{ \Carbon\Carbon::parse($recent->published_at)->format('F d, Y') }}
@@ -175,11 +175,12 @@
                     filteredBlogs.forEach(blog => {
                         const title = isArabic ? blog.title_ar : blog.title;
                         const publishedDate = new Date(blog.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                        const thumbImage = blog.thumb_image ? blog.thumb_image : '/assets/image/our-faqs-image-1.jpg';
                         
                         html += `
                             <div class="latest-blog-card">
                                 <a href="/singleblog/${blog.id}" class="card-link">
-                                    <img src="${blog.feature_image}" class="latest-blog-img" alt="${title}" />
+                                    <img src="${thumbImage}" class="latest-blog-img" alt="${title}" />
                                     <div>
                                         <p class="latest-blog-date">${publishedDate}</p>
                                         <h4 class="latest-blog-title">${title}</h4>

@@ -12,7 +12,7 @@
                     {{ app()->getLocale() == 'ar' ? 'رجوع' : 'Back' }}
                 </a>
                 <h1 class="hero-title">
-                     Blog Detail
+                     @if(app()->getLocale() == 'ar') تفاصيل المدونة  @else Blog Detail @endif
                 </h1>
                 <div class="breadcrumbs">
                     <a href="{{ route('index') }}">{{ app()->getLocale() == 'ar' ? 'الرئيسية' : 'Home' }}</a>

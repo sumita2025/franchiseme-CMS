@@ -12,6 +12,7 @@ class Blog extends Model
         'description',
         'description_ar',
         'feature_image',
+        'thumb_image',
         'published_at'
     ];
 }

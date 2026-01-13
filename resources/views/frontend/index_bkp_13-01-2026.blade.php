@@ -720,14 +720,31 @@
     </div>
     @php
         $clientImagesArray = $clientImages->toArray();
+        $totalClients = count($clientImagesArray);
+        $showSplide2 = $totalClients > 8;
+        
+        if ($showSplide2) {
+            // More than 8 clients - divide them
+            $half = floor($totalClients / 2);
+            // If odd number, add 1 extra to splide-1
+            $splide1Count = ($totalClients % 2 == 1) ? $half + 1 : $half;
+            $splide2Count = $totalClients - $splide1Count;
+            
+            $splide1Images = array_slice($clientImagesArray, 0, $splide1Count);
+            $splide2Images = array_slice($clientImagesArray, $splide1Count);
+        } else {
+            // 8 or less clients - show all in splide-1 only
+            $splide1Images = $clientImagesArray;
+            $splide2Images = [];
+        }
     @endphp
 
     <div class="slider-container">
-        <!-- Single Slider for all Clients -->
-        <div class="splide splide-clients" data-aos="fade-left">
+        <!-- Slider 1 -->
+        <div class="splide splide-1" data-aos="fade-left">
             <div class="splide__track">
                 <ul class="splide__list">
-                    @forelse($clientImagesArray as $logo)
+                    @forelse($splide1Images as $logo)
                         <li class="splide__slide">
                             <img src="{{ asset('storage/' . $logo['logo_path']) }}" alt="Client Logo" class="img-fluid client-logo" />
                         </li>
@@ -739,6 +756,25 @@
                 </ul>
             </div>
         </div>
+        
+        <!-- Slider 2 - Only show if more than 8 clients -->
+        @if($showSplide2)
+            <div class="splide splide-2" data-aos="fade-right">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @forelse($splide2Images as $logo)
+                            <li class="splide__slide">
+                                <img src="{{ asset('storage/' . $logo['logo_path']) }}" alt="Client Logo" class="img-fluid client-logo" />
+                            </li>
+                        @empty
+                            <li class="splide__slide">
+                                <p class="text-center">{{ app()->getLocale() == 'ar' ? 'لا توجد عملاء' : 'No clients' }}</p>
+                            </li>
+                        @endforelse
+                    </ul>
+                </div>
+            </div>
+        @endif
     </div>
 </section>
 
@@ -814,7 +850,7 @@ jQuery(document).ready(function() {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    new Splide('.splide-clients', {
+    new Splide('.splide-1', {
         type: 'loop',
         drag: 'free',
         focus: 'center',
@@ -822,6 +858,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gap: '50px',
         arrows: false,
         pagination: false,
+        // direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }},
         direction: 'rtl',
         autoScroll: {
             speed: 0.5,
@@ -829,6 +866,44 @@ document.addEventListener('DOMContentLoaded', function () {
             pauseOnFocus: false,
         },
         breakpoints: {
+        1400: {
+            perPage: 6,
+            gap: '40px',
+        },
+        1280: {
+            perPage: 5,
+            gap: '30px',
+        },
+        768: {
+            perPage: 4,
+            gap: '20px',
+        },
+        480: {
+            perPage: 3,
+            gap: '10px',
+        },
+    },
+    }).mount(window.splide.Extensions);
+    
+    // Only initialize Splide 2 if it exists (when more than 8 clients)
+    const splide2Element = document.querySelector('.splide-2');
+    if (splide2Element) {
+        new Splide('.splide-2', {
+            type: 'loop',
+            drag: 'free',
+            focus: 'center',
+            perPage: 8,
+            gap: '50px',
+            arrows: false,
+            pagination: false,
+            // direction: {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }},
+            direction: 'rtl',
+            autoScroll: {
+                speed: -0.5,
+                pauseOnHover: true,
+                pauseOnFocus: false,
+            },
+            breakpoints: {
             1400: {
                 perPage: 6,
                 gap: '40px',
@@ -846,7 +921,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 gap: '10px',
             },
         },
-    }).mount(window.splide.Extensions);
+        }).mount(window.splide.Extensions);
+    }
 });
 </script>
 

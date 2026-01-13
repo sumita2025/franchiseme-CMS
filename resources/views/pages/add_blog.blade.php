@@ -31,11 +31,31 @@
             <div class="card-body">
                 <div class="row g-4">
 
+                    <!-- Thumb Image -->
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">
+                            Thumb Image 
+                            <span class="text-danger"> (Image Size (Pixels) - W-452 x H-250)</span>
+                        </label>
+                        <input type="file" class="form-control preview-input @error('thumb_image') is-invalid @enderror" name="thumb_image" data-preview="#thumb_image_preview">
+                        
+                        @error('thumb_image')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+
+                        @if(isset($blog) && !empty($blog->thumb_image))
+                            <img id="thumb_image_preview" src="{{ asset($blog->thumb_image) }}" class="img-thumbnail mt-2" style="max-width: 200px;">
+                        @else
+                            <img id="thumb_image_preview" class="img-thumbnail mt-2 d-none" style="max-width: 200px;">
+                        @endif
+                    </div>
+
                     <!-- Feature Image -->
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label class="form-label fw-semibold">
                             Feature Image 
-                            <span class="text-danger">(Image Size (Pixels) - W-1440 x H-420)</span>
+                            <span class="text-danger"> (Image Size (Pixels) - W-1440 x H-420)</span>
+                            {{-- Thumb image  (Image Size (Pixels) - W-452 x H-250) --}}
                         </label>
                         <input type="file" class="form-control preview-input @error('feature_image') is-invalid @enderror" name="feature_image" data-preview="#feature_image_preview">
                         
@@ -51,7 +71,7 @@
                     </div>
 
                     <!-- Published At -->
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label class="form-label fw-semibold">Publish Date</label>
                         <input type="date" class="form-control @error('published_at') is-invalid @enderror" name="published_at"
                                value="{{ old('published_at', isset($blog) ? $blog->published_at : '') }}">

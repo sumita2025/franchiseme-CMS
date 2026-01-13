@@ -416,7 +416,8 @@ a {
 
 .splide__slide,
 .splide__slide img {
-    height: 64px;
+    /* height: 64px; */
+    height: 100px;
 }
 
 .splide__slide img {

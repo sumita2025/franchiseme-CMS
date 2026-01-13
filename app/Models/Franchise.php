@@ -10,6 +10,7 @@ class Franchise extends Model
 
     protected $fillable = [
         'logo',
+        'feature_image',
         'sector',
         'sector_ar',
         'country',

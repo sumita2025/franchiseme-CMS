@@ -35,16 +35,26 @@ class BlogPageController extends Controller
             'description'       => 'nullable|string',
             'description_ar'    => 'nullable|string',
             'feature_image'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'thumb_image'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'published_at'      => 'nullable|date',
         ]);
 
-        // Upload image if exists
+        // Upload feature image if exists
         if ($request->hasFile('feature_image')) {
 
             $filename = time() . '_' . $request->file('feature_image')->getClientOriginalName();
             $request->file('feature_image')->move(public_path('uploads/blogs'), $filename);
 
             $validated['feature_image'] = 'uploads/blogs/' . $filename;
+        }
+
+        // Upload thumb image if exists
+        if ($request->hasFile('thumb_image')) {
+
+            $filename = time() . '_' . $request->file('thumb_image')->getClientOriginalName();
+            $request->file('thumb_image')->move(public_path('uploads/blogs'), $filename);
+
+            $validated['thumb_image'] = 'uploads/blogs/' . $filename;
         }
 
         Blog::create($validated);
@@ -76,10 +86,11 @@ class BlogPageController extends Controller
             'description'       => 'nullable|string',
             'description_ar'    => 'nullable|string',
             'feature_image'     => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'thumb_image'       => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'published_at'      => 'nullable|date',
         ]);
 
-        // Image update
+        // Feature image update
         if ($request->hasFile('feature_image')) {
 
             // delete old image
@@ -91,6 +102,20 @@ class BlogPageController extends Controller
             $request->file('feature_image')->move(public_path('uploads/blogs'), $filename);
 
             $validated['feature_image'] = 'uploads/blogs/' . $filename;
+        }
+
+        // Thumb image update
+        if ($request->hasFile('thumb_image')) {
+
+            // delete old image
+            if ($blog->thumb_image && file_exists(public_path($blog->thumb_image))) {
+                unlink(public_path($blog->thumb_image));
+            }
+
+            $filename = time() . '_' . $request->file('thumb_image')->getClientOriginalName();
+            $request->file('thumb_image')->move(public_path('uploads/blogs'), $filename);
+
+            $validated['thumb_image'] = 'uploads/blogs/' . $filename;
         }
 
         $blog->update($validated);

@@ -26,6 +26,7 @@ class FranchiseController extends Controller
             'title' => 'required|string|max:255',
             'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'slider_background_image' => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'feature_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = $request->all();
@@ -41,6 +42,12 @@ class FranchiseController extends Controller
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('uploads/franchise'), $filename);
             $data['slider_background_image'] = 'uploads/franchise/' . $filename;
+        }
+        if ($request->hasFile('feature_image')) {
+            $file = $request->file('feature_image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/franchise'), $filename);
+            $data['feature_image'] = 'uploads/franchise/' . $filename;
         }
 
         // Auto slug from title
@@ -81,6 +88,13 @@ class FranchiseController extends Controller
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('uploads/franchise'), $filename);
             $data['slider_background_image'] = 'uploads/franchise/' . $filename;
+        }
+
+        if ($request->hasFile('feature_image')) {
+            $file = $request->file('feature_image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/franchise'), $filename);
+            $data['feature_image'] = 'uploads/franchise/' . $filename;
         }
 
         $data['slug'] = Str::slug($request->title);

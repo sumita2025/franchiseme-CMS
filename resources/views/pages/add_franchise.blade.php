@@ -11,18 +11,26 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="row g-4">
-                    <div class="col-6">
+                    <div class="col-4">
                         <label class="form-label fw-semibold">Background Image <span class="text-danger">(Image Size (Pixels) - W-1845 x H-367)</span></label>
                         <input type="file" class="form-control" name="slider_background_image">
                         @if(!empty($franchise->slider_background_image))
                             <img src="{{ asset($franchise->slider_background_image) }}" class="img-thumbnail mt-2" width="120">
                         @endif
                     </div>
-                    <div class="col-6">
-                        <label>Franchise Logo <span class="text-danger">(Image Size (Pixels) - W-1440 x H-420)</span></label>
+                    <div class="col-4">
+                        <label>Thumb Image <span class="text-danger">(Image Size (Pixels) - W-235 x H-235)</span></label>
+                        {{-- Feature image (Image Size (Pixels) - W-1440 x H-420) --}}
                         <input type="file" name="logo" class="form-control">
                         @if(isset($franchise->logo))
                             <img src="{{ asset($franchise->logo) }}" width="100" class="mt-2 rounded">
+                        @endif
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label fw-semibold">Feature Image <span class="text-danger">(Image Size (Pixels) - W-1440 x H-420)</span></label>
+                        <input type="file" class="form-control" name="feature_image">
+                        @if(!empty($franchise->feature_image))
+                            <img src="{{ asset($franchise->feature_image) }}" class="img-thumbnail mt-2" width="120">
                         @endif
                     </div>
                    
