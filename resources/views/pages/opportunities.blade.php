@@ -23,13 +23,13 @@
                                 <img id="background_image_preview" class="img-thumbnail mt-2 d-none" style="max-width: 200px;">
                             @endif
                         </div>
-                    <div class="col-md-6">
+                    {{-- <div class="col-md-6">
                         <div class="row g-3">
                     
                             <div class="col-12">
                                 <h6 class="text-primary">English Content</h6>
                                 <label class="form-label">Title (English)</label>
-                                {{-- <input type="text" class="form-control" name="title" value="{{ $page->title ?? '' }}"> --}}
+                              
                                  <textarea class="form-control summernote" name="title">{{ $page->title ?? '' }}</textarea>
                             </div>
                             <div class="col-12">
@@ -45,13 +45,12 @@
                                 <textarea class="form-control summernote" name="franchise_title">{{ $page->franchise_title ?? '' }}</textarea>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
+                    </div> --}}
+                    {{-- <div class="col-md-6">
                         <div class="row g-3">
                             <div class="col-12">
                                 <h6 class="text-success">Arabic Content</h6>
                                 <label class="form-label">Title (Arabic)</label>
-                                {{-- <input type="text" class="form-control" name="title_ar" value="{{ $page->title_ar ?? '' }}"> --}}
                                 <textarea class="form-control summernote" name="title_ar">{{ $page->title_ar ?? '' }}</textarea>
                             </div>
                             <div class="col-12">
@@ -67,7 +66,7 @@
                                 <textarea class="form-control summernote" name="franchise_title_ar">{{ $page->franchise_title_ar ?? '' }}</textarea>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
