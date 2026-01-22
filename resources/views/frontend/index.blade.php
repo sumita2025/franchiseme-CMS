@@ -69,13 +69,13 @@
                     @endif
                 </p>
             </div>
-            <a href="{{ $content->about_button_url ?? route('franchise') }}" class="button button_secoundary mt-4">
+            <!-- <a href="{{ $content->about_button_url ?? route('franchise') }}" class="button button_secoundary mt-4">
                 @if(app()->getLocale() == 'ar')
                     {!! $content->about_button_text_ar ?? 'اقرأ المزيد' !!}
                 @else
                     {!! $content->about_button_text ?? 'Read More' !!}
                 @endif
-            </a>
+            </a> -->
         </div>
     </div>
 </section>
@@ -645,7 +645,7 @@
 
         <div class="row row-cols-md-4 row-cols-2 align-items-center justify-content-center g-3 text-center" data-aos="fade-up">
             <div>
-                <h3 class="achievement-title" data-target="{{ $content->achievement_counter_one ?? 88 }}">0+</h3>
+                <h3 class="achievement-title achievement-title-counter" data-target="{{ $content->achievement_counter_one ?? 88 }}">0+</h3>
                 <div class="decription">
                     <p>
                         @if(app()->getLocale() == 'ar')
@@ -657,7 +657,7 @@
                 </div>
             </div>
             <div>
-                <h3 class="achievement-title" data-target="{{ $content->achievement_counter_two ?? 300 }}">0+</h3>
+                <h3 class="achievement-title achievement-title-counter" data-target="{{ $content->achievement_counter_two ?? 300 }}">0+</h3>
                 <div class="decription">
                     <p>
                         @if(app()->getLocale() == 'ar')
@@ -669,7 +669,7 @@
                 </div>
             </div>
             <div>
-                <h3 class="achievement-title" data-target="{{ $content->achievement_counter_three ?? 50 }}">0+</h3>
+                <h3 class="achievement-title achievement-title-counter" data-target="{{ $content->achievement_counter_three ?? 50 }}">0+</h3>
                 <div class="decription">
                     <p>
                         @if(app()->getLocale() == 'ar')
@@ -681,7 +681,7 @@
                 </div>
             </div>
             <div>
-                <h3 class="achievement-title" data-target="{{ $content->achievement_counter_four ?? 999 }}">0+</h3>
+                <h3 class="achievement-title achievement-title-counter-deg" data-target="{{ $content->achievement_counter_four ?? 999 }}">0°</h3>
                 <div class="decription">
                     <p>
                         @if(app()->getLocale() == 'ar')
@@ -747,7 +747,7 @@
 @section('script')
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const counters = document.querySelectorAll(".achievement-title");
+        const counters = document.querySelectorAll(".achievement-title-counter");
 
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -764,6 +764,34 @@
                             clearInterval(interval);
                         }
                         counter.textContent = count + '+';
+                    }, 20);
+
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll(".achievement-title-counter-deg");
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.dataset.target;
+                    let count = 0;
+                    const step = Math.ceil(target / 150);
+
+                    const interval = setInterval(() => {
+                        count += step;
+                        if (count > target) {
+                            count = target;
+                            clearInterval(interval);
+                        }
+                        counter.textContent = count + '°';
                     }, 20);
 
                     observer.unobserve(counter);

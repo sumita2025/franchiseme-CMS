@@ -95,13 +95,13 @@
                                 @endif
                             </p>
                         </div>
-                        <a href="{{ route('contact') }}" class="button button_secoundary mt-4">
+                        <!-- <a href="{{ route('contact') }}" class="button button_secoundary mt-4">
                             @if(app()->getLocale() == 'ar')
                                 اقرأ المزيد
                             @else
                                 Read More
                             @endif
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <div class="col-md-8 mt-5 mt-md-0">
@@ -180,10 +180,11 @@
 
 <!-- CTA Section -->
 <section class="section_padding_half cta_contact position-relative my-0" style="background: #f1f7fa;">
-    <div class="container">
+    <div class="container z-3 position-relative">
         <div class="row g-4">
             <div class="col-md-8">
-                <h2 class="title mb-0">
+                <!-- <h2 class="title mb-0"> -->
+                <h2 class="sub_title mb-0">
                     @if(app()->getLocale() == 'ar')
                         {!! $service->package_title_ar ?? '' !!}
                     @else
