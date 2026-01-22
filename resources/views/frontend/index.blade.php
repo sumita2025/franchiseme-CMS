@@ -52,7 +52,7 @@
         <img src="{{ $aboutImage }}" class="about-img" />
     </div>
     <div class="container">
-        <div class="col-10">
+        <div class="col-12">
             <h2 class="title">
                 @if(app()->getLocale() == 'ar')
                     {!! $content->about_title_ar ?? 'عن' !!}
@@ -88,7 +88,7 @@
                 <div class="col-xl-10 col-12 d-flex flex-column gap-xxl-3 gap-xl-2 gap-3 position-relative">
                     <div class="row first_row">
                         <div class="col-xl-6 col-12 d-flex card_left justify-content-end">
-                            <div class="me-xl-5 pe-xl-5">
+                            <div class="me-xl-5 pe-xl-5 card_wrapper">
                                 <div class="card" data-aos="fade-right">
                                     <div class="card-body p-0">
                                         <div class="count">
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-12 d-flex card_right justify-content-xl-start justify-content-end d-xl-flex d-none">
-                            <div class="ms-xl-5 ps-xl-5">
+                            <div class="ms-xl-5 ps-xl-5 card_wrapper">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
@@ -151,7 +151,7 @@
  
                     <div class="row middle_row">
                         <div class="col-xl col-12 d-flex flex-column align-items-end gap-xxl-3 gap-xl-2 gap-3 card_left">
-                            <div class="card_first">
+                            <div class="card_first card_wrapper">
                                 <div class="card" data-aos="fade-right">
                                     <div class="card-body p-0">
                                         <div class="count">
@@ -179,7 +179,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="me-xl-5 card_secound">
+                            <div class="me-xl-5 card_secound card_wrapper">
                                 <div class="card" data-aos="fade-right">
                                     <div class="card-body p-0">
                                         <div class="count">
@@ -207,7 +207,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card_third">
+                            <div class="card_third card_wrapper">
                                 <div class="card" data-aos="fade-right">
                                     <div class="card-body p-0">
                                         <div class="count">
@@ -248,7 +248,7 @@
                             </div>
                         </div>
                         <div class="col-xl d-flex flex-column align-items-xl-start align-items-end gap-xxl-3 gap-xl-2 gap-3 card_right pt-xl-0 pt-3">
-                            <div class="card_first d-xl-none d-block">
+                            <div class="card_wrapper card_first d-xl-none d-block">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
@@ -283,7 +283,7 @@
                                     <img src="{{ isset($content->strategy_image) && $content->strategy_image ? asset('storage/' . $content->strategy_image) : asset('frontend/assest/logo.png') }}" alt="" class="img-fluid strategy-img">
                                 @endif
                             </div>
-                            <div class="card_first d-xl-none d-block">
+                            <div class="card_wrapper card_first d-xl-none d-block">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
@@ -311,7 +311,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card_first">
+                            <div class="card_wrapper card_first">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
@@ -339,7 +339,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="ms-xl-5 card_secound">
+                            <div class="card_wrapper ms-xl-5 card_secound">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
@@ -367,7 +367,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card_third">
+                            <div class="card_wrapper card_third">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">
@@ -400,7 +400,7 @@
  
                     <div class="row last_row">
                         <div class="col-xl-6 col-12 d-flex card_left justify-content-end d-xl-flex d-none">
-                            <div class="me-xl-5 pe-xl-5">
+                            <div class="me-xl-5 pe-xl-5 card_wrapper">
                                 <div class="card" data-aos="fade-right">
                                     <div class="card-body p-0">
                                         <div class="count">
@@ -430,7 +430,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-12 d-flex card_right justify-content-xl-start justify-content-end">
-                            <div class="ms-xl-5 ps-xl-5">
+                            <div class="ms-xl-5 ps-xl-5 card_wrapper">
                                 <div class="card" data-aos="fade-left">
                                     <div class="card-body p-0">
                                         <div class="cb_text">

@@ -127,7 +127,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('change.language', app()->getLocale() == 'en' ? 'ar' : 'en') }}" class="button button_outline">
-                            {{ app()->getLocale() == 'ar' ? 'English' : 'يترجم' }}
+                            {{ app()->getLocale() == 'ar' ? 'English' : 'عربي' }}
                         </a>
                     </li>
                 </ul>

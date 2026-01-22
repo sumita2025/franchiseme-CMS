@@ -748,3 +748,23 @@ html[dir="rtl"] {
 }
 
 /* ---------------------- */
+
+/* harsh 22-01-2026 */
+@media only screen and (min-width:1000px) and (max-width: 1026px) {
+    .circel_data .card_wrapper {
+        width: 100%;
+        max-width: 550px;
+    }
+}
+@media only screen and (min-width:700px) and (max-width: 1000px) {
+    .circel_data .card_wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .circel_data .card_wrapper {
+        width: 100%;
+    }
+}
+/* harsh 22-01-2026 */

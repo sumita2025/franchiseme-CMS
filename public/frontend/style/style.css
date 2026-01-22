@@ -1186,7 +1186,7 @@ footer .footer_social_icons .social-btn:hover img {
 .circel_data .center_cicel img {
     object-fit: contain;
     max-width: 250px;
-    max-height: 52px;
+    max-height: 100px;
     width: 100%;
 }
 
