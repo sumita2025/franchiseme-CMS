@@ -57,11 +57,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('blog') }}" class="nav-link fw-semibold nav-item-link {{ request()->routeIs('blog*') ? 'active' : '' }}">
-                            {{ app()->getLocale() == 'ar' ? 'المدونة' : 'Blog' }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('service') }}" class="nav-link fw-semibold nav-item-link {{ request()->routeIs('service*') ? 'active' : '' }}">
                             {{ app()->getLocale() == 'ar' ? 'خدماتنا' : 'Our Services' }}
                         </a>
@@ -69,6 +64,11 @@
                     <li class="nav-item">
                         <a href="{{ route('franchise') }}" class="nav-link fw-semibold nav-item-link {{ request()->routeIs('franchise*') ? 'active' : '' }}">
                             {{ app()->getLocale() == 'ar' ? 'اكتشف الفرص' : 'Explore Opportunities' }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('blog') }}" class="nav-link fw-semibold nav-item-link {{ request()->routeIs('blog*') ? 'active' : '' }}">
+                            {{ app()->getLocale() == 'ar' ? 'المدونة' : 'Blog' }}
                         </a>
                     </li>
                     <li class="nav-item">
@@ -101,11 +101,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('blog') }}" class="nav-link fw-semibold nav-item-link">
-                            {{ app()->getLocale() == 'ar' ? 'المدونة' : 'Blog' }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('service') }}" class="nav-link fw-semibold nav-item-link">
                             {{ app()->getLocale() == 'ar' ? 'خدماتنا' : 'Our Services' }}
                         </a>
@@ -113,6 +108,11 @@
                     <li class="nav-item">
                         <a href="{{ route('franchise') }}" class="nav-link fw-semibold nav-item-link">
                             {{ app()->getLocale() == 'ar' ? 'اكتشف الفرص' : 'Explore Opportunities' }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('blog') }}" class="nav-link fw-semibold nav-item-link">
+                            {{ app()->getLocale() == 'ar' ? 'المدونة' : 'Blog' }}
                         </a>
                     </li>
                     <li class="nav-item">
@@ -177,8 +177,9 @@
                     <li><a class="link {{ request()->routeIs('index') ? 'active' : '' }}" href="{{ route('index') }}">{{ app()->getLocale() == 'ar' ? 'الرئيسية' : 'Home' }}</a></li>
                     <li><a class="link {{ request()->routeIs('service*') ? 'active' : '' }}" href="{{ route('service') }}">{{ app()->getLocale() == 'ar' ? 'خدماتنا' : 'Our Services' }}</a></li>
                     <li><a class="link {{ request()->routeIs('franchise*') ? 'active' : '' }}" href="{{ route('franchise') }}">{{ app()->getLocale() == 'ar' ? 'اكتشف الفرص' : 'Explore Opportunities' }}</a></li>
-                    <li><a class="link {{ request()->routeIs('faq-page*') ? 'active' : '' }}" href="{{ route('faq-page') }}">{{ app()->getLocale() == 'ar' ? 'الأسئلة الشائعة' : 'FAQs' }}</a></li>
                     <li><a class="link {{ request()->routeIs('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">{{ app()->getLocale() == 'ar' ? 'المدونة' : 'Blog' }}</a></li>
+                    <li><a class="link {{ request()->routeIs('faq-page*') ? 'active' : '' }}" href="{{ route('faq-page') }}">{{ app()->getLocale() == 'ar' ? 'الأسئلة الشائعة' : 'FAQs' }}</a></li>
+                    <li><a class="link {{ request()->routeIs('contact*') ? 'active' : '' }}" href="{{ route('contact') }}">{{ app()->getLocale() == 'ar' ? 'اتصل بنا' : 'Contact Us' }}</a></li>
                 </ul>
             </div>
 

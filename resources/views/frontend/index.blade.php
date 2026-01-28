@@ -578,7 +578,7 @@
                         @endforelse
                     </div>
                 </div> --}}
-                <div class="franchiseme_teams">
+                <div class="franchiseme_teams mt-lg-0 mt-md-4 mt-3">
                     <div id="teamSplide" class="splide team-card-section">
                         <div class="splide__track slider-track">
                             <ul class="splide__list">
