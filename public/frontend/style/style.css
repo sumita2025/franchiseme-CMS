@@ -7,9 +7,19 @@
     --yellow-tertiary: #FDFCF9;
 }
 
+html[dir=rtl] {
+    --primary-font: 'Alfont_com';
+}
+
 @font-face {
     font-family: 'AlbertSans-Variable';
     src: url('../font/AlbertSans-Variable.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alfont_com';
+    src: url('../font/alfont_com.ttf');
     font-display: swap;
 }
 
@@ -663,6 +673,9 @@ footer .footer_social_icons .social-btn:hover img {
     position: relative;
     overflow: hidden;
 }
+.pagetitle.brand_detail {
+    background-image: url("../assest/pagetitle-ed.jpg");
+}
 .pagetitle:before {
     content: ' ';
     position: absolute;
@@ -922,7 +935,7 @@ footer .footer_social_icons .social-btn:hover img {
     line-height: 38px;
     color: var(--primary-color);
     /* color: white; */
-    font-family: var(--primary-font-regular);
+    font-family: var(--primary-font);
     font-weight: 700;
     /* font-weight: 700; */
     margin: 0;

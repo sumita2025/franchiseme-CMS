@@ -55,13 +55,15 @@
                                 @endif
                             </h4>
                             <div class="decription">
-                                <a href="tel:{{ $contact->phone_value ?? '+1 840 841 25 69' }}" class="mb-0">
+                                <!-- <a href="tel:{{ $contact->phone_value ?? '+1 840 841 25 69' }}" class="mb-0"> -->
+                                <p class="mb-0">
                                     @if(app()->getLocale() == 'ar')
                                         {!! $contact->phone_value_ar ?? $contact->phone_value ?? '+1 840 841 25 69' !!}
                                     @else
                                         {!! $contact->phone_value ?? '+1 840 841 25 69' !!}
                                     @endif
-                                </a>
+                                </p>
+                                <!-- </a> -->
                             </div>
                         </div>
 
@@ -75,7 +77,8 @@
                                 @endif
                             </h4>
                             <div class="decription">
-                                <a href="tel:{{ $contact->whatsapp_value ?? '+1 840 841 25 69' }}" class="mb-0">
+                                <!-- <a href="tel:{{ $contact->whatsapp_value ?? '+1 840 841 25 69' }}" class="mb-0"> -->
+                                <a href="https://wa.me/+18408412569?text=Hello!" target="_blank" class="mb-0">
                                     @if(app()->getLocale() == 'ar')
                                         {!! $contact->whatsapp_value_ar ?? $contact->whatsapp_value ?? '+1 840 841 25 69' !!}
                                     @else

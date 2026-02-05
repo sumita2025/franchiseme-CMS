@@ -4,7 +4,7 @@
 
 <!-- Page Title -->
 <div class="topbar">
-    <section class="contactus_Section pagetitle">
+    <section class="contactus_Section pagetitle brand_detail">
         <div class="container-fluid px-5">
             <div class="container container_box position-relative">
                 <a class="back_btn" href="{{ route('franchise') }}"><i class="fa fa-angle-left"></i> {{ app()->getLocale() == 'ar' ? 'رجوع' : 'Back' }}</a>
@@ -16,7 +16,7 @@
                     @endif --}}
 
                     <h1 class="hero-title">
-                           @if(app()->getLocale() == 'ar') تفاصيل الخدمة    @else Service Detail  @endif
+                           @if(app()->getLocale() == 'ar') تفاصيل العلامة التجارية    @else Brand Detail  @endif
                     </h1>
                 </h1>
                 <div class="breadcrumbs">
